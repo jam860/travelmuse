@@ -12,9 +12,15 @@ h1 {
     color: white;
 }
 
+.nav-container ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
 .nav-container {
     background-color: #D34E24;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
@@ -38,7 +44,7 @@ h1 {
 
 .intro-container {
     position: relative;
-    padding: 10rem;
+    padding: 14rem;
 }
 
 .intro-container:before {
@@ -59,9 +65,4 @@ h1 {
 .intro-content {
     position: relative;
     text-align: center;
-}
-
-
-ul {
-    margin-bottom: 0;
 }
