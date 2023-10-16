@@ -8,6 +8,13 @@ body {
     background-color: #F1E8B8;
 }
 
+footer {
+    padding-top: 3rem;
+    background-color: #D34E24;
+    color: white;
+    gap: 80px
+}
+
 h1 {
     color: white;
     font-weight: 700;
@@ -47,6 +54,18 @@ h2 {
     align-items: center;
 }
 
+
+.quick-links a {
+    font-weight: 500;
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.slogan {
+    flex-basis: 35%;
+}
+
 .intro-container {
     position: relative;
     padding: 10rem 2rem;
@@ -78,7 +97,7 @@ h2 {
 }
 
 .card {
-    width: 15rem;
+    width: 16rem;
     margin-bottom: 2rem;
 }
 .cards {
