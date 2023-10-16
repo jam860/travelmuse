@@ -66,3 +66,12 @@ h1 {
     position: relative;
     text-align: center;
 }
+
+.recommend-itinerary-container {
+    background-color: #F9E784;
+    padding-bottom: 4rem;
+}
+
+.cards {
+    padding-top: 3rem;
+}
