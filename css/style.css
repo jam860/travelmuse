@@ -27,14 +27,12 @@ h2 {
 .nav-container ul {
     margin-bottom: 0;
     padding-left: 0;
+    gap: 25px;
 }
 
 .nav-container {
     background-color: #D34E24;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
     padding: 2rem 3rem;
 }
 
@@ -46,12 +44,11 @@ h2 {
 
 .nav-links li {
     display: inline;
-    padding-right: 2rem;
 }
 
 .nav-links ul {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 
@@ -121,6 +118,13 @@ h2 {
 
     .card {
         width: 18rem;
+    }
+
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
     }
 
 }
