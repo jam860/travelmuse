@@ -10,6 +10,10 @@ body {
 
 h1 {
     color: white;
+    font-weight: 700;
+}
+
+h2 {
     font-weight: 600;
 }
 
@@ -45,7 +49,7 @@ h1 {
 
 .intro-container {
     position: relative;
-    padding: 14rem;
+    padding: 10rem 2rem;
 }
 
 .intro-container:before {
@@ -73,8 +77,12 @@ h1 {
     padding-bottom: 4rem;
 }
 
+.card {
+    width: 15rem;
+    margin-bottom: 2rem;
+}
 .cards {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
 }
 
 .btn-primary {
@@ -85,4 +93,15 @@ h1 {
 
 .btn-primary:hover {
     background-color:#d77626;
+}
+
+@media (min-width: 769px) {
+    .intro-container {
+        padding: 14rem;
+    }
+
+    .card {
+        width: 18rem;
+    }
+
 }
