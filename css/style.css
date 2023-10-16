@@ -5,7 +5,11 @@
 body {
     margin: 0;
     font-family: "Raleway", Arial, Helvetica, sans-serif;
-    background-color: #F1E8B8;
+    background-color: #D34E24;
+}
+
+main {
+    background-color: #F1E8B8
 }
 
 footer {
@@ -16,7 +20,7 @@ footer {
 }
 
 h1 {
-    color: white;
+    color: black;
     font-weight: 700;
 }
 
@@ -61,6 +65,10 @@ h2 {
 
 .slogan {
     flex-basis: 35%;
+}
+
+.intro-title {
+    color: white;
 }
 
 .intro-container {
@@ -111,6 +119,13 @@ h2 {
     background-color:#d77626;
 }
 
+.itinerary-form-container {
+    padding: 5rem 5rem;
+    background-color: #F1E8B8;
+}
+
+
+
 @media (min-width: 769px) {
     .intro-container {
         padding: 14rem;
@@ -125,6 +140,10 @@ h2 {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .itinerary-form-container {
+        padding: 5rem 20rem;
     }
 
 }
