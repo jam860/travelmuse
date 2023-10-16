@@ -79,10 +79,10 @@ h1 {
 
 .btn-primary {
     background-color:#F28123;
+    --bs-btn-active-bg:#d77626;
     border-width: 0;
 }
 
 .btn-primary:hover {
     background-color:#d77626;
-    border-width: 0;
 }
