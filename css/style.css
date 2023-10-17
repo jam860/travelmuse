@@ -152,6 +152,49 @@ h2 {
     padding: 3rem 5rem;
 }
 
+.event-content {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.btn-back {
+    padding-bottom: 2rem;
+}
+
+.btn-new {
+    background-color: #FAB573;
+    --bs-btn-active-bg: #FAB573;
+}
+
+.icon-center {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.event-content-container {
+    flex-direction: column-reverse;
+}
+
+.event-overview-container {
+    position: relative;
+    padding: 5rem 3rem;
+}
+
+.event-details-container {
+    position: relative;
+    padding: 2rem 5rem 3rem 3rem;
+    background-color: white;
+}
+
+.event-image img {
+    max-width: 300px;
+    max-height: 300px;
+    padding-bottom: 1rem;
+    width: 100%;
+    height: auto;
+}
+
 
 
 @media (min-width: 768px) {
@@ -168,6 +211,11 @@ h2 {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .event-content-container {
+        justify-content: space-between;
+        flex-direction: row;
     }
 
 }
