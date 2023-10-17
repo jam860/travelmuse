@@ -62,8 +62,9 @@ h2 {
     text-decoration: none;
 }
 
-.slogan {
+.travel-muse-info {
     flex-basis: 35%;
+    padding-right: 4rem;
 }
 
 .intro-title {
