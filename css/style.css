@@ -161,9 +161,13 @@ h2 {
     padding-bottom: 2rem;
 }
 
-.btn-new {
+.btn-add {
     background-color: #FAB573;
     --bs-btn-active-bg: #FAB573;
+}
+
+.btn-add:hover {
+    background-color:#FAB573;
 }
 
 .icon-center {
@@ -182,9 +186,14 @@ h2 {
 }
 
 .event-details-container {
+    padding-bottom: 5rem;
+}
+
+.event-details-content {
     position: relative;
     padding: 2rem 5rem 3rem 3rem;
     background-color: white;
+    border-radius: 25% 10% / 5% 20%;;
 }
 
 .event-image img {
