@@ -199,9 +199,9 @@ h2 {
 .event-image img {
     max-width: 300px;
     max-height: 300px;
-    padding-bottom: 1rem;
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 
