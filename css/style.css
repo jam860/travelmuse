@@ -204,6 +204,10 @@ h2 {
     border-radius: 10px;
 }
 
+.itinerary-form-container.event-form-image:before {
+    background-image: url("../img/azenhas-do-mar.jpeg");
+}
+
 
 
 @media (min-width: 768px) {
