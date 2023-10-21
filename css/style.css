@@ -204,6 +204,19 @@ h2 {
     height: auto;
 }
 
+/* Itinerary CSS */
+.flex1 {
+    display: flex;
+}
+
+.placeTime h6 {
+    margin-bottom: 3rem;
+}
+
+.container1 {
+    background-color: white;
+    padding: 3rem 5rem;
+}
 
 
 @media (min-width: 768px) {
