@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>TravelMuse</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TravelMuse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body>
     <header>
         <nav>
             <div class="nav-container">
                 <div class="logo" role="button">
-                    <a href="index.html"><img width="300" height="50" src="img/logo.png" aria-label="TravelMuse logo" alt="TravelMuse logo"/></a>
+                    <a href="index.html"><img width="300" height="50" src="img/logo.png" aria-label="TravelMuse logo"
+                            alt="TravelMuse logo" /></a>
                 </div>
                 <div class="nav-links">
                     <ul>
@@ -32,48 +35,52 @@
         </nav>
     </header>
 
-    <div class="flex1">
+    <div class="itinerary-body">
         <div class="placeTime">
             <h2>The Dazzling Toyko</h2>
             <h6>June 1st, 2024 - June 10th, 2024</h6>
         </div>
         <div class="addEvent">
-            <a href="eventForm.html"><img width="40" height="40px" src="img/plus.jpg" alt="Add Event Button"/></a>
+           
+        </div>
+        <div class="container1">
+            <h4>DAY 1: Monday, June 1st</h4>
+            <div>
+                <label for="ieventName" class="form-label">Event Name</label>
+                <p>Nijo Castle</p>
+            </div>
+
+            <div>
+                <label for="iaddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="iaddress"
+                    placeholder="541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan">
+            </div>
+
+            <div>
+                <label for="idate" class="form-label">Date</label>
+                <input type="date" class="form-control" id="idate">
+            </div>
+
+            <div>
+                <label for="istartTime" class="form-label">Start Time</label>
+                <input type="time" class="form-control" id="istartTime">
+            </div>
+
+            <div>
+                <label for="iendTime" class="form-label">End Time</label>
+                <input type="time" class="form-control" id="iendTime">
+            </div>
+
+            <div>
+                <label for="iNotes" class="form-label">Notes</label>
+                <textarea type="text" class="form-control" id="iNotes"
+                    placeholder="Open from 8:45AM to 5PM!"></textarea>
+            </div>
         </div>
 
-    </div class="container">
-        <h4>DAY 1: Monday, June 1st</h4>
-        <div>
-            <label for="ieventName" class="form-label">Event Name</label>
-            <input type="text" class="form-control" id="ieventName" placeholder="Nijo Castle">
-        </div>
-
-        <div>
-            <label for="iaddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="iaddress" placeholder="541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan">
-        </div>
-
-        <div>
-            <label for="idate" class="form-label">Date</label>
-            <input type="date" class="form-control" id="idate">
-        </div>
-
-        <div>
-            <label for="istartTime" class="form-label">Start Time</label>
-            <input type="time" class="form-control" id="istartTime">
-        </div>
-
-        <div>
-            <label for="iendTime" class="form-label">End Time</label>
-            <input type="time" class="form-control" id="iendTime">
-        </div>
-
-        <div>
-        <label for="iNotes" class="form-label">Notes</label>
-        <textarea type="text" class="form-control" id="iNotes" placeholder="Open from 8:45AM to 5PM!"></textarea>
-        </div>
         
-        <button>Save</button>
-    </div>
+
+        
 </body>
+
 </html>

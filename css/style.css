@@ -210,8 +210,9 @@ h2 {
 }
 
 /* Itinerary CSS */
-.flex1 {
-    display: flex;
+.itinerary-body {
+    background-color: #F1E8B8;
+    padding: 3rem 4rem;
 }
 
 .placeTime h6 {
