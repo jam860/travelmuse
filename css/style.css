@@ -239,7 +239,6 @@ a {
 
 .itinerary-body {
     position: relative;
-    padding: 5rem 4rem;
 }
 
 .itinerary-body:before {
@@ -260,7 +259,7 @@ a {
 .itinerary-body-content {
     position: relative;
     background-color: white;
-    padding: 4rem;
+    padding: 1rem;
 }
 
 .placeTime{
@@ -277,9 +276,9 @@ a {
     padding: 3rem;
 }
 
-.event-image {
+.itinerary-event-image {
+    width: 200px;
     height: 100%;
-    border-radius: 0 10px 10px 0;
 }
 
 
@@ -302,6 +301,21 @@ a {
     .event-content-container {
         justify-content: space-between;
         flex-direction: row;
+    }
+
+    .itinerary-event-image {
+        width: 300px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .itinerary-body {
+        padding: 5rem 4rem;
+
+    }
+
+    .itinerary-body-content {
+        padding: 4rem;
+
     }
 
 }
