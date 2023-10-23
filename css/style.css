@@ -1,3 +1,5 @@
+/* General CSS */
+
 * {
     box-sizing: border-box;
 }
@@ -25,6 +27,10 @@ h1 {
 
 h2 {
     font-weight: 600;
+}
+
+h3 {
+    padding-top: 2rem;
 }
 
 .nav-container ul {
@@ -67,6 +73,8 @@ h2 {
     padding-right: 4rem;
 }
 
+/* Homepage CSS */
+
 .intro-title {
     color: white;
 }
@@ -103,8 +111,11 @@ h2 {
     text-decoration: none;
 }
 
+.intro-content h2  {
+    font-weight: 600;
+}
+
 .recommend-itinerary-container {
-    background-color: #F9E784;
     padding-bottom: 6rem;
 }
 
@@ -116,9 +127,10 @@ h2 {
     padding-top: 1.5rem;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary a {
     background-color:#F28123;
     --bs-btn-active-bg:#d77626;
+    color: white;
     border-width: 0;
 }
 
@@ -130,6 +142,8 @@ h2 {
     position: relative;
     padding: 5rem 5rem;
 }
+
+/* Form CSS */
 
 .itinerary-form-container:before {
     content: " ";
@@ -151,6 +165,8 @@ h2 {
     background-color: white;
     padding: 3rem 5rem;
 }
+
+/* sampleEvent CSS */
 
 .event-content {
     padding-left: 10%;
@@ -215,14 +231,24 @@ h2 {
     padding: 3rem 4rem;
 }
 
-.placeTime h6 {
-    margin-bottom: 3rem;
+.itinerary-body h3 {
+    padding-bottom: 1rem;
 }
 
-.container1 {
+.placeTime{
+    margin-bottom: 1rem;
+}
+
+.event-container {
     background-color: white;
-    padding: 3rem 5rem;
-    margin-bottom: 3rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 
