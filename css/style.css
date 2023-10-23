@@ -164,6 +164,7 @@ h2 {
 .btn-add {
     background-color: #FAB573;
     --bs-btn-active-bg: #FAB573;
+    margin-bottom: .5rem;
 }
 
 .btn-add:hover {
@@ -206,7 +207,6 @@ h2 {
 
 .itinerary-form-container.event-form-image:before {
     background-image: url("../img/azenhas-do-mar.jpeg");
-    
 }
 
 /* Itinerary CSS */
@@ -252,5 +252,10 @@ h2 {
 @media (min-width: 992px) {
     .itinerary-form-container {
         padding: 5rem 20rem;
+    }
+
+    .event-image img {
+        max-width: 500px;
+        max-height: 500px;
     }
 }
