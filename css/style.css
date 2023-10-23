@@ -38,6 +38,8 @@ a {
     color: black;
 }
 
+/* Navbar/Footer CSS */
+
 .nav-container ul {
     margin-bottom: 0;
     padding-left: 0;
@@ -214,7 +216,7 @@ a {
     position: relative;
     padding: 2rem 5rem 3rem 3rem;
     background-color: white;
-    border-radius: 25% 10% / 5% 20%;;
+    border-radius: 25% 10% / 5% 20%;
 }
 
 .event-image img {
@@ -317,12 +319,10 @@ a {
 
     .itinerary-body {
         padding: 5rem 4rem;
-
     }
 
     .itinerary-body-content {
         padding: 4rem;
-
     }
 
 }
