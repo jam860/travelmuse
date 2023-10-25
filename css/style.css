@@ -112,13 +112,12 @@ a {
 }
 
 .intro-content a {
-    font-weight: 500;
     color: white;
     font-size: 1.5em;
     text-decoration: none;
 }
 
-.intro-content h2  {
+.intro-content p  {
     font-weight: 600;
 }
 
