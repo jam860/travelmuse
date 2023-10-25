@@ -287,6 +287,10 @@ a {
     padding: 3rem;
 }
 
+.event-content p {
+    margin: 0;
+}
+
 .itinerary-event-image {
     width: 200px;
     height: 100%;
