@@ -41,19 +41,19 @@
             <form class="row g-3">
                 <div class="col-md-12">
                     <label for="trip-name" class="form-label">Trip Name</label>
-                    <input type="text" class="form-control" id="trip-name" placeholder="Dazzling Kyoto">
+                    <input type="text" class="form-control" id="trip-name" placeholder="Dazzling Kyoto" required>
                 </div>
                 <div class="col-md-6">
                     <label for="startDate" class="form-label">Start Date</label>
-                    <input type="date" class="form-control" id="startDate">
+                    <input type="date" class="form-control" id="startDate" required>
                 </div>
                 <div class="col-md-6">
                     <label for="endDate" class="form-label">End Date</label>
-                    <input type="date" class="form-control" id="endDate">
+                    <input type="date" class="form-control" id="endDate" required>
                 </div>
                 <div class="col-12">
                     <label for="inputDestination" class="form-label">Destination</label>
-                    <input type="text" class="form-control" id="inputDestination" placeholder="Kyoto, Japan">
+                    <input type="text" class="form-control" id="inputDestination" placeholder="Kyoto, Japan" required>
                 </div>
                 <div class="col-md-12">
                     <label for="inputNotes" class="form-label">Notes</label>
@@ -62,10 +62,10 @@
                 </div>
                 <div class="col-12">
                     <label for="fileUpload" class="form-label">Destination Photo</label>
-                    <input type="file" class="form-control" id="fileUpload" accept="image/png, image/jpeg">
+                    <input type="file" class="form-control" id="fileUpload" accept="image/*">
                 </div>
                 <div class="col-12">
-                    <a href="itinerary.html" class="btn btn-primary">Save</a>
+                    <input type="submit" value="Save" class="input-submit">
                 </div>
             </form>
         </div>

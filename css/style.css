@@ -172,6 +172,16 @@ a {
     padding: 3rem 2rem;
 }
 
+.input-submit {
+    background-color:#F28123;
+    --bs-btn-active-bg:#d77626;
+    color: white;
+    border-width: 0;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+}
+
 /* sampleEvent CSS */
 
 .event-content {
