@@ -183,19 +183,24 @@ a {
 }
 
 /* sampleEvent CSS */
+.container {
+    padding-bottom: 5rem;
+}
 
 .event-content {
-    padding-left: 10%;
-    padding-right: 10%;
+    margin: 0 auto;
+    max-width: 1170px;
 }
 
 .btn-back {
     padding-bottom: 2rem;
+    font-size: 1.25rem;
 }
 
 .btn-add {
     background-color: #FAB573;
     --bs-btn-active-bg: #FAB573;
+    font-size: 1.25rem;
     margin-bottom: .5rem;
 }
 
@@ -211,11 +216,15 @@ a {
 
 .event-content-container {
     flex-direction: column-reverse;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 5rem;
 }
 
 .event-overview-container {
     position: relative;
-    padding: 5rem 3rem;
+    padding: 3rem 0rem;
 }
 
 .event-details-container {
@@ -226,7 +235,7 @@ a {
     position: relative;
     padding: 2rem 5rem 3rem 3rem;
     background-color: white;
-    border-radius: 25% 10% / 5% 20%;
+    border-radius: 5%;
 }
 
 .event-image img {
@@ -314,8 +323,9 @@ a {
     }
 
     .event-content-container {
-        justify-content: space-between;
-        flex-direction: row;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 6rem;
+        row-gap: 0;
     }
 
     .itinerary-form-container {
