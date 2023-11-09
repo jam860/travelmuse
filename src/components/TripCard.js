@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 export function TripCard(props) {
     const itinerary = props.itinerary;
     return (
@@ -7,7 +10,7 @@ export function TripCard(props) {
             <div className="card-body">
                 <h3 className="card-title">{itinerary.title}</h3>
                 <p className="card-text">{"Stops: " + itinerary.firstStop + "..."}</p>
-                <a href="itinerary" className="btn btn-primary">Open</a>
+                <Link to="itinerary" className="btn btn-primary">Open</Link>
             </div>
         </div>
         </div>

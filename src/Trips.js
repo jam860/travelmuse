@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TripCard } from "./components/TripCard";
+import { Outlet } from "react-router-dom";
 
 export function Trips() {
     const itineraryInfo = [
@@ -33,7 +34,8 @@ export function Trips() {
                 <section>
                     <div className="recommend-itinerary-container">
                         <div className="container">
-                            <h2 className="pt-5 text-center">My Trips</h2>
+                            <h1 className="pt-5 text-center">My Trips</h1>
+                            <p className="text-center">Welcome back User! Let's take a look at some of your itineraries.</p>
                             <div className="pt-4">
                                 <h2>Search Trips</h2>
                                 <input className="form-control mr-sm-2" type="search" placeholder="Dazzling Kyoto" aria-label="Search" value={searchValue} onChange={searchTerm} />
