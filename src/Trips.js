@@ -2,13 +2,9 @@ import { useState } from "react";
 import { TripCard } from "./components/TripCard";
 import { Outlet } from "react-router-dom";
 
-export function Trips() {
-    const itineraryInfo = [
-        {title: "Dazzling Kyoto", firstStop: "Nijo Castle", image: "img/kyoto-3.jpg"},
-        {title: "#GirlsinCanada", firstStop: "Green Clover Canada", image: "img/canada.jpeg"},
-        {title: "Wine in Italy", firstStop: "Frutti & Gelato", image: "img/italy.jpeg"},
-        {title: "Clubbing in Korea", firstStop: "The Weekend Hongdae Club", image: "img/korea.jpg"}
-    ];
+export function Trips(props) {
+    const itineraryInfo = props.itineraries;
+
     const itineraryCards = itineraryInfo.map((itinerary) => {
         return (<TripCard itinerary={itinerary} key={itinerary.title}/>);
     }); 

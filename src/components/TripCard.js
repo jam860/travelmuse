@@ -10,7 +10,7 @@ export function TripCard(props) {
             <div className="card-body">
                 <h3 className="card-title">{itinerary.title}</h3>
                 <p className="card-text">{"Stops: " + itinerary.firstStop + "..."}</p>
-                <Link to="itinerary" className="btn btn-primary">Open</Link>
+                <Link to={"/mytrips/" + itinerary.title} className="btn btn-primary">Open</Link>
             </div>
         </div>
         </div>
