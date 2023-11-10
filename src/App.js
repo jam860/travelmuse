@@ -6,6 +6,7 @@ import { Plan } from './Plan';
 import { Homescreen } from './Homescreen';
 import { Itinerary } from './Itinerary';
 import { User } from './User';
+import { EventForm } from './EventForm.js';
 
 function App() {
   const itinerariesData = [
@@ -26,6 +27,7 @@ function App() {
           {/* <Route path="mytrips/itinerary" element={<Itinerary />} />  This is hard-coded, but you get the idea. Change later */}
         </Route>
         <Route index element={<Homescreen />} />  
+        <Route path="newEvent" element={<EventForm />}  />
         </Routes>
       <Footer />
     </>
