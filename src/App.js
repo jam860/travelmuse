@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Trips } from './Trips';
@@ -7,27 +7,43 @@ import { Homescreen } from './Homescreen';
 import { Itinerary } from './Itinerary';
 import { User } from './User';
 import { EventForm } from './EventForm.js';
+import { Event } from './Event.js';
 
 function App() {
+  //deleting this soon, dont use this
   const itinerariesData = [
     {title: "Dazzling Kyoto", firstStop: "Nijo Castle", image: "/img/kyoto-3.jpg"},
-    {title: "#GirlsinCanada", firstStop: "Green Clover Canada", image: "/img/canada.jpeg"},
+    {title: "GirlsinCanada", firstStop: "Green Clover Canada", image: "/img/canada.jpeg"},
     {title: "Wine in Italy", firstStop: "Frutti & Gelato", image: "/img/italy.jpeg"},
     {title: "Clubbing in Korea", firstStop: "The Weekend Hongdae Club", image: "/img/korea.jpg"}
   ];
+
+  //use this data
+  const tripsData = [
+    {
+        tripName: "Dazzling Kyoto", startDate: "2024-06-01", endDate: "2024-06-02", destination: "Japan", notes: "", photo: "",
+        events: [{ eventName: "Leave Kyoto", date: "2024-06-02", time: "08:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
+        { eventName: "Land in Kyoto", date: "2024-06-01", time: "08:00", endTime: "10:00", address: "1 Senshukukokita, Izumisano, Osaka 549-0001, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
+        { eventName: "Nijo Castle", date: "2024-06-01", time: "10:00", endTime: "11:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/nijo-castle.jpg", notes: "" },
+        { eventName: "Lunch", date: "2024-06-01", time: "12:00", endTime: "14:00", address: "902 Higashishiokojicho, Shimogyo Ward, 600-8216, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
+        { eventName: "Dinner", date: "2024-06-01", time: "18:00", endTime: "20:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
+        { eventName: "Eat at Kyoto Airport", date: "2024-06-02", time: "07:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" }]
+    },
+
+    //create more external data using chatgpt potentially
+];
+
 
   return (
     <>
       <Navbar />
         <Routes>
+        <Route index element={<Homescreen />} /> 
         <Route path="plan" element={<Plan />} />
-        <Route path="mytrips" element={<User /> } >
-          <Route index element={<Trips itineraries={itinerariesData}/>} />
-          <Route path=":tripName" element={<Itinerary />} />
-          {/* <Route path="mytrips/itinerary" element={<Itinerary />} />  This is hard-coded, but you get the idea. Change later */}
-        </Route>
-        <Route index element={<Homescreen />} />  
-        <Route path="newEvent" element={<EventForm />}  />
+        <Route path="mytrips" element={<Trips itineraries={itinerariesData}/> } />
+        <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />
+        <Route path="/mytrips/:tripName/eventform" element={<EventForm tripsData={tripsData}/>} /> 
+        <Route path="/mytrips/:tripName/:eventName" element={<Event tripsData={tripsData}/> } />
         </Routes>
       <Footer />
     </>

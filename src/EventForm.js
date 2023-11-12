@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom" //ignore for now
+import { Link } from "react-router-dom"; //ignore for now
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export function EventForm() {
+
+
+export function EventForm(props) {
+    const URLParams = useParams();
+    const itineraryName = URLParams.tripName; 
+    // Use itineraryName to change "Add an event to ..."
+    // Extract data from the form, and create a callback function (in App.js) to add the event to the correct trip's events
+    // I added a temporary "go back to easily go back... but you probably need to use the useNavigate hook to go back when people press the save button.
+
+    
     return (
         <main>
+            <Link to={"/mytrips/" + itineraryName}>GO BACK</Link> 
             <div className="itinerary-form-container event-form-image">
             <div className="itinerary-form-content">
                 <h1 className="text-center">Add an event to Dazzling Kyoto!</h1>

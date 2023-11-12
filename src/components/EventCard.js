@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom" //ignore for now
+import { useParams } from "react-router-dom";
+
 
 export function EventCard(props) {
     const eventDetails = props.event;
+    const URLParams = useParams();
+    const itineraryName = URLParams.tripName; 
+
     return (
-        <main>
-            <a href="sampleEvent.html">
+        <div>
+            <Link to={"/mytrips/" + itineraryName + "/" + eventDetails.eventName}>
                 <div class="event-container">
                     <div class="d-md-flex justify-content-between">
                         <div class="event-content">
@@ -18,7 +23,7 @@ export function EventCard(props) {
                         </div>
                     </div>
                 </div>
-            </a>
-        </main>
+            </Link>
+        </div>
     )
 }
