@@ -11,7 +11,16 @@ export function EventForm(props) {
     // Extract data from the form, and create a callback function (in App.js) to add the event to the correct trip's events
     // I added a temporary "go back to easily go back... but you probably need to use the useNavigate hook to go back when people press the save button.
 
-    
+    const [eventName, setEventName] = useState('');
+    const [eventType, setEventType] = useState('Activity')
+    const [startDate, setStartDate] = useState('');
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
+    const [address, setAddress] = useState('');
+    const [notes, setNotes] = useState('');
+    const [destinationPhoto, setDestinationPhoto] = useState('');
+    const navigate = useNavigate();
+
     return (
         <main>
             <Link to={"/mytrips/" + itineraryName}>GO BACK</Link> 
@@ -25,7 +34,7 @@ export function EventForm(props) {
                     </div>
                     <div className="col-md-12">
                         <label for="event-type" placeholder="Activity">Event Type</label>
-                        <select className="form-control">
+                        <select className="form-control" defaultValue="Activity" required>
                             <option>Activity</option>
                             <option>Flight</option>
                             <option>Lodging</option>
@@ -36,10 +45,6 @@ export function EventForm(props) {
                     <div className="col-md-6">
                     <label for="startDate" className="form-label">Start Date</label>
                     <input type="date" className="form-control" id="startDate" required />
-                    </div>
-                    <div className="col-md-6">
-                    <label for="endDate" className="form-label">End Date</label>
-                    <input type="date" className="form-control" id="endDate" required />
                     </div>
                     <div className="col-md-6">
                         <label for="startTime" className="form-label">Start Time</label>
