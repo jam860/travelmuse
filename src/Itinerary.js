@@ -11,11 +11,13 @@ export function Itinerary(props) {
     //sort all itinerary data first
     tripsData.forEach((trip) => {
         let sortedTripEvents = trip.events;
-        sortedTripEvents.sort((eventA, eventB) => {
-            const date1 = new Date(eventA.date + " " + eventA.time);
-            const date2 = new Date(eventB.date + " " + eventB.time);
-            return date1 - date2;
-        })
+        if (sortedTripEvents != undefined) {
+            sortedTripEvents.sort((eventA, eventB) => {
+                const date1 = new Date(eventA.date + " " + eventA.time);
+                const date2 = new Date(eventB.date + " " + eventB.time);
+                return date1 - date2;
+            });
+        }
         trip.events = sortedTripEvents;
     })
 
@@ -32,18 +34,19 @@ export function Itinerary(props) {
             startDateObj = new Date(trip.startDate);
             endDateObj = new Date(trip.endDate);
             let dateCounter = 1;
-            trip.events.forEach((event) => {
-                // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
-                if (tripCards[event.date] != undefined) {
-                    const previousCards = tripCards[event.date];
-                    tripCards[event.date] = ([...previousCards, <EventCard event={event} />]);
-                } else {
-                    const eventDateObj = new Date(event.date);
-                    tripCards[event.date] = [<h2>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} />];
-                    dateCounter++;
-                }
+            if (trip.events != undefined) {
+                trip.events.forEach((event) => {
+                    // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
+                    if (tripCards[event.date] != undefined) {
+                        const previousCards = tripCards[event.date];
+                        tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.tripName} />]);
+                    } else {
+                        const eventDateObj = new Date(event.date);
+                        tripCards[event.date] = [<h2>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} key={event.tripName} />];
+                        dateCounter++;
+                    }
+                });
             }
-            )
         }
     });
 
@@ -51,18 +54,18 @@ export function Itinerary(props) {
         <main>
             <div className="itinerary-body">
                 <div className="itinerary-body-content">
-                    <div class="pb-4">
+                    <div className="pb-4">
                         <Link to="/mytrips" role="button" aria-label="back">
-                            <span class="material-icons icon-center">&#xE5C4;</span><p class="d-inline">My Trips</p>
+                            <span className="material-icons icon-center">&#xE5C4;</span><p className="d-inline">My Trips</p>
                         </Link>
                     </div>
                     <section>
-                        <div class="placeTime">
+                        <div className="placeTime">
                             <h1>{tripNameString}</h1>
                             <h2>{(startDateObj == undefined || endDateObj == undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                             <div>
-                                <Link to={"eventform"} role="button" aria-label="add new event" class="btn btn-add border-0">
-                                    <span class="material-icons icon-center">&#xE145;</span>Add New Event
+                                <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0">
+                                    <span className="material-icons icon-center">&#xE145;</span>Add New Event
                                 </Link>
                             </div>
                         </div>

@@ -10,16 +10,16 @@ export function EventCard(props) {
     return (
         <div>
             <Link to={"/mytrips/" + itineraryName + "/" + eventDetails.eventName}>
-                <div class="event-container">
-                    <div class="d-md-flex justify-content-between">
-                        <div class="event-content">
+                <div className="event-container">
+                    <div className="d-md-flex justify-content-between">
+                        <div className="event-content">
                             <h4>{eventDetails.eventName}</h4>
                             <p>{"Time: " + eventDetails.time}</p>
                             <p>{"Address: " + eventDetails.address}</p>
                             <p>{"Notes: " + eventDetails.notes}</p>
                         </div>
                         <div>
-                            <img class="itinerary-event-image" src={eventDetails.img} width="300" alt="event representation" />
+                            <img className="itinerary-event-image" src={eventDetails.img} width="300" alt="event representation" />
                         </div>
                     </div>
                 </div>

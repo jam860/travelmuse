@@ -3,10 +3,10 @@ import { TripCard } from "./components/TripCard";
 import { Outlet } from "react-router-dom";
 
 export function Trips(props) {
-    const itineraryInfo = props.itineraries;
+    const itineraryInfo = props.tripsData;
 
     const itineraryCards = itineraryInfo.map((itinerary) => {
-        return (<TripCard itinerary={itinerary} key={itinerary.title}/>);
+        return (<TripCard itinerary={itinerary} key={itinerary.tripName}/>);
     }); 
     const [itineraries, changeItineraries] = useState(itineraryCards);
     const [searchValue, onSearchValue] = useState("");
@@ -17,7 +17,7 @@ export function Trips(props) {
 
         const newItineraryCards = itineraryCards.filter((itineraryComponent) => {
             const itineraryProps = itineraryComponent.props.itinerary;
-            if ((itineraryProps.title).toLowerCase().indexOf(newValue.toLowerCase()) >= 0) {
+            if ((itineraryProps.tripName).toLowerCase().indexOf(newValue.toLowerCase()) >= 0) {
                 return true;
             }
             return false;
