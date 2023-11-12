@@ -82,7 +82,7 @@ export function EventForm(props) {
                         <input type="text" onChange={handleEventNameChange} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
                         </div>
                         <div className="col-md-12">
-                            <label for="event-type" placeholder="Activity">Event Type</label>
+                            <label for="event-type">Event Type</label>
                             <select className="form-control" onChange={handleEventTypeChange} defaultValue="Activity" required>
                                 <option>Activity</option>
                                 <option>Flight</option>
@@ -91,7 +91,7 @@ export function EventForm(props) {
                                 <option>Others</option>
                             </select>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-12">
                         <label for="startDate" className="form-label">Start Date</label>
                         <input type="date" onChange={handleStartDateChange} className="form-control" id="startDate" required />
                         </div>
