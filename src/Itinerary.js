@@ -13,8 +13,8 @@ export function Itinerary(props) {
         let sortedTripEvents = trip.events;
         if (sortedTripEvents != undefined) {
             sortedTripEvents.sort((eventA, eventB) => {
-                const date1 = new Date(eventA.date + " " + eventA.time);
-                const date2 = new Date(eventB.date + " " + eventB.time);
+                const date1 = new Date(eventA.date + " " + eventA.startTime);
+                const date2 = new Date(eventB.date + " " + eventB.startTime);
                 return date1 - date2;
             });
         }
@@ -41,7 +41,7 @@ export function Itinerary(props) {
                         const previousCards = tripCards[event.date];
                         tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.tripName} />]);
                     } else {
-                        const eventDateObj = new Date(event.startDate);
+                        const eventDateObj = new Date(event.date);
                         tripCards[event.date] = [<h2>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} key={event.tripName} />];
                         dateCounter++;
                     }

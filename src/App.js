@@ -27,7 +27,7 @@ function App() {
         { eventName: "Nijo Castle", date: "2024-06-01", startTime: "10:00", endTime: "11:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/nijo-castle.jpg", notes: "" },
         { eventName: "Lunch", date: "2024-06-01", startTime: "12:00", endTime: "14:00", address: "902 Higashishiokojicho, Shimogyo Ward, 600-8216, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
         { eventName: "Dinner", date: "2024-06-01", startTime: "18:00", endTime: "20:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
-        { eventName: "Eat at Kyoto Airport", date: "2024-06-02", startTime: "07:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" }]
+        { eventName: "Eat at Kyoto Airport", date: "2024-06-02", startTime: "07:00", endTime: "08:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" }]
     },
     { tripName: "GirlsinCanada",
       startDate: "2024-07-01",
