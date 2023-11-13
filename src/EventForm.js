@@ -12,6 +12,7 @@ export function EventForm(props) {
     // [] Extract data from the form, and create a callback function (in App.js) to add the event to the correct trip's events. Need to find a way to save this data.
     // [DONE] I added a temporary "go back to easily go back... but you probably need to use the useNavigate hook to go back when people press the save button.
 
+    const [error, setError] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
     const [startDate, setStartDate] = useState('');
@@ -44,7 +45,12 @@ export function EventForm(props) {
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
-        setEndTime(newValue);
+        if (newValue <= startTime) {
+            setError(true);
+        } else {
+            setError(false);
+            setEndTime(newValue);
+        }
     }
 
     function handleAddressChange(event) {
@@ -63,12 +69,16 @@ export function EventForm(props) {
     }
 
     function handleOnSubmit(event) {
-        event.preventDefault();
-        event.stopPropagation()
-        const newEvent = {EventName: eventName, EventType: eventType, StartDate: startDate, StartTime: startTime, EndTime: endTime, address: address, notes: notes, photo: destinationPhoto};
-        // props.addTrip(newEvent);
-        // navigate("/mytrips");
-        navigate(-1);
+        if (error) {
+            event.preventDefault();
+        } else {
+            event.preventDefault();
+            event.stopPropagation()
+            const newEvent = {EventName: eventName, EventType: eventType, StartDate: startDate, StartTime: startTime, EndTime: endTime, address: address, notes: notes, photo: destinationPhoto};
+            // props.addTrip(newEvent);
+            // navigate("/mytrips");
+            navigate(-1);
+        }
     }
 
     return (
@@ -103,6 +113,7 @@ export function EventForm(props) {
                         <div className="col-md-6">
                             <label for="endTime" className="form-label">End Time</label>
                             <input type="time" onChange={handleEndTimeChange} className="form-control" id="endTime" required />
+                            {error && <div className="error-message"> End time cannot be later than start time! </div>}
                         </div>
                         <div className="col-12">
                         <label for="inputAddress" className="form-label">Address</label>
