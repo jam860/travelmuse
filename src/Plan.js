@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Plan(props) {
+    const [error, setError] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate]  = useState('');
@@ -24,7 +25,12 @@ export function Plan(props) {
 
     function handleEndDateChange(event) {
         let newValue = event.target.value;
-        setEndDate(newValue);
+        if (newValue <= startDate) {
+            setError(true);
+        } else {
+            setError(false);
+            setEndDate(newValue);
+        }
     }
 
 
@@ -72,6 +78,7 @@ export function Plan(props) {
                         <div className="col-md-6">
                             <label htmlFor="endDate" className="form-label">End Date</label>
                             <input type="date" onChange={handleEndDateChange} value={endDate} className="form-control" id="endDate" required/>
+                            {error && <div className="error-message"> End date cannot be later than start date! </div>}
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputDestination" className="form-label">Destination</label>
