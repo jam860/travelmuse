@@ -69,11 +69,11 @@ export function EventForm(props) {
     }
 
     function handleOnSubmit(event) {
+        event.preventDefault();
+        event.stopPropagation();
         if (error) {
             event.preventDefault();
         } else {
-            event.preventDefault();
-            event.stopPropagation()
             const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
             props.addEventToTrip(itineraryName, newEvent);
             navigate(-1);
@@ -85,6 +85,9 @@ export function EventForm(props) {
             {/* <Link to={"/mytrips/" + itineraryName}>GO BACK</Link>  */}
             <div className="itinerary-form-container event-form-image">
                 <div className="itinerary-form-content">
+                    <button href="" role="button" aria-label="back" className="btn btn-back border-0" onClick={() => navigate(-1)}>
+                        <span className="material-icons icon-center">&#xE5C4;</span>Back
+                    </button>
                     <h1 className="text-center">Add an event to {itineraryName}</h1>
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
