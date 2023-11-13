@@ -74,9 +74,8 @@ export function EventForm(props) {
         } else {
             event.preventDefault();
             event.stopPropagation()
-            const newEvent = {EventName: eventName, EventType: eventType, StartDate: startDate, StartTime: startTime, EndTime: endTime, address: address, notes: notes, photo: destinationPhoto};
-            // props.addTrip(newEvent);
-            // navigate("/mytrips");
+            const newEvent = {eventName: eventName, eventType: eventType, startDate: startDate, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
+            props.addEventToTrip(itineraryName, newEvent);
             navigate(-1);
         }
     }

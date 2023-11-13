@@ -22,12 +22,12 @@ function App() {
   let tripsData = [
     {
         tripName: "Dazzling Kyoto", startDate: "2024-06-01", endDate: "2024-06-02", destination: "Japan", notes: "", photo: "/img/kyoto-3.jpg",
-        events: [{ eventName: "Leave Kyoto", date: "2024-06-02", time: "08:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
-        { eventName: "Land in Kyoto", date: "2024-06-01", time: "08:00", endTime: "10:00", address: "1 Senshukukokita, Izumisano, Osaka 549-0001, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
-        { eventName: "Nijo Castle", date: "2024-06-01", time: "10:00", endTime: "11:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/nijo-castle.jpg", notes: "" },
-        { eventName: "Lunch", date: "2024-06-01", time: "12:00", endTime: "14:00", address: "902 Higashishiokojicho, Shimogyo Ward, 600-8216, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
-        { eventName: "Dinner", date: "2024-06-01", time: "18:00", endTime: "20:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
-        { eventName: "Eat at Kyoto Airport", date: "2024-06-02", time: "07:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" }]
+        events: [{ eventName: "Leave Kyoto", date: "2024-06-02", startTime: "08:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
+        { eventName: "Land in Kyoto", date: "2024-06-01", startTime: "08:00", endTime: "10:00", address: "1 Senshukukokita, Izumisano, Osaka 549-0001, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" },
+        { eventName: "Nijo Castle", date: "2024-06-01", startTime: "10:00", endTime: "11:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/nijo-castle.jpg", notes: "" },
+        { eventName: "Lunch", date: "2024-06-01", startTime: "12:00", endTime: "14:00", address: "902 Higashishiokojicho, Shimogyo Ward, 600-8216, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
+        { eventName: "Dinner", date: "2024-06-01", startTime: "18:00", endTime: "20:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/ramen.jpg", notes: "" },
+        { eventName: "Eat at Kyoto Airport", date: "2024-06-02", startTime: "07:00", endTime: "10:00", address: "541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan", eventType: "Activity", img: "/img/airport-kyoto.jpg", notes: "" }]
     },
     { tripName: "GirlsinCanada",
       startDate: "2024-07-01",
@@ -64,6 +64,13 @@ function App() {
 
   }
 
+  function addEventToTrip(tripName, event) {
+    const trip = tripsData.find(trip => trip.tripName === tripName);
+    if (trip) {
+      trip.events.push(event);
+    }
+  }
+
 
   return (
     <>
@@ -73,10 +80,11 @@ function App() {
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
         <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />
-        <Route path="/mytrips/:tripName/eventform" element={<EventForm tripsData={tripsData}/>} /> 
+        {/* <Route path="/mytrips/:tripName/eventform" element={<EventForm tripsData={tripsData}/>} />  */}
         <Route path="/mytrips/:tripName/:eventName" element={<Event tripsData={tripsData}/> } />
         {/* testing event form... */}
         <Route path="eventform" element={<EventForm />} />
+        <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />
         </Routes>
       <Footer />
     </>
