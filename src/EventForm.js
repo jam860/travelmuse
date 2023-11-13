@@ -8,9 +8,9 @@ import { useState } from "react";
 export function EventForm(props) {
     const URLParams = useParams();
     const itineraryName = URLParams.tripName; 
-    // Use itineraryName to change "Add an event to ..."
-    // Extract data from the form, and create a callback function (in App.js) to add the event to the correct trip's events
-    // I added a temporary "go back to easily go back... but you probably need to use the useNavigate hook to go back when people press the save button.
+    // [DONE] Use itineraryName to change "Add an event to ..."
+    // [] Extract data from the form, and create a callback function (in App.js) to add the event to the correct trip's events. Need to find a way to save this data.
+    // [DONE] I added a temporary "go back to easily go back... but you probably need to use the useNavigate hook to go back when people press the save button.
 
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
@@ -68,14 +68,15 @@ export function EventForm(props) {
         const newEvent = {EventName: eventName, EventType: eventType, StartDate: startDate, StartTime: startTime, EndTime: endTime, address: address, notes: notes, photo: destinationPhoto};
         // props.addTrip(newEvent);
         // navigate("/mytrips");
+        navigate(-1);
     }
 
     return (
         <main>
-            <Link to={"/mytrips/" + itineraryName}>GO BACK</Link> 
+            {/* <Link to={"/mytrips/" + itineraryName}>GO BACK</Link>  */}
             <div className="itinerary-form-container event-form-image">
                 <div className="itinerary-form-content">
-                    <h1 className="text-center">Add an event to Dazzling Kyoto!</h1>
+                    <h1 className="text-center">Add an event to {itineraryName}</h1>
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                         <label for="event-name" className="form-label">Event Name</label>
