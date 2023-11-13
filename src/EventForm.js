@@ -15,7 +15,7 @@ export function EventForm(props) {
     const [error, setError] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
-    const [startDate, setStartDate] = useState('');
+    const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
     const [address, setAddress] = useState('');
@@ -33,9 +33,9 @@ export function EventForm(props) {
         setEventType(newValue);
     }
 
-    function handleStartDateChange(event) {
+    function handleDateChange(event) {
         let newValue = event.target.value;
-        setStartDate(newValue);
+        setDate(newValue);
     }
 
     function handleStartTimeChange(event) {
@@ -74,7 +74,7 @@ export function EventForm(props) {
         } else {
             event.preventDefault();
             event.stopPropagation()
-            const newEvent = {eventName: eventName, eventType: eventType, startDate: startDate, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
+            const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
             props.addEventToTrip(itineraryName, newEvent);
             navigate(-1);
         }
@@ -102,8 +102,8 @@ export function EventForm(props) {
                             </select>
                         </div>
                         <div className="col-md-12">
-                        <label for="startDate" className="form-label">Start Date</label>
-                        <input type="date" onChange={handleStartDateChange} className="form-control" id="startDate" required />
+                        <label for="date" className="form-label">Start Date</label>
+                        <input type="date" onChange={handleDateChange} className="form-control" id="date" required />
                         </div>
                         <div className="col-md-6">
                             <label for="startTime" className="form-label">Start Time</label>
