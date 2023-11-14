@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 export function EventCard(props) {
     const eventDetails = props.event;
     const URLParams = useParams();
-    const itineraryName = URLParams.tripName; 
+    const itineraryName = URLParams.tripName;
 
     return (
         <div>
@@ -20,7 +20,7 @@ export function EventCard(props) {
                             <p>{"Notes: " + eventDetails.notes}</p>
                         </div>
                         <div>
-                            <img className="itinerary-event-image" src={eventDetails.img} width="300" alt="event representation" />
+                            <img className="itinerary-event-image" src={(eventDetails.img == undefined) ? "/img/mountains.jpg" : eventDetails.img} width="300" alt="event representation" />
                         </div>
                     </div>
                 </div>
