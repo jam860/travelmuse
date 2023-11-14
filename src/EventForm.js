@@ -17,11 +17,23 @@ export function EventForm(props) {
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
+    const [startTimeStr, setStartTimeStr] = useState('');
     const [endTime, setEndTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
     const [destinationPhoto, setDestinationPhoto] = useState('');
     const navigate = useNavigate();
+
+    // converts military time to AM/PM
+    // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
+    function convertToAmPm(time) {
+        let [hours, minutes] = time.split(":");
+        var ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12
+        hours = hours ? hours : 12;
+        var strTime = hours + ":" + minutes + " " + ampm;
+        return strTime;
+    }
 
     function handleEventNameChange(event) {
         let newValue = event.target.value;
@@ -39,17 +51,19 @@ export function EventForm(props) {
     }
 
     function handleStartTimeChange(event) {
-        let newValue = event.target.value;
-        setStartTime(newValue);
+        var newValue = event.target.value;
+        var formatedTime = convertToAmPm(newValue);
+        setStartTime(formatedTime);
     }
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
-        if (newValue <= startTime) {
+        var formatedTime = convertToAmPm(newValue);
+        if (formatedTime <= startTime) {
             setError(true);
         } else {
             setError(false);
-            setEndTime(newValue);
+            setEndTime(formatedTime);
         }
     }
 
