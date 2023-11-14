@@ -19,7 +19,7 @@ export function Homescreen() {
         <section>
             <div className="recommend-itinerary-container">
                 <div className="container">
-                    <h2 className="pt-5 text-center">Recommended Itineraries</h2>
+                    <h2 className="pt-5 text-center">Featured Itineraries</h2>
                     <div className="cards row d-flex flex-wrap">
                         <div className="col col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                             <div className="card">
