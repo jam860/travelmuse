@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"; //ignore for now
+import { Link } from "react-router-dom"; //ignore htmlFor now
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -104,11 +104,11 @@ export function EventForm(props) {
                     <h1 className="text-center">Add an event to {itineraryName}</h1>
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
-                        <label for="event-name" className="form-label">Event Name</label>
+                        <label htmlFor="event-name" className="form-label">Event Name</label>
                         <input type="text" onChange={handleEventNameChange} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
                         </div>
                         <div className="col-md-12">
-                            <label for="event-type">Event Type</label>
+                            <label htmlFor="event-type">Event Type</label>
                             <select className="form-control" onChange={handleEventTypeChange} defaultValue="Activity" required>
                                 <option>Activity</option>
                                 <option>Flight</option>
@@ -118,28 +118,28 @@ export function EventForm(props) {
                             </select>
                         </div>
                         <div className="col-md-12">
-                        <label for="date" className="form-label">Start Date</label>
+                        <label htmlFor="date" className="form-label">Start Date</label>
                         <input type="date" onChange={handleDateChange} className="form-control" id="date" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="startTime" className="form-label">Start Time</label>
+                            <label htmlFor="startTime" className="form-label">Start Time</label>
                             <input type="time" onChange={handleStartTimeChange} className="form-control" id="startTime" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="endTime" className="form-label">End Time</label>
+                            <label htmlFor="endTime" className="form-label">End Time</label>
                             <input type="time" onChange={handleEndTimeChange} className="form-control" id="endTime" required />
                             {error && <div className="error-message"> End time cannot be later than start time! </div>}
                         </div>
                         <div className="col-12">
-                        <label for="inputAddress" className="form-label">Address</label>
+                        <label htmlFor="inputAddress" className="form-label">Address</label>
                         <input type="text" onChange={handleAddressChange} className="form-control" id="inputAddress" placeholder="541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan" />
                         </div>
                         <div className="col-md-12">
-                        <label for="inputNotes" className="form-label">Notes</label>
+                        <label htmlFor="inputNotes" className="form-label">Notes</label>
                         <textarea type="text" onChange={handleNotesChange} className="form-control" id="inputNotes" placeholder="Open from 8:45AM to 5PM!"></textarea>
                         </div>
                         <div className="col-12">
-                            <label for="fileUpload" className="form-label">Destination Photo</label>
+                            <label htmlFor="fileUpload" className="form-label">Destination Photo</label>
                             <input type="file" onChange={handleDestinationPhotoChange} className="form-control" id="fileUpload" accept="image/*" />
                         </div>
                         <div className="col-12">

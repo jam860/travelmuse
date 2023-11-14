@@ -65,7 +65,9 @@ function App() {
   }
 
   function addEventToTrip(tripName, event) {
-    const trip = tripsData.find(trip => trip.tripName === tripName);
+    const trip = tripsData.find((trip) => { 
+      return trip.tripName === tripName
+    });
     if (trip) {
       trip.events.push(event);
     }
