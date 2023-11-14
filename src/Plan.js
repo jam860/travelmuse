@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Plan(props) {
-    const [error, setError] = useState(false);
+    const [errorDate, setErrorDate] = useState(false);
+    const [errorName, setErrorName] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate]  = useState('');
@@ -14,7 +15,12 @@ export function Plan(props) {
 
     function handleTripChange(event) {
         let newValue = event.target.value;
-        setTripName(newValue);
+        if (Array.from(newValue)[0] == "#" ) {
+            setErrorName(true);
+        } else {
+            setTripName(newValue);
+            setErrorName(false);
+        }
     }
 
     function handleStartDateChange(event) {
@@ -26,9 +32,9 @@ export function Plan(props) {
     function handleEndDateChange(event) {
         let newValue = event.target.value;
         if (newValue <= startDate) {
-            setError(true);
+            setErrorDate(true);
         } else {
-            setError(false);
+            setErrorDate(false);
             setEndDate(newValue);
         }
     }
@@ -70,6 +76,7 @@ export function Plan(props) {
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
                             <input type="text" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required/>
+                            {errorName && <div className="error-message"> Trip name cannot start with "#"! </div>}
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="startDate" className="form-label">Start Date</label>
@@ -78,7 +85,7 @@ export function Plan(props) {
                         <div className="col-md-6">
                             <label htmlFor="endDate" className="form-label">End Date</label>
                             <input type="date" onChange={handleEndDateChange} value={endDate} className="form-control" id="endDate" required/>
-                            {error && <div className="error-message"> End date cannot be later than start date! </div>}
+                            {errorDate && <div className="error-message"> End date cannot be later than start date! </div>}
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputDestination" className="form-label">Destination</label>
