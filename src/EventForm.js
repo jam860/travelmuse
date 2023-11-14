@@ -17,7 +17,6 @@ export function EventForm(props) {
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
-    const [startTimeStr, setStartTimeStr] = useState('');
     const [endTime, setEndTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
