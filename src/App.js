@@ -85,6 +85,7 @@ function App() {
         <Route path="/mytrips/:tripName/:eventName" element={<Event tripsData={tripsData}/> } />
         <Route path="eventform" element={<EventForm />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />
+        <Route path="eventPage" element={<Event />} />
         </Routes>
       <Footer />
     </>

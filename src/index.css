@@ -201,6 +201,7 @@
     --bs-btn-active-bg: #FAB573;
     font-size: 1.25rem;
     margin-bottom: .5rem;
+    margin-left: 1rem;
 }
 
 .btn-add:hover {
@@ -318,9 +319,8 @@
     }
   
     .event-content-container {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 6rem;
-        row-gap: 0;
+      justify-content: space-between;
+      flex-direction: row;
     }
   
     .itinerary-form-container {
