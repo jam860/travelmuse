@@ -29,9 +29,6 @@ export function Event(props) {
                         <a href="eventForm.html" role="button" aria-label="add new event" className="btn btn-add border-0">
                             <span className="material-icons icon-center">&#xE145;</span>Add New Event
                         </a>
-                        <a href="#" role="button" aria-label="edit event" className="btn btn-add border-0">
-                            <span className="material-icons icon-center">&#xE3C9;</span>Edit Event
-                        </a>
                     </div>
                 </div>
                 <div className="event-content-container d-flex">
