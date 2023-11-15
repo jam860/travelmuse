@@ -7,6 +7,18 @@ export function Event(props) {
     const tripName = URLParams.tripName;
     const eventName = URLParams.eventName;
 
+    console.log(tripsData);
+    const trip = tripsData.find((trip) => {
+        return trip.tripName === tripName;
+    }
+    )
+    let event;
+    if (trip) {
+        event = trip.events.find(event => 
+            event.eventName === eventName
+        )
+    }
+
     // Copy code starting from <main> to </main> from "sampleEvent.html" in "old-files". 
     // How to process data using props: 
     // 1. Loop over the tripsData variable (which is an array of objects) and find the correct trip with "tripName" (this is an object). 
@@ -29,8 +41,8 @@ export function Event(props) {
                         <a href="eventForm.html" role="button" aria-label="add new event" className="btn btn-add border-0">
                             <span className="material-icons icon-center">&#xE145;</span>Add New Event
                         </a>
-                        <a href="#" role="button" aria-label="delete event" class="btn btn-add border-0">
-                            <span class="material-icons icon-center">&#xE872;</span>Delete Event
+                        <a href="#" role="button" aria-label="delete event" className="btn btn-add border-0">
+                            <span className="material-icons icon-center">&#xE872;</span>Delete Event
                         </a>
                     </div>
                 </div>
@@ -47,7 +59,7 @@ export function Event(props) {
             <div className="event-details-container">
                 <div className="event-details-content">
                     <h3>Date:</h3>
-                    <p><time datetime="2023-10-16 17:20">June 1st, 2024 | 10:00AM to 11:00AM</time></p>
+                    <p><time dateTime="2023-10-16 17:20">June 1st, 2024 | 10:00AM to 11:00AM</time></p>
                     <h3>Address:</h3>
                     <p>541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan</p>
                     <h3>Notes:</h3>
