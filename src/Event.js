@@ -7,7 +7,6 @@ export function Event(props) {
     const tripName = URLParams.tripName;
     const eventName = URLParams.eventName;
 
-    console.log(tripsData);
     const trip = tripsData.find((trip) => {
         return trip.tripName === tripName;
     }
