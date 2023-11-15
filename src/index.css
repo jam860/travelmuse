@@ -187,71 +187,63 @@
   }
   
   /* sampleEvent CSS */
-  .container {
-    padding-bottom: 5rem;
-  }
-  
   .event-content {
-    max-width: 1170px;
-  }
-  
-  .btn-back {
+    padding: 0 2rem;
+}
+
+.btn-back {
     padding-bottom: 2rem;
     font-size: 1.25rem;
-  }
-  
-  .btn-add {
+}
+
+.btn-add {
     background-color: #FAB573;
     --bs-btn-active-bg: #FAB573;
     font-size: 1.25rem;
     margin-bottom: .5rem;
-  }
-  
-  .btn-add:hover {
+}
+
+.btn-add:hover {
     background-color:#FAB573;
-  }
-  
-  .icon-center {
+}
+
+.icon-center {
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px;
-  }
-  
-  .event-content-container {
+}
+
+.event-content-container {
     flex-direction: column-reverse;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 5rem;
-  }
-  
-  .event-overview-container {
+}
+
+.event-overview-container {
     position: relative;
-    padding: 3rem 0rem;
-  }
-  
-  .event-details-container {
+    padding: 5rem 3rem;
+}
+
+.event-details-container {
     padding-bottom: 5rem;
-  }
-  
-  .event-details-content {
+}
+
+.event-details-content {
     position: relative;
     padding: 2rem 5rem 3rem 3rem;
     background-color: white;
-    border-radius: 5%;
-  }
-  
-  .event-image img {
+    border-radius: 10px;
+}
+
+.event-image img {
     max-width: 300px;
     max-height: 300px;
     width: 100%;
     height: auto;
     border-radius: 10px;
-  }
-  
-  .itinerary-form-container.event-form-image:before {
-    background-image: url("img/azenhas-do-mar.jpeg");
-  }
+}
+
+.itinerary-form-container.event-form-image:before {
+    background-image: url("../public/img/azenhas-do-mar.jpeg");
+}
   
   /* Itinerary CSS */
   
