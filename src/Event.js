@@ -17,7 +17,7 @@ export function Event(props) {
     
     return (
         <main>
-             <div className="event-content">
+             <div className="event-content-wrapper">
             <div className="event-overview-container">
                 <div className="d-flex justify-content-between">
                     <div>
