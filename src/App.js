@@ -45,6 +45,17 @@ function App() {
     console.log(tripsData);
   }
 
+  function deleteItinerary(tripName) {
+    const newTripsData = tripsData.filter((trip) => {
+      if (trip.tripName !== tripName) {
+        return trip;
+      }
+    });
+    setTripsData(newTripsData);
+    console.log(tripsData);
+  }
+
+
   return (
     <>
       <Navbar />
@@ -54,7 +65,7 @@ function App() {
         <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData}/>} />
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
-        <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />
+        <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData}/>} />
         <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData}/> } />
         <Route path="eventform" element={<EventForm />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />

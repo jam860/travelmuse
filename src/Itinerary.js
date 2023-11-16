@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom" //ignore for now
-import { NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom" //ignore for now
 import { useParams } from "react-router-dom";
 import { EventCard } from "./components/EventCard";
+import { Navigate } from "react-router-dom";
 
 export function Itinerary(props) {
     let URLParam = useParams();
     const tripNameString = URLParam.tripName;
     const tripsData = props.tripsData;
+    const navigate = useNavigate();
 
     //sort all itinerary data first
     tripsData.forEach((trip) => {
@@ -50,6 +51,11 @@ export function Itinerary(props) {
         }
     });
 
+    function deleteClick(event) {
+        props.deleteItinerary(tripNameString); 
+        navigate(-1);
+    }
+
     return (
         <main>
             <div className="itinerary-body">
@@ -64,9 +70,12 @@ export function Itinerary(props) {
                             <h1>{tripNameString}</h1>
                             <h2>{(startDateObj == undefined || endDateObj == undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                             <div>
-                                <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0">
+                                <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">
                                     <span className="material-icons icon-center">&#xE145;</span>Add New Event
                                 </Link>
+                                <button role="button" onClick={deleteClick} aria-label="delete event" className="btn btn-add border-0 ml-0">
+                                    <span className="material-icons icon-center">&#xE872;</span>Delete Trip
+                                </button>
                             </div>
                         </div>
                     </section>

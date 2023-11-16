@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TripCard } from "./components/TripCard";
 import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Trips(props) {
     const itineraryInfo = props.tripsData;
@@ -31,14 +32,17 @@ export function Trips(props) {
                     <div className="recommend-itinerary-container">
                         <div className="container">
                             <h1 className="pt-5 text-center">My Trips</h1>
-                            <p className="text-center">Welcome back User! Let's take a look at some of your itineraries.</p>
-                            <div className="pt-4">
-                                <h2>Search Trips</h2>
-                                <input className="form-control mr-sm-2" type="search" placeholder="Dazzling Kyoto" aria-label="Search" value={searchValue} onChange={searchTerm} />
-                            </div>
-                            <div className="cards row d-flex flex-wrap">
-                                {itineraries}
-                            </div>
+                            <p className="text-center">Welcome back User! Let's take a look at some of your itineraries.</p> 
+                            {itineraries.length == 0 ? <p className="no-trips text-center">You have no itineraries yet! <Link className="plan-link" to="/plan">Start planning with us.</Link></p>: 
+                            <div>                             
+                                <div className="pt-4">
+                                    <h2>Search Trips</h2>
+                                    <input className="form-control mr-sm-2" type="search" placeholder="Dazzling Kyoto" aria-label="Search" value={searchValue} onChange={searchTerm} />
+                                </div>
+                                <div className="cards row d-flex flex-wrap">
+                                    {itineraries}
+                                </div>
+                            </div>}
                         </div>
                     </div>
                 </section>
