@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom" //ignore for now
 
 export function Homescreen() {
-    // Copy and paste code starting from <main> to </main> from the index.html in "old-files". Debug as needed.
-    // Note: It's fine that the cards don't go anywhere when you press open.
+    // Work on TripCardFeatured (card component) and ItineraryFeatured (itinerary page for featured trips)
+    // Note: Basically, replace anchor links with "Link", you can look at any other page as a reference.
 
     return (
         <main>
