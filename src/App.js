@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Trips } from './Trips';
@@ -15,7 +16,7 @@ import USER_TRIPS from "./data/userData.json";
 
 function App() {
   let sampleData = SAMPLE_TRIPS; //use featuredData.json for home page;
-  let tripsData = USER_TRIPS; //for itinerary page
+  let [tripsData, setTripsData] = useState(USER_TRIPS);
 
   function addTrip(trip) {
     tripsData.unshift(trip);
@@ -32,6 +33,16 @@ function App() {
     }
   }
 
+  function deleteEvent(tripName, eventName) {
+    const newTripsData = tripsData.map((trip) => {
+      if (trip.tripName === tripName) {
+        trip.events = trip.events.filter((event) => event.eventName !== eventName);
+      }
+      return trip;
+    });
+    setTripsData(newTripsData);
+    console.log(tripsData);
+  }
 
   return (
     <>
@@ -42,7 +53,7 @@ function App() {
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
         <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />
-        <Route path="/mytrips/:tripName/:eventName" element={<Event tripsData={tripsData}/> } />
+        <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData}/> } />
         <Route path="eventform" element={<EventForm />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />
         <Route path="eventPage" element={<Event tripsData={tripsData}/>} />

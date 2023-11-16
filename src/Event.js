@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom" //ignore for now
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Event(props) {
     const URLParams = useParams();
     const tripsData = props.tripsData;
     const tripName = URLParams.tripName;
     const eventName = URLParams.eventName;
+    const navigate = useNavigate();
 
     const trip = tripsData.find((trip) => {
         return trip.tripName === tripName;
@@ -13,11 +15,13 @@ export function Event(props) {
     )
     let event;
     if (trip) {
-        event = trip.events.find(event => 
-            event.eventName === eventName
-        )
+        event = trip.events.find(event => event.eventName === eventName)
     }
 
+    function handleClick() {
+        props.deleteEvent(tripName, eventName);
+        navigate(-1);
+    }
     // How to process data using props: 
     // 1. Loop over the tripsData variable (which is an array of objects) and find the correct trip with "tripName" (this is an object). 
     // 2. Within that trip object, access the "events" key. The values of the "events" key are an array of objects. 
@@ -39,9 +43,9 @@ export function Event(props) {
                         <a href="eventForm.html" role="button" aria-label="add new event" className="btn btn-add border-0">
                             <span className="material-icons icon-center">&#xE145;</span>Add New Event
                         </a>
-                        <a href="#" role="button" aria-label="delete event" className="btn btn-add border-0">
+                        <button role="button" onClick={handleClick} aria-label="delete event" className="btn btn-add border-0">
                             <span className="material-icons icon-center">&#xE872;</span>Delete Event
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div className="event-content-container d-flex">
