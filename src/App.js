@@ -33,6 +33,7 @@ function App() {
     }
   }
 
+  // https://www.geeksforgeeks.org/remove-array-element-based-on-object-property-in-javascript/
   function deleteEvent(tripName, eventName) {
     const newTripsData = tripsData.map((trip) => {
       if (trip.tripName === tripName) {
