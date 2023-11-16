@@ -10,7 +10,8 @@ import { User } from './User';
 import { EventForm } from './EventForm.js';
 import { Event } from './Event.js';
 import { ItineraryFeatured } from './ItineraryFeatured.js';
-import { TripCardFeatured } from './components/TripCardFeatured.js';
+import { EventFeatured } from './EventFeatured.js';
+
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";
 
@@ -49,7 +50,8 @@ function App() {
       <Navbar />
         <Routes>
         <Route index element={<Homescreen featuredTrips={sampleData}/>} /> 
-        <Route path=":featuredTripName" element={<ItineraryFeatured />} />
+        <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData}/>} />
+        <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData}/>} />
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
         <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />

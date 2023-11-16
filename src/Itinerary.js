@@ -21,7 +21,7 @@ export function Itinerary(props) {
         trip.events = sortedTripEvents;
     })
 
-    //create cariables for trips/startdate/enddate
+    //create variables for trips/startdate/enddate
     let tripCards = {};
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
