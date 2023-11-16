@@ -201,7 +201,7 @@
     --bs-btn-active-bg: #FAB573;
     font-size: 1.25rem;
     margin-bottom: .5rem;
-    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .btn-add:hover {
@@ -299,6 +299,17 @@
   .itinerary-event-image {
     width: 200px;
     height: 100%;
+  }
+
+  /* myTrips */
+
+  .no-trips {
+    font-size: 3rem;
+  }
+
+  .plan-link {
+    color: #d34e24;
+    text-decoration: underline;
   }
   
   

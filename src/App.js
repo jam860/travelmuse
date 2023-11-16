@@ -10,7 +10,8 @@ import { User } from './User';
 import { EventForm } from './EventForm.js';
 import { Event } from './Event.js';
 import { ItineraryFeatured } from './ItineraryFeatured.js';
-import { TripCardFeatured } from './components/TripCardFeatured.js';
+import { EventFeatured } from './EventFeatured.js';
+
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";
 
@@ -45,15 +46,27 @@ function App() {
     console.log(tripsData);
   }
 
+  function deleteItinerary(tripName) {
+    const newTripsData = tripsData.filter((trip) => {
+      if (trip.tripName !== tripName) {
+        return trip;
+      }
+    });
+    setTripsData(newTripsData);
+    console.log(tripsData);
+  }
+
+
   return (
     <>
       <Navbar />
         <Routes>
         <Route index element={<Homescreen featuredTrips={sampleData}/>} /> 
-        <Route path=":featuredTripName" element={<ItineraryFeatured />} />
+        <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData}/>} />
+        <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData}/>} />
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
-        <Route path="/mytrips/:tripName" element={<Itinerary tripsData={tripsData}/>} />
+        <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData}/>} />
         <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData}/> } />
         <Route path="eventform" element={<EventForm />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />
