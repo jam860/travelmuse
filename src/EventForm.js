@@ -24,10 +24,10 @@ export function EventForm(props) {
     // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
     function convertToAmPm(time) {
         let [hours, minutes] = time.split(":");
-        var ampm = hours >= 12 ? "PM" : "AM";
+        let ampm = hours >= 12 ? "PM" : "AM";
         hours = hours % 12
         hours = hours ? hours : 12;
-        var strTime = hours + ":" + minutes + " " + ampm;
+        let strTime = hours + ":" + minutes + " " + ampm;
         return strTime;
     }
 
@@ -94,7 +94,7 @@ export function EventForm(props) {
         <main>
             <div className="itinerary-form-container event-form-image">
                 <div className="itinerary-form-content">
-                    <button href="" role="button" aria-label="back" className="btn btn-back border-0" onClick={() => navigate(-1)}>
+                    <button href="" role="button" aria-label="back" className="btn btn-back border-0 px-0" onClick={() => navigate(-1)}>
                         <span className="material-icons icon-center">&#xE5C4;</span>Back
                     </button>
                     <h1 className="text-center">Add an event to {itineraryName}</h1>

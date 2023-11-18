@@ -140,6 +140,16 @@
           "notes": "Enjoy a day of hiking surrounded by the beauty of nature."
         },
         {
+          "eventName": "Breakfast at Portage Bay Cafe",
+          "date": "2024-08-17",
+          "startTime": "08:00",
+          "endTime": "09:00",
+          "address": "4130 Roosevelt Way NE, Seattle, WA 98105",
+          "eventType": "Dining",
+          "img": "/img/portage-bay.jpg",
+          "notes": "Indulge in a delicious brunch at Portage Bay Cafe before your cultural exploration."
+        },
+        {
           "eventName": "Visit the Museum of Pop Culture",
           "date": "2024-08-17",
           "startTime": "10:00",
@@ -148,6 +158,86 @@
           "eventType": "Cultural",
           "img": "/img/mopop.jpg",
           "notes": "Explore the exhibits at the Museum of Pop Culture."
+        },
+        {
+          "eventName": "Evening at Gas Works Park",
+          "date": "2024-08-17",
+          "startTime": "14:30",
+          "endTime": "17:00",
+          "address": "2101 N Northlake Way, Seattle, WA 98103",
+          "eventType": "Outdoor Activity",
+          "img": "/img/gas-works-park.jpg",
+          "notes": "Relax and enjoy the evening at Gas Works Park, offering scenic views of the Seattle skyline."
+        },
+        {
+          "eventName": "Morning Stroll at Kerry Park",
+          "date": "2024-08-18",
+          "startTime": "08:00",
+          "endTime": "10:00",
+          "address": "211 W Highland Dr, Seattle, WA 98119",
+          "eventType": "Sightseeing",
+          "img": "/img/kerry-park.jpg",
+          "notes": "Take a leisurely morning stroll and enjoy panoramic views of Seattle from Kerry Park."
+        },
+        {
+          "eventName": "Lunch at The Pink Door",
+          "date": "2024-08-18",
+          "startTime": "12:30",
+          "endTime": "14:30",
+          "address": "1919 Post Alley, Seattle, WA 98101",
+          "eventType": "Dining",
+          "img": "/img/pink-door.jpg",
+          "notes": "Savor Italian cuisine with a lively atmosphere at The Pink Door."
+        },
+        {
+          "eventName": "Seattle Aquarium Exploration",
+          "date": "2024-08-18",
+          "startTime": "15:30",
+          "endTime": "17:30",
+          "address": "1483 Alaskan Way, Pier 59, Seattle, WA 98101",
+          "eventType": "Sightseeing",
+          "img": "/img/seattle-aquarium.jpg",
+          "notes": "Discover marine life and enjoy interactive exhibits at the Seattle Aquarium."
+        },
+        {
+          "eventName": "Dinner in Capitol Hill",
+          "date": "2024-08-18",
+          "startTime": "19:00",
+          "endTime": "21:00",
+          "address": "Capitol Hill, Seattle, WA",
+          "eventType": "Dining",
+          "img": "/img/capitol-hill.jpg",
+          "notes": "Explore the vibrant dining scene in Capitol Hill for a delightful dinner."
+        },
+        {
+          "eventName": "Boat Tour on Lake Union",
+          "date": "2024-08-19",
+          "startTime": "11:00",
+          "endTime": "13:00",
+          "address": "1200 Westlake Ave N, Seattle, WA 98109",
+          "eventType": "Outdoor Activity",
+          "img": "/img/lake-union.jpg",
+          "notes": "Experience the beauty of Seattle from the water with a boat tour on Lake Union."
+        },
+        {
+          "eventName": "Dinner at Canlis",
+          "date": "2024-08-19",
+          "startTime": "18:30",
+          "endTime": "21:00",
+          "address": "2576 Aurora Ave N, Seattle, WA 98109",
+          "eventType": "Dining",
+          "img": "/img/canlis.jpg",
+          "notes": "Indulge in a fine dining experience with breathtaking views at Canlis."
+        }, 
+        {
+          "eventName": "Departure from Seattle",
+          "date": "2024-08-20",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "address": "Seattle-Tacoma International Airport, Seattle, WA",
+          "eventType": "Travel",
+          "img": "/img/seatac-airport.jpg",
+          "notes": "Check out of your accommodation and head to the airport for your departure."
         }
       ]
     },
