@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
 import './index.css';
 import App from './App';
+import ScrollToTop from './components/ScrollToTop';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const app = initializeApp(firebaseConfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+    <ScrollToTop />
     <App />
   </BrowserRouter>
 );
