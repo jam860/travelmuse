@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom" //ignore for now
 import { TripCardFeatured } from "./components/TripCardFeatured";
 
 export function Homescreen(props) {

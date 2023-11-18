@@ -16,14 +16,14 @@ export function ItineraryFeatured(props) {
 
     //find all itinerary data that matches url and pair it up with dates
     tripsData.forEach((trip) => {
-        if (trip.tripName == tripNameString) {
+        if (trip.tripName === tripNameString) {
             startDateObj = new Date(trip.startDate);
             endDateObj = new Date(trip.endDate);
-            if (trip.events != undefined) {
+            if (trip.events !== undefined) {
                 let dateCounter = 1;
                 trip.events.forEach((event) => {
                     // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
-                    if (tripCards[event.date] != undefined) {
+                    if (tripCards[event.date] !== undefined) {
                         const previousCards = tripCards[event.date];
                         tripCards[event.date] = ([...previousCards, <EventCardFeatured event={event} key={event.eventName} />]);
                     } else {
@@ -49,7 +49,7 @@ export function ItineraryFeatured(props) {
                     <section>
                         <div className="placeTime">
                             <h1>{tripNameString}</h1>
-                            <h2>{(startDateObj == undefined || endDateObj == undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                            <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                         </div>
                     </section>
                     {Object.keys(tripCards).length > 0 ? Object.values(tripCards) : <p>No events yet. Try to add an event!</p>}

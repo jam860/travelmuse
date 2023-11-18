@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"; //ignore htmlFor now
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -94,7 +93,7 @@ export function EventForm(props) {
         <main>
             <div className="itinerary-form-container event-form-image">
                 <div className="itinerary-form-content">
-                    <button href="" role="button" aria-label="back" className="btn btn-back border-0 px-0" onClick={() => navigate(-1)}>
+                    <button href="" aria-label="back" className="btn btn-back border-0 px-0" onClick={() => navigate(-1)}>
                         <span className="material-icons icon-center">&#xE5C4;</span>Back
                     </button>
                     <h1 className="text-center">Add an event to {itineraryName}</h1>

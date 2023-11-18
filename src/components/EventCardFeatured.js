@@ -6,7 +6,6 @@ export function EventCardFeatured(props) {
     const eventDetails = props.event;
     const URLParams = useParams();
     const itineraryName = URLParams.featuredTripName;
-    console.log(eventDetails.img);
 
     return (
         <div>

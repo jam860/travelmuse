@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom" //ignore for now
 import { useParams } from "react-router-dom";
 import { EventCard } from "./components/EventCard";
-import { Navigate } from "react-router-dom";
 
 export function Itinerary(props) {
     let URLParam = useParams();
@@ -12,7 +11,7 @@ export function Itinerary(props) {
     //sort all itinerary data first
     tripsData.forEach((trip) => {
         let sortedTripEvents = trip.events;
-        if (sortedTripEvents != undefined) {
+        if (sortedTripEvents !== undefined) {
             sortedTripEvents.sort((eventA, eventB) => {
                 const date1 = new Date(eventA.date + " " + eventA.startTime);
                 const date2 = new Date(eventB.date + " " + eventB.startTime);
@@ -31,14 +30,14 @@ export function Itinerary(props) {
 
     //find all itinerary data that matches url and pair it up with dates
     tripsData.forEach((trip) => {
-        if (trip.tripName == tripNameString) {
+        if (trip.tripName === tripNameString) {
             startDateObj = new Date(trip.startDate);
             endDateObj = new Date(trip.endDate);
-            if (trip.events != undefined) {
+            if (trip.events !== undefined) {
                 let dateCounter = 1;
                 trip.events.forEach((event) => {
                     // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
-                    if (tripCards[event.date] != undefined) {
+                    if (tripCards[event.date] !== undefined) {
                         const previousCards = tripCards[event.date];
                         tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.eventName} />]);
                     } else {
@@ -68,12 +67,12 @@ export function Itinerary(props) {
                     <section>
                         <div className="placeTime">
                             <h1>{tripNameString}</h1>
-                            <h2>{(startDateObj == undefined || endDateObj == undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                            <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                             <div>
                                 <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">
                                     <span className="material-icons icon-center">&#xE145;</span>Add New Event
                                 </Link>
-                                <button role="button" onClick={deleteClick} aria-label="delete event" className="btn btn-add border-0 ml-0">
+                                <button onClick={deleteClick} aria-label="delete event" className="btn btn-add border-0 ml-0">
                                     <span className="material-icons icon-center">&#xE872;</span>Delete Trip
                                 </button>
                             </div>

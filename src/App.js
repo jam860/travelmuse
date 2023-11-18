@@ -21,8 +21,6 @@ function App() {
 
   function addTrip(trip) {
     tripsData.unshift(trip);
-    console.log(tripsData);
-
   }
 
   function addEventToTrip(tripName, event) {
@@ -43,17 +41,13 @@ function App() {
       return trip;
     });
     setTripsData(newTripsData);
-    console.log(tripsData);
   }
 
   function deleteItinerary(tripName) {
     const newTripsData = tripsData.filter((trip) => {
-      if (trip.tripName !== tripName) {
-        return trip;
-      }
+      return trip.tripName !== tripName;
     });
     setTripsData(newTripsData);
-    console.log(tripsData);
   }
 
 

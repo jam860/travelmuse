@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"; //ignore for now
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +14,7 @@ export function Plan(props) {
 
     function handleTripChange(event) {
         let newValue = event.target.value;
-        if (Array.from(newValue)[0] == "#" ) {
+        if (Array.from(newValue)[0] === "#" ) {
             setErrorName(true);
         } else {
             setTripName(newValue);
