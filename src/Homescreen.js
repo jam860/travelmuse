@@ -1,4 +1,5 @@
 import { TripCardFeatured } from "./components/TripCardFeatured";
+import { Link } from "react-router-dom";
 
 export function Homescreen(props) {
     const itineraryInfo = props.featuredTrips;
@@ -14,9 +15,9 @@ export function Homescreen(props) {
             <div className="intro-container">
                 <div className="intro-content">
                     <h1 className="intro-title">Ready to plan your next adventure?</h1>
-                    <a href="plan.html">
+                    <Link to="/plan">
                         <p className="btn btn-primary" role="button">Plan with us.</p>
-                    </a>
+                    </Link>
                 </div>
             </div>
             </section>
