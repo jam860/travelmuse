@@ -88,10 +88,6 @@
     background-color: rgba(0, 0, 0, 0.65) !important;
   }
 
-  /* .dropdown-item {
-    color: #FAB573 !important;
-  } */
-
   .dropdown-item.active {
     background-color: #FAB573;
   }
@@ -103,6 +99,10 @@
   .hamburger-menu {
     position: relative;
     display: inline-block;
+  }
+
+  .dropdown-item:active {
+    background-color: #FAB573;
   }
 
   .hamburger-nav span {
