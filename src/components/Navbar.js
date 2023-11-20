@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import { getAuth, signOut } from "firebase/auth";
 
-export function Navbar() {
+export function Navbar(props) {
+    function onSignOut() {
+        signOut(getAuth());
+    }
+
     return (
         <header>
             <nav>
@@ -10,6 +15,7 @@ export function Navbar() {
                         <NavLink to="/"><img width="300" height="50" src="/img/logo.png" aria-label="TravelMuse logo" alt="TravelMuse logo" /></NavLink>
                     </div>
                     <div className="nav-links desktop-nav">
+                        {!props.currentUser && 
                         <ul>
                             <li>
                                 <NavLink to="/">Home</NavLink>
@@ -24,10 +30,27 @@ export function Navbar() {
                                 <NavLink to="login">Sign-in</NavLink>
                             </li>
                         </ul>
+                        }
+                        {props.currentUser && 
+                        <ul>
+                            <li>
+                                <NavLink to="/">Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="plan">Plan</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="mytrips">Trips</NavLink>
+                            </li>
+                              <li>
+                                <NavLink to="/" onClick={onSignOut}>Sign-Out</NavLink>
+                            </li>
+                        </ul>
+                        }
                     </div>
                     <nav className="hamburger-nav">
                         <Dropdown className="hamburger-menu">
-                            <Dropdown.Toggle menuVariant="#FAB573">
+                            <Dropdown.Toggle menuvariant="#FAB573">
                                 <span className="material-icons icon-center">&#xE5D2;</span>
                             </Dropdown.Toggle>
 

@@ -5,9 +5,20 @@ import { Link } from "react-router-dom";
 export function Trips(props) {
     const itineraryInfo = props.tripsData;
 
-    const itineraryCards = itineraryInfo.map((itinerary) => {
-        return (<TripCard itinerary={itinerary} key={itinerary.tripName}/>);
-    }); 
+    let firstName;
+    if (props.currentUser != null) {
+        const nameSpace = props.currentUser.displayName.indexOf(" ");
+        firstName = props.currentUser.displayName.substring(0, nameSpace);
+    }
+
+    let itineraryCards = [];
+    if (itineraryInfo != null) {
+        // console.log(itineraryInfo);
+        itineraryCards = itineraryInfo.map((itinerary) => {
+            return (<TripCard itinerary={itinerary} key={itinerary.tripName}/>);
+        }); 
+    }
+
     const [itineraries, changeItineraries] = useState(itineraryCards);
     const [searchValue, onSearchValue] = useState("");
 
@@ -31,8 +42,8 @@ export function Trips(props) {
                     <div className="recommend-itinerary-container">
                         <div className="container">
                             <h1 className="pt-5 text-center">My Trips</h1>
-                            <p className="text-center">Welcome back User! Let's take a look at some of your itineraries.</p> 
-                            {itineraries.length === 0 ? <p className="no-trips text-center">You have no itineraries yet! <Link className="plan-link" to="/plan">Start planning with us.</Link></p>: 
+                            {(props.currentUser == null) ? <p className="text-center">You are currently not signed in! Any changes made to these trips will not be saved. Please sign in to save your changes.</p> : <p className="text-center">Welcome back {firstName}! Let's take a look at your itineraries.</p>}
+                            {(itineraries.length === 0 && searchValue.length === 0) ? <p className="no-trips text-center">You have no itineraries yet! <Link className="plan-link" to="/plan">Start planning with us.</Link></p>: 
                             <div>                             
                                 <div className="pt-4">
                                     <h2>Search Trips</h2>

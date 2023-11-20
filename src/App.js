@@ -12,7 +12,9 @@ import { Event } from './Event.js';
 import { ItineraryFeatured } from './ItineraryFeatured.js';
 import { EventFeatured } from './EventFeatured.js';
 import { SignIn } from './SignIn.js';
+import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";
@@ -20,22 +22,56 @@ import USER_TRIPS from "./data/userData.json";
 function App() {
   let sampleData = SAMPLE_TRIPS; //use featuredData.json for home page;
   let [tripsData, setTripsData] = useState(USER_TRIPS);
+  let [tripsDataTest, setTripsTest] = useState(USER_TRIPS);
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  const db = getDatabase();
 
   useEffect(() => {
-    onAuthStateChanged(getAuth(), function(firebaseUser) {
-      console.log("someone logged in or logged out yay");
-      console.log(firebaseUser);
+    onAuthStateChanged(getAuth(), function (firebaseUser) {
+      if (firebaseUser) {
+        console.log("logging in...")
+        firebaseUser.userId = firebaseUser.uid;
+        // navigate("/mytrips");
+        setCurrentUser(firebaseUser);
+        const firebaseUserRef = ref(db, firebaseUser.userId);
+      } else {
+        setCurrentUser(null);
+        console.log("logging out...")
+        setTripsData(USER_TRIPS);
+      }
     });
 
   }, []);
+
+
+  useEffect(() => {
+    if (currentUser != null && currentUser.userId != null) {
+      const userDataRef = ref(db, currentUser.userId);
+      onValue(userDataRef, (snapshot) => {
+        const tripObjects = snapshot.val();
+        if (tripObjects != null) {
+          const tripObjectsKeys = Object.keys(tripObjects);
+          const tripsArray = tripObjectsKeys.map((key) => {
+            return tripObjects[key];
+          });
+          // console.log(tripsArray);
+          // setTripsTest(tripsArray);
+          setTripsData([...tripsArray]);
+          // console.log(tripsData);
+        }
+      });
+    }
+  }, [currentUser]);
 
   function addTrip(trip) {
     tripsData.unshift(trip);
   }
 
   function addEventToTrip(tripName, event) {
-    const trip = tripsData.find((trip) => { 
-      return trip.tripName === tripName
+    const trip = tripsData.find((trip) => {
+      return trip.tripName === tripName;
     });
     if (trip) {
       trip.events.push(event);
@@ -63,20 +99,20 @@ function App() {
 
   return (
     <>
-      <Navbar />
-        <Routes>
-        <Route index element={<Homescreen featuredTrips={sampleData}/>} /> 
-        <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData}/>} />
-        <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData}/>} />
+      <Navbar currentUser={currentUser} />
+      <Routes>
+        <Route index element={<Homescreen featuredTrips={sampleData} />} />
+        <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData} />} />
+        <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData} />} />
         <Route path="login" element={<SignIn />} />
-        <Route path="plan" element={<Plan addTrip={addTrip}/>} />
-        <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
-        <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData}/>} />
-        <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData}/> } />
+        <Route path="plan" element={<Plan addTrip={addTrip} />} />
+        <Route path="mytrips" element={<Trips tripsData={tripsData} currentUser={currentUser} />} />
+        <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData} />} />
+        <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData} />} />
         <Route path="eventform" element={<EventForm />} />
-        <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData}/>} />
-        <Route path="eventPage" element={<Event tripsData={tripsData}/>} />
-        </Routes>
+        <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData} />} />
+        <Route path="eventPage" element={<Event tripsData={tripsData} />} />
+      </Routes>
       <Footer />
     </>
   );
