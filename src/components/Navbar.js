@@ -21,7 +21,7 @@ export function Navbar() {
                                 <NavLink to="mytrips">Trips</NavLink>
                             </li>
                               <li>
-                                <NavLink to="#">Sign-in</NavLink>
+                                <NavLink to="login">Sign-in</NavLink>
                             </li>
                         </ul>
                     </div>
@@ -35,7 +35,7 @@ export function Navbar() {
                                 <Dropdown.Item as={NavLink} to="/">Home</Dropdown.Item>
                                 <Dropdown.Item as={NavLink} to="plan">Plan</Dropdown.Item>
                                 <Dropdown.Item as={NavLink} to="mytrips">Trips</Dropdown.Item>
-                                <Dropdown.Item as={NavLink} to="#">Sign-in</Dropdown.Item>
+                                <Dropdown.Item as={NavLink} to="login">Sign-in</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     </nav>

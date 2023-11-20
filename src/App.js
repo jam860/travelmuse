@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Trips } from './Trips';
@@ -11,6 +11,8 @@ import { EventForm } from './EventForm.js';
 import { Event } from './Event.js';
 import { ItineraryFeatured } from './ItineraryFeatured.js';
 import { EventFeatured } from './EventFeatured.js';
+import { SignIn } from './SignIn.js';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";
@@ -18,6 +20,14 @@ import USER_TRIPS from "./data/userData.json";
 function App() {
   let sampleData = SAMPLE_TRIPS; //use featuredData.json for home page;
   let [tripsData, setTripsData] = useState(USER_TRIPS);
+
+  useEffect(() => {
+    onAuthStateChanged(getAuth(), function(firebaseUser) {
+      console.log("someone logged in or logged out yay");
+      console.log(firebaseUser);
+    });
+
+  }, []);
 
   function addTrip(trip) {
     tripsData.unshift(trip);
@@ -58,6 +68,7 @@ function App() {
         <Route index element={<Homescreen featuredTrips={sampleData}/>} /> 
         <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData}/>} />
         <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData}/>} />
+        <Route path="login" element={<SignIn />} />
         <Route path="plan" element={<Plan addTrip={addTrip}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData}/> } />
         <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData}/>} />
