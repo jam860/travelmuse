@@ -30,6 +30,7 @@ export function EventFeatured(props) {
     
     //use "TripEvent" to fill in data by accessing it's properties! Refer to userData.json, or console.log(tripEvent).
     //Also use date object to format it correctly.
+    console.log(tripEvent);
     
     return (
         <main>
