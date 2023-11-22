@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export function Trips(props) {
     const itineraryInfo = props.tripsData;
-    console.log(itineraryInfo);
 
     let firstName;
     if (props.currentUser != null) {
@@ -14,7 +13,6 @@ export function Trips(props) {
 
     let itineraryCards = [];
     if (itineraryInfo != null) {
-        console.log(itineraryInfo);
         itineraryCards = itineraryInfo.map((itinerary) => {
             return (<TripCard itinerary={itinerary} key={itinerary.tripName}/>);
         }); 

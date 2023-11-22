@@ -31,13 +31,13 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(getAuth(), function (firebaseUser) {
       if (firebaseUser) {
-        console.log("logging in...")
+        // console.log("logging in...")
         firebaseUser.userId = firebaseUser.uid;
         setCurrentUser(firebaseUser);
         navigate("/");
       } else {
         setCurrentUser(null);
-        console.log("logging out...")
+        // console.log("logging out...")
         setTripsData(USER_TRIPS);
       }
     });
@@ -95,7 +95,6 @@ function App() {
       getKey = trip.key;
       return trip.tripName === tripName;
     });
-    console.log(getKey);
     if (trip.events === undefined) {
       trip.events = [event];
     } else {

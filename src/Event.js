@@ -75,6 +75,8 @@ export function Event(props) {
                     <div className="event-details-content">
                         <h3>Date:</h3>
                         <p><time>{(days[dateObj.getUTCDay()] + ", " + months[dateObj.getUTCMonth()] + " " + dateObj.getDate())}</time></p>
+                        <h3>Time:</h3>
+                        <p>{tripEvent.startTime + " - " + tripEvent.endTime}</p>
                         <h3>Address:</h3>
                         <p>{tripEvent.address}</p>
                         <h3>Notes:</h3>
