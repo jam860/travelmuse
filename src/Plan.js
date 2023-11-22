@@ -60,7 +60,7 @@ export function Plan(props) {
     function handleOnSubmit(event) {
         event.preventDefault();
         event.stopPropagation()
-        const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto, events: [null]}; //come back
+        const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto}; //come back
         props.addTrip(newTrip);
         navigate("/mytrips");
     }
