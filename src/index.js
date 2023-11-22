@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 import './index.css';
 import App from './App';
 import ScrollToTop from './components/ScrollToTop';
+import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,6 +19,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

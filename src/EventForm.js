@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { storage } from ".";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from 'uuid';
 
+// maybe create another state for image ref
 
 
 export function EventForm(props) {
@@ -48,7 +52,12 @@ export function EventForm(props) {
     function handleStartTimeChange(event) {
         var newValue = event.target.value;
         var formatedTime = convertToAmPm(newValue);
-        setStartTime(formatedTime);
+        if (formatedTime >= endTime) {
+            setError(true);
+        } else {
+            setError(false);
+            setStartTime(formatedTime);
+        };
     }
 
     function handleEndTimeChange(event) {
@@ -73,7 +82,7 @@ export function EventForm(props) {
     }
 
     function handleDestinationPhotoChange(event) {
-        let newValue = event.target.value;
+        let newValue = event.target.files[0];
         setDestinationPhoto(newValue);
     }
 
@@ -85,6 +94,10 @@ export function EventForm(props) {
         } else {
             const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
             props.addEventToTrip(itineraryName, newEvent);
+            const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
+            // uploadBytes(imageRef, destinationPhoto).then(() => {
+            //     alert("Image Uploaded");
+            // });
             navigate(-1);
         }
     }
