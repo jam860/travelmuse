@@ -70,7 +70,7 @@ export function Plan(props) {
             <div className="itinerary-form-container">
                 <div className="itinerary-form-content">
                     <h1 className="text-center">Your New Itinerary Adventure!</h1>
-                    {props.currentUser === null && (<p className="text-center">This itinerary will not be saved! Please <Link className="link" to="login">sign in</Link> to save your itinerary.</p>)}
+                    {props.currentUser === null && (<p className="text-center">This itinerary will not be saved! Please <Link className="link" to="/login">sign in</Link> to save your itinerary.</p>)}
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
