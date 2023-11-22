@@ -20,7 +20,7 @@ export function EventCardFeatured(props) {
                             <p>{"Notes: " + eventDetails.notes}</p>
                         </div>
                         <div>
-                            <img className="itinerary-event-image" src={(eventDetails.img == undefined) ? "/img/mountains.jpg" : eventDetails.img} width="300" alt="event representation" />
+                            <img className="itinerary-event-image" src={(eventDetails.img === undefined) ? "/img/mountains.jpg" : eventDetails.img} width="300" alt="event representation" />
                         </div>
                     </div>
                 </div>

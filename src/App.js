@@ -13,9 +13,7 @@ import { EventFeatured } from './EventFeatured.js';
 import { SignIn } from './SignIn.js';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set as firebaseSet, push as firebasePush, update as firebaseUpdate, onValue } from 'firebase/database';
-import { Outlet } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";

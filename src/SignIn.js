@@ -1,7 +1,6 @@
 //import auth functions and variables from Firebase
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
 
 //import the component -- pick one!
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
@@ -26,7 +25,6 @@ const firebaseUIConfig = {
 export function SignIn() {
     const auth = getAuth(); //access the "authenticator"
     const [user, loading, error] = useAuthState(auth);
-    const navigate = useNavigate();
 
     let status;
     if(loading) {

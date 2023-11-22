@@ -9,9 +9,9 @@ export function EventFeatured(props) {
 
     let tripEvent;
     tripsData.forEach((trip) => {
-        if (trip.tripName == tripName) {
+        if (trip.tripName === tripName) {
             trip.events.forEach(((event) => {
-                if (event.eventName == eventName) {
+                if (event.eventName === eventName) {
                     tripEvent = event;
                 }
             }))

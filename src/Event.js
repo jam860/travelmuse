@@ -9,16 +9,6 @@ export function Event(props) {
     const eventName = URLParams.eventName;
     const navigate = useNavigate();
 
-    if (tripsData !== undefined) {
-        const trip = tripsData.find((trip) => {
-            return trip.tripName === tripName;
-        }
-        )
-        let event;
-        if (trip.events != undefined) {
-            event = trip.events.find(event => event.eventName === eventName)
-        }    
-    }
     function handleClick() {
         navigate(-1);
         props.deleteEvent(tripName, eventName);
@@ -27,11 +17,15 @@ export function Event(props) {
     let tripEvent;
     let dateObj;
 
-    if (tripsData != undefined) {
+    console.log(tripsData);
+    if (tripsData !== undefined) {
+        if (tripsData === null) {
+            return;
+        }
         tripsData.forEach((trip) => {
-            if (trip.tripName == tripName && trip.events != undefined) {
+            if (trip.tripName === tripName && trip.events !== undefined) {
                 trip.events.forEach(((event) => {
-                    if (event.eventName == eventName) {
+                    if (event.eventName === eventName) {
                         tripEvent = event;
                         dateObj = new Date(tripEvent.date);
                     }
@@ -56,7 +50,7 @@ export function Event(props) {
                             </Link>
                         </div>
                         <div>
-                            <button role="button" onClick={handleClick} aria-label="delete event" className="btn btn-add border-0">
+                            <button onClick={handleClick} aria-label="delete event" className="btn btn-add border-0">
                                 <span className="material-icons icon-center">&#xE872;</span>Delete Event
                             </button>
                         </div>
