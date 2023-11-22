@@ -85,7 +85,10 @@ function App() {
     const trip = tripsData.find((trip) => {
       return trip.tripName === tripName;
     });
-    if (trip) {
+    console.log(trip);
+    if (trip.events === null) {
+      trip.events = [event];
+    } else {
       trip.events.push(event);
     }
   }
