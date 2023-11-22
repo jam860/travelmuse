@@ -23,7 +23,6 @@ import USER_TRIPS from "./data/userData.json";
 function App() {
   let sampleData = SAMPLE_TRIPS; //use featuredData.json for home page;
   let [tripsData, setTripsData] = useState(USER_TRIPS);
-  let [tripsDataTest, setTripsTest] = useState(USER_TRIPS);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
@@ -140,21 +139,7 @@ function App() {
       const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey);
       firebaseSet(firebaseUserRef, null);
     }
-  }
-
-  // function ProtectedPage(props) {
-  //   console.log(props.currentUser);
-  //   if (props.currentUser === null) {
-  //     return <Outlet />
-  //   }
-  //   else if (props.currentUser.userId === null) {
-  //     return <p>Loading...</p>;
-  //   } else if (props.currentUser) {
-  //     return <Outlet />
-  //   }
-  // }
-  
-
+  }  
 
   return (
     <>

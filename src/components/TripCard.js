@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 
 export function TripCard(props) {
     const itinerary = props.itinerary;
-    console.log(itinerary);
 
-    let eventLength = 0;
-    let eventName;
-    if (itinerary.events != undefined) {
-        eventLength = itinerary.events.length;
-    }
+    // let eventLength = 0;
+    // let eventName;
+    // if (itinerary.events != undefined) {
+    //     eventLength = itinerary.events.length;
+    // }
 
 
     return (

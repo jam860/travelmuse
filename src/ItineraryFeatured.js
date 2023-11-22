@@ -36,7 +36,6 @@ export function ItineraryFeatured(props) {
         }
     });
 
-    // Make sure to copy from Itinerary, but change variables. Please pay attention to how things Link
     return (
         <main>
             <div className="itinerary-body">
