@@ -17,11 +17,25 @@ export function EventForm(props) {
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
+    const [unformattedStartTime, setUnformattedStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
+    const [unformattedEndTime, setUnformattedEndTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
     const [destinationPhoto, setDestinationPhoto] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let formatedTime = convertToAmPm(endTime);
+        if (unformattedEndTime === "") {
+            setError(false);
+        } else if (unformattedEndTime <= unformattedStartTime) {
+            setError(true);
+        } else {
+            setError(false);
+            setEndTime(formatedTime);
+        }
+    }, [unformattedEndTime])
 
     // converts military time to AM/PM
     // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
@@ -51,24 +65,26 @@ export function EventForm(props) {
 
     function handleStartTimeChange(event) {
         let newValue = event.target.value;
+        setUnformattedStartTime(newValue);
         let formatedTime = convertToAmPm(newValue);
-        if (formatedTime >= endTime) {
-            setError(true);
-        } else {
-            setError(false);
-            setStartTime(formatedTime);
-        };
+        // if (unformattedStartTime >= unformattedEndTime) {
+        //     setError(true);
+        // } else {
+        //     setError(false);
+        //     setStartTime(formatedTime);
+        // };
     }
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
+        setUnformattedEndTime(newValue);
         let formatedTime = convertToAmPm(newValue);
-        if (formatedTime <= startTime) {
-            setError(true);
-        } else {
-            setError(false);
-            setEndTime(formatedTime);
-        }
+        // if (unformattedEndTime <= unformattedStartTime) {
+        //     setError(true);
+        // } else {
+        //     setError(false);
+        //     setEndTime(formatedTime);
+        // }
     }
 
     function handleAddressChange(event) {
