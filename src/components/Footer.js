@@ -20,7 +20,7 @@ export function Footer() {
                         <NavLink to="mytrips">Trips</NavLink>
                     </li>
                     <li>
-                        <NavLink to="">Sign-in</NavLink>
+                        <NavLink to="login">Sign-in</NavLink>
                     </li>
                 </ul>
             </div>
