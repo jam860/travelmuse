@@ -26,7 +26,8 @@ export function EventForm(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let formatedTime = convertToAmPm(endTime);
+        let formatedTime = convertToAmPm(unformattedEndTime);
+        let formatedStartTime = convertToAmPm(unformattedStartTime);
         if (unformattedEndTime === "") {
             setError(false);
         } else if (unformattedEndTime <= unformattedStartTime) {
@@ -34,6 +35,7 @@ export function EventForm(props) {
         } else {
             setError(false);
             setEndTime(formatedTime);
+            setStartTime(formatedStartTime);
         }
     }, [unformattedEndTime])
 
@@ -66,25 +68,11 @@ export function EventForm(props) {
     function handleStartTimeChange(event) {
         let newValue = event.target.value;
         setUnformattedStartTime(newValue);
-        let formatedTime = convertToAmPm(newValue);
-        // if (unformattedStartTime >= unformattedEndTime) {
-        //     setError(true);
-        // } else {
-        //     setError(false);
-        //     setStartTime(formatedTime);
-        // };
     }
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
         setUnformattedEndTime(newValue);
-        let formatedTime = convertToAmPm(newValue);
-        // if (unformattedEndTime <= unformattedStartTime) {
-        //     setError(true);
-        // } else {
-        //     setError(false);
-        //     setEndTime(formatedTime);
-        // }
     }
 
     function handleAddressChange(event) {

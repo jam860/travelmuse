@@ -6,6 +6,7 @@ export function EventCard(props) {
     const eventDetails = props.event;
     const URLParams = useParams();
     const itineraryName = URLParams.tripName;
+    console.log(eventDetails.startTime);
 
     return (
         <div>
