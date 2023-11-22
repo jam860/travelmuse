@@ -48,7 +48,7 @@ export function Navbar(props) {
                         </ul>
                         }
                     </div>
-                    <nav className="hamburger-nav">
+                    {!props.currentUser && <nav className="hamburger-nav">
                         <Dropdown className="hamburger-menu">
                             <Dropdown.Toggle menuvariant="#FAB573">
                                 <span className="material-icons icon-center">&#xE5D2;</span>
@@ -61,7 +61,21 @@ export function Navbar(props) {
                                 <Dropdown.Item as={NavLink} to="login">Sign-in</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    </nav>
+                    </nav>}
+                    {props.currentUser && <nav className="hamburger-nav">
+                        <Dropdown className="hamburger-menu">
+                            <Dropdown.Toggle menuvariant="#FAB573">
+                                <span className="material-icons icon-center">&#xE5D2;</span>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item as={NavLink} to="/">Home</Dropdown.Item>
+                                <Dropdown.Item as={NavLink} to="plan">Plan</Dropdown.Item>
+                                <Dropdown.Item as={NavLink} to="mytrips">Trips</Dropdown.Item>
+                                <Dropdown.Item as={NavLink} to="/" onClick={onSignOut}>Sign-Out</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </nav>}
                 </div>
             </nav>
         </header>
