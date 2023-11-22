@@ -30,7 +30,7 @@ export function SignIn() {
 
     let status;
     if(loading) {
-        status = "Loading... please wait!"
+        status = "Loading... please wait."
     }
 
     if(error) {
@@ -38,8 +38,7 @@ export function SignIn() {
     }
 
     if(user) {
-        status = "You're signed in! Feel free to make some itineraries!"
-        navigate("/mytrips");
+        status = "You're signed in! Feel free to make some itineraries."
     } else {
         status = "Please sign in to your account"
     }

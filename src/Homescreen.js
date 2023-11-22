@@ -8,13 +8,18 @@ export function Homescreen(props) {
         return (<TripCardFeatured featuredTrip={itinerary} key={itinerary.tripName}/>);
     });
 
+    let firstName;
+    if (props.currentUser != null) {
+        const nameSpace = props.currentUser.displayName.indexOf(" ");
+        firstName = props.currentUser.displayName.substring(0, nameSpace);
+    }
 
     return (
         <main>
             <section>
             <div className="intro-container">
                 <div className="intro-content">
-                    <h1 className="intro-title">Ready to plan your next adventure?</h1>
+                    <h1 className="intro-title">{props.currentUser && "Welcome " + firstName + ". "}Ready to plan your next adventure?</h1>
                     <Link to="/plan">
                         <p className="btn btn-primary" role="button">Plan with us.</p>
                     </Link>

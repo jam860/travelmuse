@@ -9,17 +9,19 @@ export function Itinerary(props) {
     const navigate = useNavigate();
 
     //sort all itinerary data first
-    tripsData.forEach((trip) => {
-        let sortedTripEvents = trip.events;
-        if (sortedTripEvents !== undefined) {
-            sortedTripEvents.sort((eventA, eventB) => {
-                const date1 = new Date(eventA.date + " " + eventA.startTime);
-                const date2 = new Date(eventB.date + " " + eventB.startTime);
-                return date1 - date2;
-            });
-        }
-        trip.events = sortedTripEvents;
-    })
+    if (tripsData != null) {
+        tripsData.forEach((trip) => {
+            let sortedTripEvents = trip.events;
+            if (sortedTripEvents !== undefined) {
+                sortedTripEvents.sort((eventA, eventB) => {
+                    const date1 = new Date(eventA.date + " " + eventA.startTime);
+                    const date2 = new Date(eventB.date + " " + eventB.startTime);
+                    return date1 - date2;
+                });
+            }
+            trip.events = sortedTripEvents;
+        })
+    }
 
     //create variables for trips/startdate/enddate
     let tripCards = {};
@@ -29,30 +31,32 @@ export function Itinerary(props) {
     let endDateObj;
 
     //find all itinerary data that matches url and pair it up with dates
-    tripsData.forEach((trip) => {
-        if (trip.tripName === tripNameString) {
-            startDateObj = new Date(trip.startDate);
-            endDateObj = new Date(trip.endDate);
-            if (trip.events !== undefined) {
-                let dateCounter = 1;
-                trip.events.forEach((event) => {
-                    // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
-                    if (tripCards[event.date] !== undefined) {
-                        const previousCards = tripCards[event.date];
-                        tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.eventName} />]);
-                    } else {
-                        const eventDateObj = new Date(event.date);
-                        tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} key={event.eventName} />];
-                        dateCounter++;
-                    }
-                });
+    if (tripsData != null) {
+        tripsData.forEach((trip) => {
+            if (trip.tripName === tripNameString) {
+                startDateObj = new Date(trip.startDate);
+                endDateObj = new Date(trip.endDate);
+                if (trip.events !== undefined) {
+                    let dateCounter = 1;
+                    trip.events.forEach((event) => {
+                        // if date exists, push eventcard under that date. Otherwise, make date and push eventcard under that date. eg. {2024-06-02: eventCards, 2024-06-02: eventCards}
+                        if (tripCards[event.date] !== undefined) {
+                            const previousCards = tripCards[event.date];
+                            tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.eventName} />]);
+                        } else {
+                            const eventDateObj = new Date(event.date);
+                            tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} key={event.eventName} />];
+                            dateCounter++;
+                        }
+                    });
+                }
             }
-        }
-    });
+        });
+    }
 
-    function deleteClick(event) {
-        props.deleteItinerary(tripNameString); 
+    function deleteClick() {
         navigate(-1);
+        props.deleteItinerary(tripNameString); 
     }
 
     return (

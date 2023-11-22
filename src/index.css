@@ -37,6 +37,13 @@
     text-decoration: none;
     color: black;
   }
+
+  .link {
+    color: #d34e24;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  
   
   /* Navbar/Footer CSS */  
   .nav-container ul {
@@ -335,12 +342,6 @@
   .no-trips {
     font-size: 3rem;
   }
-
-  .plan-link {
-    color: #d34e24;
-    text-decoration: underline;
-  }
-  
   
   @media (min-width: 768px) {
     .intro-container {

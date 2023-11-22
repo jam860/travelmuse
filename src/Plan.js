@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
@@ -59,18 +60,17 @@ export function Plan(props) {
     function handleOnSubmit(event) {
         event.preventDefault();
         event.stopPropagation()
-        const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto, events: []};
+        const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto}; //come back
         props.addTrip(newTrip);
         navigate("/mytrips");
     }
-
-
 
     return (
         <main>
             <div className="itinerary-form-container">
                 <div className="itinerary-form-content">
                     <h1 className="text-center">Your New Itinerary Adventure!</h1>
+                    {props.currentUser === null && (<p className="text-center">This itinerary will not be saved! Please <Link className="link" to="login">sign in</Link> to save your itinerary.</p>)}
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>

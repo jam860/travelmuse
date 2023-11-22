@@ -6,7 +6,6 @@ import { Trips } from './Trips';
 import { Plan } from './Plan';
 import { Homescreen } from './Homescreen';
 import { Itinerary } from './Itinerary';
-import { User } from './User';
 import { EventForm } from './EventForm.js';
 import { Event } from './Event.js';
 import { ItineraryFeatured } from './ItineraryFeatured.js';
@@ -15,6 +14,8 @@ import { SignIn } from './SignIn.js';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
+import { Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import SAMPLE_TRIPS from "./data/featuredData.json";
 import USER_TRIPS from "./data/userData.json";
@@ -33,9 +34,8 @@ function App() {
       if (firebaseUser) {
         console.log("logging in...")
         firebaseUser.userId = firebaseUser.uid;
-        // navigate("/mytrips");
         setCurrentUser(firebaseUser);
-        const firebaseUserRef = ref(db, firebaseUser.userId);
+        navigate("/");
       } else {
         setCurrentUser(null);
         console.log("logging out...")
@@ -56,17 +56,29 @@ function App() {
           const tripsArray = tripObjectsKeys.map((key) => {
             return tripObjects[key];
           });
-          // console.log(tripsArray);
-          // setTripsTest(tripsArray);
           setTripsData([...tripsArray]);
-          // console.log(tripsData);
+        } else {
+          setTripsData(null);
         }
       });
     }
   }, [currentUser]);
 
+
   function addTrip(trip) {
-    tripsData.unshift(trip);
+    if (tripsData === null) {
+      setTripsData([trip]);
+      if (currentUser !== null) {
+        const firebaseUserRef = ref(db, currentUser.userId);
+        firebaseSet(firebaseUserRef, [trip]);
+      }
+    } else {
+      setTripsData([trip, ...tripsData]);
+        if (currentUser !== null) {
+          const firebaseUserRef = ref(db, currentUser.userId);
+          firebaseSet(firebaseUserRef, [trip, ...tripsData]);
+        }
+    }
   }
 
   function addEventToTrip(tripName, event) {
@@ -87,6 +99,10 @@ function App() {
       return trip;
     });
     setTripsData(newTripsData);
+    if (currentUser !== null) {
+      const firebaseUserRef = ref(db, currentUser.userId);
+      firebaseSet(firebaseUserRef, newTripsData);
+    }
   }
 
   function deleteItinerary(tripName) {
@@ -94,18 +110,35 @@ function App() {
       return trip.tripName !== tripName;
     });
     setTripsData(newTripsData);
+    if (currentUser !== null) {
+      const firebaseUserRef = ref(db, currentUser.userId);
+      firebaseSet(firebaseUserRef, newTripsData);
+    }
   }
+
+  // function ProtectedPage(props) {
+  //   console.log(props.currentUser);
+  //   if (props.currentUser === null) {
+  //     return <Outlet />
+  //   }
+  //   else if (props.currentUser.userId === null) {
+  //     return <p>Loading...</p>;
+  //   } else if (props.currentUser) {
+  //     return <Outlet />
+  //   }
+  // }
+  
 
 
   return (
     <>
       <Navbar currentUser={currentUser} />
       <Routes>
-        <Route index element={<Homescreen featuredTrips={sampleData} />} />
+        <Route index element={<Homescreen featuredTrips={sampleData} currentUser={currentUser}/>} />
         <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData} />} />
         <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData} />} />
         <Route path="login" element={<SignIn />} />
-        <Route path="plan" element={<Plan addTrip={addTrip} />} />
+        <Route path="plan" element={<Plan addTrip={addTrip} currentUser={currentUser}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData} currentUser={currentUser} />} />
         <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData} />} />
         <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData} />} />

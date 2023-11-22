@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export function Trips(props) {
     const itineraryInfo = props.tripsData;
+    console.log(itineraryInfo);
 
     let firstName;
     if (props.currentUser != null) {
@@ -43,7 +44,7 @@ export function Trips(props) {
                         <div className="container">
                             <h1 className="pt-5 text-center">My Trips</h1>
                             {(props.currentUser == null) ? <p className="text-center">You are currently not signed in! Any changes made to these trips will not be saved. Please sign in to save your changes.</p> : <p className="text-center">Welcome back {firstName}! Let's take a look at your itineraries.</p>}
-                            {(itineraries.length === 0 && searchValue.length === 0) ? <p className="no-trips text-center">You have no itineraries yet! <Link className="plan-link" to="/plan">Start planning with us.</Link></p>: 
+                            {(itineraries.length === 0 && searchValue.length === 0) ? <><p className="no-trips text-center">You have no itineraries yet! <Link className="link" to="/plan">Let's plan.</Link></p></>: 
                             <div>                             
                                 <div className="pt-4">
                                     <h2>Search Trips</h2>
