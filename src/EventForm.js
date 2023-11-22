@@ -1,7 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { storage } from ".";
+import { ref, uploadBytes } from "firebase/storage";
+import { v4 } from 'uuid';
 
+// maybe create another state for image ref
 
 
 export function EventForm(props) {
@@ -13,11 +17,25 @@ export function EventForm(props) {
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
+    const [unformattedStartTime, setUnformattedStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
+    const [unformattedEndTime, setUnformattedEndTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
     const [destinationPhoto, setDestinationPhoto] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let formatedTime = convertToAmPm(endTime);
+        if (unformattedEndTime === "") {
+            setError(false);
+        } else if (unformattedEndTime <= unformattedStartTime) {
+            setError(true);
+        } else {
+            setError(false);
+            setEndTime(formatedTime);
+        }
+    }, [unformattedEndTime])
 
     // converts military time to AM/PM
     // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
@@ -46,20 +64,27 @@ export function EventForm(props) {
     }
 
     function handleStartTimeChange(event) {
-        var newValue = event.target.value;
-        var formatedTime = convertToAmPm(newValue);
-        setStartTime(formatedTime);
+        let newValue = event.target.value;
+        setUnformattedStartTime(newValue);
+        let formatedTime = convertToAmPm(newValue);
+        // if (unformattedStartTime >= unformattedEndTime) {
+        //     setError(true);
+        // } else {
+        //     setError(false);
+        //     setStartTime(formatedTime);
+        // };
     }
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
-        var formatedTime = convertToAmPm(newValue);
-        if (formatedTime <= startTime) {
-            setError(true);
-        } else {
-            setError(false);
-            setEndTime(formatedTime);
-        }
+        setUnformattedEndTime(newValue);
+        let formatedTime = convertToAmPm(newValue);
+        // if (unformattedEndTime <= unformattedStartTime) {
+        //     setError(true);
+        // } else {
+        //     setError(false);
+        //     setEndTime(formatedTime);
+        // }
     }
 
     function handleAddressChange(event) {
@@ -73,7 +98,7 @@ export function EventForm(props) {
     }
 
     function handleDestinationPhotoChange(event) {
-        let newValue = event.target.value;
+        let newValue = event.target.files[0];
         setDestinationPhoto(newValue);
     }
 
@@ -85,6 +110,10 @@ export function EventForm(props) {
         } else {
             const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
             props.addEventToTrip(itineraryName, newEvent);
+            const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
+            // uploadBytes(imageRef, destinationPhoto).then(() => {
+            //     alert("Image Uploaded");
+            // });
             navigate(-1);
         }
     }
