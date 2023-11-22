@@ -17,7 +17,6 @@ export function Event(props) {
     let tripEvent;
     let dateObj;
 
-    console.log(tripsData);
     if (tripsData !== undefined) {
         if (tripsData === null) {
             return;
