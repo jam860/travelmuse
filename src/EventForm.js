@@ -50,8 +50,8 @@ export function EventForm(props) {
     }
 
     function handleStartTimeChange(event) {
-        var newValue = event.target.value;
-        var formatedTime = convertToAmPm(newValue);
+        let newValue = event.target.value;
+        let formatedTime = convertToAmPm(newValue);
         if (formatedTime >= endTime) {
             setError(true);
         } else {
@@ -62,7 +62,7 @@ export function EventForm(props) {
 
     function handleEndTimeChange(event) {
         let newValue = event.target.value;
-        var formatedTime = convertToAmPm(newValue);
+        let formatedTime = convertToAmPm(newValue);
         if (formatedTime <= startTime) {
             setError(true);
         } else {
