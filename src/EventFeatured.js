@@ -47,7 +47,7 @@ export function EventFeatured(props) {
                         <h2>{tripEvent.eventType}</h2>
                     </div>
                     <div className="event-image">
-                        <img src={tripEvent.img} alt="a white Nijo castle by a water stream"/>
+                        <img src={tripEvent.img} alt="event location representation"/>
                     </div>
                 </div>
             </div>
