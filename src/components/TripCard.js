@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 export function TripCard(props) {
     const itinerary = props.itinerary;
 
+    // if (props.currentUser != null) {
+    //     const tripEventsKey = Object.keys(itinerary.events);
+    //     const tripsArray = tripEventsKey.map((key) => {
+    //         return itinerary.events[key];
+    //     });
+    //     itinerary.events == tripsArray;
+    // }
+
     let eventLength = 0;
     if (itinerary.events != undefined) {
         eventLength = itinerary.events.length;

@@ -1,328 +1,325 @@
 [
-    {
-        "tripName": "Sydney Adventure",
-        "startDate": "2025-10-01",
-        "endDate": "2025-10-05",
-        "destination": "Sydney, Australia",
-        "notes": "Discover the beauty and excitement of Sydney.",
-        "description": "Embark on a captivating journey to Sydney, where every moment is an adventure waiting to unfold. Immerse yourself in the vibrant culture, stunning landscapes, and iconic landmarks of this dynamic city. From the architectural marvel of the Sydney Opera House to the breathtaking views of Bondi Beach, Sydney offers a tapestry of experiences.",
-        "photo": "/img/sydney.jpg",
-        "events": [
-          {
+  {
+    "tripName": "Sydney Adventure",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-05",
+    "destination": "Sydney, Australia",
+    "notes": "Discover the beauty and excitement of Sydney.",
+    "description": "Embark on a captivating journey to Sydney, where every moment is an adventure waiting to unfold. Immerse yourself in the vibrant culture, stunning landscapes, and iconic landmarks of this dynamic city. From the architectural marvel of the Sydney Opera House to the breathtaking views of Bondi Beach, Sydney offers a tapestry of experiences.",
+    "photo": "/img/sydney.jpg",
+    "events": [
+        {
             "eventName": "Arrive in Sydney",
             "date": "2025-10-01",
-            "startTime": "12:00",
-            "endTime": "14:00",
+            "startTime": "12:00 PM",
+            "endTime": "02:00 PM",
             "address": "Sydney Kingsford Smith Airport, Sydney, Australia",
             "eventType": "Travel",
             "img": "/img/sydney-airport.jpg",
             "notes": "Start your adventure in the vibrant city of Sydney."
-          },
-          {
+        },
+        {
             "eventName": "Explore Sydney Opera House",
             "date": "2025-10-01",
-            "startTime": "15:00",
-            "endTime": "17:00",
+            "startTime": "03:00 PM",
+            "endTime": "05:00 PM",
             "address": "Sydney Opera House, Bennelong Point, Sydney, Australia",
             "eventType": "Sightseeing",
             "img": "/img/opera-house.jpg",
             "notes": "Marvel at the iconic Sydney Opera House and its architectural wonders."
-          },
-          {
+        },
+        {
             "eventName": "Bondi Beach Day",
             "date": "2025-10-02",
-            "startTime": "09:00",
-            "endTime": "16:00",
+            "startTime": "09:00 AM",
+            "endTime": "04:00 PM",
             "address": "Bondi Beach, Sydney, Australia",
             "eventType": "Beach Day",
             "img": "/img/bondi-beach.jpg",
             "notes": "Relax and enjoy a day at the famous Bondi Beach."
-          },
-          {
+        },
+        {
             "eventName": "Sydney Harbour Bridge Climb",
             "date": "2025-10-03",
-            "startTime": "10:00",
-            "endTime": "13:00",
+            "startTime": "10:00 AM",
+            "endTime": "01:00 PM",
             "address": "Sydney Harbour Bridge, Sydney, Australia",
             "eventType": "Adventure",
             "img": "/img/harbour-bridge.jpg",
             "notes": "Embark on an exhilarating climb to the top of the Sydney Harbour Bridge."
-          },
-          {
+        },
+        {
             "eventName": "Taronga Zoo Visit",
             "date": "2025-10-04",
-            "startTime": "11:00",
-            "endTime": "15:00",
+            "startTime": "11:00 AM",
+            "endTime": "03:00 PM",
             "address": "Taronga Zoo, Bradleys Head Road, Mosman, Sydney, Australia",
             "eventType": "Wildlife",
             "img": "/img/taronga-zoo.jpg",
             "notes": "Discover Australian wildlife at Taronga Zoo with breathtaking views of the harbor."
-          },
-          {
+        },
+        {
             "eventName": "Dinner at The Rocks",
             "date": "2025-10-04",
-            "startTime": "19:00",
-            "endTime": "21:00",
+            "startTime": "07:00 PM",
+            "endTime": "09:00 PM",
             "address": "The Rocks, Sydney, Australia",
             "eventType": "Dining",
             "img": "/img/the-rocks.jpg",
             "notes": "Experience Sydney's historic district, The Rocks, and enjoy a delightful dinner."
-          },
-          {
+        },
+        {
             "eventName": "Relaxing Day at Manly Beach",
             "date": "2025-10-05",
-            "startTime": "10:00",
-            "endTime": "16:00",
+            "startTime": "10:00 AM",
+            "endTime": "04:00 PM",
             "address": "Manly Beach, Sydney, Australia",
             "eventType": "Leisure",
             "img": "/img/manly-beach.jpg",
             "notes": "Spend a leisurely day at the scenic Manly Beach before departing."
-          },
-          {
+        },
+        {
             "eventName": "Depart from Sydney",
             "date": "2025-10-05",
-            "startTime": "18:00",
-            "endTime": "20:00",
+            "startTime": "06:00 PM",
+            "endTime": "08:00 PM",
             "address": "Sydney Kingsford Smith Airport, Sydney, Australia",
             "eventType": "Travel",
             "img": "/img/sydney-airport.jpg",
             "notes": "Check out from your accommodation and head to the airport for departure."
-          }
-        ]
-      },
-    {
-      "tripName": "Pacific Northwest Adventure",
-      "startDate": "2024-08-15",
-      "endDate": "2024-08-20",
-      "destination": "Seattle, WA",
-      "notes": "Explore the beautiful city of Seattle and its surroundings.",
-      "photo": "/img/seattle-skyline.jpg",
-      "description": "Explore Seattle and all the wonders it has to offer. Take a hike and view picturesque views of Puget Sound, the Olympic Mountains, and Mount Rainier.",
-      "events": [
-        {
-          "eventName": "Arrive in Seattle",
-          "date": "2024-08-15",
-          "startTime": "12:00",
-          "endTime": "14:00",
-          "address": "Seattle-Tacoma International Airport, Seattle, WA",
-          "eventType": "Travel",
-          "img": "/img/seatac-airport.jpg",
-          "notes": "Check into your accommodation after arrival."
-        },
-        {
-          "eventName": "Pike Place Market",
-          "date": "2024-08-15",
-          "startTime": "15:00",
-          "endTime": "17:00",
-          "address": "85 Pike St, Seattle, WA 98101",
-          "eventType": "Sightseeing",
-          "img": "/img/pike-place.jpg",
-          "notes": "Explore the famous Pike Place Market and enjoy local food and crafts."
-        },
-        {
-          "eventName": "Dinner at Space Needle",
-          "date": "2024-08-15",
-          "startTime": "19:00",
-          "endTime": "21:00",
-          "address": "400 Broad St, Seattle, WA 98109",
-          "eventType": "Dining",
-          "img": "/img/space-needle.jpg",
-          "notes": "Dine with a stunning view at the Space Needle."
-        },
-        {
-          "eventName": "Hiking in Mount Rainier National Park",
-          "date": "2024-08-16",
-          "startTime": "09:00",
-          "endTime": "16:00",
-          "address": "Mount Rainier National Park, WA",
-          "eventType": "Outdoor Activity",
-          "img": "/img/mount-rainier.jpg",
-          "notes": "Enjoy a day of hiking surrounded by the beauty of nature."
-        },
-        {
-          "eventName": "Breakfast at Portage Bay Cafe",
-          "date": "2024-08-17",
-          "startTime": "08:00",
-          "endTime": "09:00",
-          "address": "4130 Roosevelt Way NE, Seattle, WA 98105",
-          "eventType": "Dining",
-          "img": "/img/portage-bay.jpg",
-          "notes": "Indulge in a delicious brunch at Portage Bay Cafe before your cultural exploration."
-        },
-        {
-          "eventName": "Visit the Museum of Pop Culture",
-          "date": "2024-08-17",
-          "startTime": "10:00",
-          "endTime": "13:00",
-          "address": "325 5th Ave N, Seattle, WA 98109",
-          "eventType": "Cultural",
-          "img": "/img/mopop.jpg",
-          "notes": "Explore the exhibits at the Museum of Pop Culture."
-        },
-        {
-          "eventName": "Evening at Gas Works Park",
-          "date": "2024-08-17",
-          "startTime": "14:30",
-          "endTime": "17:00",
-          "address": "2101 N Northlake Way, Seattle, WA 98103",
-          "eventType": "Outdoor Activity",
-          "img": "/img/gas-works-park.jpg",
-          "notes": "Relax and enjoy the evening at Gas Works Park, offering scenic views of the Seattle skyline."
-        },
-        {
-          "eventName": "Morning Stroll at Kerry Park",
-          "date": "2024-08-18",
-          "startTime": "08:00",
-          "endTime": "10:00",
-          "address": "211 W Highland Dr, Seattle, WA 98119",
-          "eventType": "Sightseeing",
-          "img": "/img/kerry-park.jpg",
-          "notes": "Take a leisurely morning stroll and enjoy panoramic views of Seattle from Kerry Park."
-        },
-        {
-          "eventName": "Lunch at The Pink Door",
-          "date": "2024-08-18",
-          "startTime": "12:30",
-          "endTime": "14:30",
-          "address": "1919 Post Alley, Seattle, WA 98101",
-          "eventType": "Dining",
-          "img": "/img/pink-door.jpg",
-          "notes": "Savor Italian cuisine with a lively atmosphere at The Pink Door."
-        },
-        {
-          "eventName": "Seattle Aquarium Exploration",
-          "date": "2024-08-18",
-          "startTime": "15:30",
-          "endTime": "17:30",
-          "address": "1483 Alaskan Way, Pier 59, Seattle, WA 98101",
-          "eventType": "Sightseeing",
-          "img": "/img/seattle-aquarium.jpg",
-          "notes": "Discover marine life and enjoy interactive exhibits at the Seattle Aquarium."
-        },
-        {
-          "eventName": "Dinner in Capitol Hill",
-          "date": "2024-08-18",
-          "startTime": "19:00",
-          "endTime": "21:00",
-          "address": "Capitol Hill, Seattle, WA",
-          "eventType": "Dining",
-          "img": "/img/capitol-hill.jpg",
-          "notes": "Explore the vibrant dining scene in Capitol Hill for a delightful dinner."
-        },
-        {
-          "eventName": "Boat Tour on Lake Union",
-          "date": "2024-08-19",
-          "startTime": "11:00",
-          "endTime": "13:00",
-          "address": "1200 Westlake Ave N, Seattle, WA 98109",
-          "eventType": "Outdoor Activity",
-          "img": "/img/lake-union.jpg",
-          "notes": "Experience the beauty of Seattle from the water with a boat tour on Lake Union."
-        },
-        {
-          "eventName": "Dinner at Canlis",
-          "date": "2024-08-19",
-          "startTime": "18:30",
-          "endTime": "21:00",
-          "address": "2576 Aurora Ave N, Seattle, WA 98109",
-          "eventType": "Dining",
-          "img": "/img/canlis.jpg",
-          "notes": "Indulge in a fine dining experience with breathtaking views at Canlis."
-        }, 
-        {
-          "eventName": "Departure from Seattle",
-          "date": "2024-08-20",
-          "startTime": "10:00",
-          "endTime": "12:00",
-          "address": "Seattle-Tacoma International Airport, Seattle, WA",
-          "eventType": "Travel",
-          "img": "/img/seatac-airport.jpg",
-          "notes": "Check out of your accommodation and head to the airport for your departure."
         }
-      ]
+    ]
+  },
+  {
+    "tripName": "Pacific Northwest Adventure",
+    "startDate": "2024-08-15",
+    "endDate": "2024-08-20",
+    "destination": "Seattle, WA",
+    "notes": "Explore the beautiful city of Seattle and its surroundings.",
+    "photo": "/img/seattle-skyline.jpg",
+    "description": "Explore Seattle and all the wonders it has to offer. Take a hike and view picturesque views of Puget Sound, the Olympic Mountains, and Mount Rainier.",
+    "events": [
+        {
+            "eventName": "Arrive in Seattle",
+            "date": "2024-08-15",
+            "startTime": "12:00 PM",
+            "endTime": "02:00 PM",
+            "address": "Seattle-Tacoma International Airport, Seattle, WA",
+            "eventType": "Travel",
+            "img": "/img/seatac-airport.jpg",
+            "notes": "Check into your accommodation after arrival."
+        },
+        {
+            "eventName": "Pike Place Market",
+            "date": "2024-08-15",
+            "startTime": "03:00 PM",
+            "endTime": "05:00 PM",
+            "address": "85 Pike St, Seattle, WA 98101",
+            "eventType": "Sightseeing",
+            "img": "/img/pike-place.jpg",
+            "notes": "Explore the famous Pike Place Market and enjoy local food and crafts."
+        },
+        {
+            "eventName": "Dinner at Space Needle",
+            "date": "2024-08-15",
+            "startTime": "07:00 PM",
+            "endTime": "09:00 PM",
+            "address": "400 Broad St, Seattle, WA 98109",
+            "eventType": "Dining",
+            "img": "/img/space-needle.jpg",
+            "notes": "Dine with a stunning view at the Space Needle."
+        },
+        {
+            "eventName": "Hiking in Mount Rainier National Park",
+            "date": "2024-08-16",
+            "startTime": "09:00 AM",
+            "endTime": "04:00 PM",
+            "address": "Mount Rainier National Park, WA",
+            "eventType": "Outdoor Activity",
+            "img": "/img/mount-rainier.jpg",
+            "notes": "Enjoy a day of hiking surrounded by the beauty of nature."
+        },
+        {
+            "eventName": "Breakfast at Portage Bay Cafe",
+            "date": "2024-08-17",
+            "startTime": "08:00 AM",
+            "endTime": "09:00 AM",
+            "address": "4130 Roosevelt Way NE, Seattle, WA 98105",
+            "eventType": "Dining",
+            "img": "/img/portage-bay.jpg",
+            "notes": "Indulge in a delicious brunch at Portage Bay Cafe before your cultural exploration."
+        },
+        {
+            "eventName": "Visit the Museum of Pop Culture",
+            "date": "2024-08-17",
+            "startTime": "10:00 AM",
+            "endTime": "01:00 PM",
+            "address": "325 5th Ave N, Seattle, WA 98109",
+            "eventType": "Cultural",
+            "img": "/img/mopop.jpg",
+            "notes": "Explore the exhibits at the Museum of Pop Culture."
+        },
+        {
+            "eventName": "Evening at Gas Works Park",
+            "date": "2024-08-17",
+            "startTime": "02:30 PM",
+            "endTime": "05:00 PM",
+            "address": "2101 N Northlake Way, Seattle, WA 98103",
+            "eventType": "Outdoor Activity",
+            "img": "/img/gas-works-park.jpg",
+            "notes": "Relax and enjoy the evening at Gas Works Park, offering scenic views of the Seattle skyline."
+        },
+        {
+            "eventName": "Morning Stroll at Kerry Park",
+            "date": "2024-08-18",
+            "startTime": "08:00 AM",
+            "endTime": "10:00 AM",
+            "address": "211 W Highland Dr, Seattle, WA 98119",
+            "eventType": "Sightseeing",
+            "img": "/img/kerry-park.jpg",
+            "notes": "Take a leisurely morning stroll and enjoy panoramic views of Seattle from Kerry Park."
+        },
+        {
+            "eventName": "Lunch at The Pink Door",
+            "date": "2024-08-18",
+            "startTime": "12:30 PM",
+            "endTime": "02:30 PM",
+            "address": "1919 Post Alley, Seattle, WA 98101",
+            "eventType": "Dining",
+            "img": "/img/pink-door.jpg",
+            "notes": "Savor Italian cuisine with a lively atmosphere at The Pink Door."
+        },
+        {
+            "eventName": "Seattle Aquarium Exploration",
+            "date": "2024-08-18",
+            "startTime": "03:30 PM",
+            "endTime": "05:30 PM",
+            "address": "1483 Alaskan Way, Pier 59, Seattle, WA 98101",
+            "eventType": "Sightseeing",
+            "img": "/img/seattle-aquarium.jpg",
+            "notes": "Discover marine life and enjoy interactive exhibits at the Seattle Aquarium."
+        },
+        {
+            "eventName": "Dinner in Capitol Hill",
+            "date": "2024-08-18",
+            "startTime": "07:00 PM",
+            "endTime": "09:00 PM",
+            "address": "Capitol Hill, Seattle, WA",
+            "eventType": "Dining",
+            "img": "/img/capitol-hill.jpg",
+            "notes": "Explore the vibrant dining scene in Capitol Hill for a delightful dinner."
+        },
+        {
+            "eventName": "Boat Tour on Lake Union",
+            "date": "2024-08-19",
+            "startTime": "11:00 AM",
+            "endTime": "01:00 PM",
+            "address": "1200 Westlake Ave N, Seattle, WA 98109",
+            "eventType": "Outdoor Activity",
+            "img": "/img/lake-union.jpg",
+            "notes": "Experience the beauty of Seattle from the water with a boat tour on Lake Union."
+        },
+        {
+            "eventName": "Dinner at Canlis",
+            "date": "2024-08-19",
+            "startTime": "06:30 PM",
+            "endTime": "09:00 PM",
+            "address": "2576 Aurora Ave N, Seattle, WA 98109",
+            "eventType": "Dining",
+            "img": "/img/canlis.jpg",
+            "notes": "Indulge in a fine dining experience with breathtaking views at Canlis."
+        },
+        {
+            "eventName": "Departure from Seattle",
+            "date": "2024-08-20",
+            "startTime": "10:00 AM",
+            "endTime": "12:00 PM",
+            "address": "Seattle-Tacoma International Airport, Seattle, WA",
+            "eventType": "Travel",
+            "img": "/img/seatac-airport.jpg",
+            "notes": "Check out of your accommodation and head to the airport for your departure."
+        }]
     },
     {
-        "tripName": "Machu Picchu Exploration",
-        "startDate": "2024-09-10",
-        "endDate": "2024-09-15",
-        "destination": "Machu Picchu, Peru",
-        "notes": "Embark on an unforgettable journey to discover the ancient wonders of Machu Picchu.",
-        "photo": "/img/machu-picchu.jpg",
-        "description": "Explore a breathtaking and remote location high in the Andes Mountains of Peru. Approximately 2,430 meters above sea level, rediscover the lost city hidden behind the mountains.",
-        "events": [
-          {
-            "eventName": "Arrive in Cusco",
-            "date": "2024-09-10",
-            "startTime": "12:00",
-            "endTime": "14:00",
-            "address": "Alejandro Velasco Astete International Airport, Cusco, Peru",
-            "eventType": "Travel",
-            "img": "/img/cusco-airport.jpg",
-            "notes": "Begin your journey in the historic city of Cusco."
-          },
-          {
-            "eventName": "Explore Cusco City Center",
-            "date": "2024-09-10",
-            "startTime": "15:00",
-            "endTime": "18:00",
-            "address": "Plaza de Armas, Cusco, Peru",
-            "eventType": "Sightseeing",
-            "img": "/img/cusco-plaza.jpg",
-            "notes": "Discover the charm of Cusco's historic city center."
-          },
-          {
-            "eventName": "Train to Aguas Calientes",
-            "date": "2024-09-11",
-            "startTime": "08:00",
-            "endTime": "12:00",
-            "address": "PeruRail Station, Cusco, Peru",
-            "eventType": "Travel",
-            "img": "/img/perurail.jpg",
-            "notes": "Take a scenic train journey to Aguas Calientes, the gateway to Machu Picchu."
-          },
-          {
-            "eventName": "Machu Picchu Guided Tour",
-            "date": "2024-09-12",
-            "startTime": "06:00",
-            "endTime": "12:00",
-            "address": "Machu Picchu, Peru",
-            "eventType": "Cultural",
-            "img": "/img/machu-picchu.jpg",
-            "notes": "Embark on a guided tour to explore the ancient ruins of Machu Picchu."
-          },
-          {
-            "eventName": "Hike to Huayna Picchu",
-            "date": "2024-09-13",
-            "startTime": "07:00",
-            "endTime": "10:00",
-            "address": "Huayna Picchu, Machu Picchu, Peru",
-            "eventType": "Adventure",
-            "img": "/img/huayna-picchu.jpg",
-            "notes": "Take a challenging hike to the summit of Huayna Picchu for breathtaking views."
-          },
-          {
-            "eventName": "Free Day in Aguas Calientes",
-            "date": "2024-09-14",
-            "startTime": "09:00",
-            "endTime": "17:00",
-            "address": "Aguas Calientes, Peru",
-            "eventType": "Leisure",
-            "img": "/img/aguas-calientes.jpg",
-            "notes": "Enjoy a relaxing day exploring Aguas Calientes at your own pace."
-          },
-          {
-            "eventName": "Depart from Cusco",
-            "date": "2024-09-15",
-            "startTime": "10:00",
-            "endTime": "12:00",
-            "address": "Alejandro Velasco Astete International Airport, Cusco, Peru",
-            "eventType": "Travel",
-            "img": "/img/cusco-airport.jpg",
-            "notes": "Check out from your accommodation and head to the airport for departure."
-          }
-        ]
+      "tripName": "Machu Picchu Exploration",
+      "startDate": "2024-09-10",
+      "endDate": "2024-09-15",
+      "destination": "Machu Picchu, Peru",
+      "notes": "Embark on an unforgettable journey to discover the ancient wonders of Machu Picchu.",
+      "photo": "/img/machu-picchu.jpg",
+      "description": "Explore a breathtaking and remote location high in the Andes Mountains of Peru. Approximately 2,430 meters above sea level, rediscover the lost city hidden behind the mountains.",
+      "events": [
+        {
+          "eventName": "Arrive in Cusco",
+          "date": "2024-09-10",
+          "startTime": "12:00 PM",
+          "endTime": "2:00 PM",
+          "address": "Alejandro Velasco Astete International Airport, Cusco, Peru",
+          "eventType": "Travel",
+          "img": "/img/cusco-airport.jpg",
+          "notes": "Begin your journey in the historic city of Cusco."
+        },
+        {
+          "eventName": "Explore Cusco City Center",
+          "date": "2024-09-10",
+          "startTime": "3:00 PM",
+          "endTime": "6:00 PM",
+          "address": "Plaza de Armas, Cusco, Peru",
+          "eventType": "Sightseeing",
+          "img": "/img/cusco-plaza.jpg",
+          "notes": "Discover the charm of Cusco's historic city center."
+        },
+        {
+          "eventName": "Train to Aguas Calientes",
+          "date": "2024-09-11",
+          "startTime": "8:00 AM",
+          "endTime": "12:00 PM",
+          "address": "PeruRail Station, Cusco, Peru",
+          "eventType": "Travel",
+          "img": "/img/perurail.jpg",
+          "notes": "Take a scenic train journey to Aguas Calientes, the gateway to Machu Picchu."
+        },
+        {
+          "eventName": "Machu Picchu Guided Tour",
+          "date": "2024-09-12",
+          "startTime": "6:00 AM",
+          "endTime": "12:00 PM",
+          "address": "Machu Picchu, Peru",
+          "eventType": "Cultural",
+          "img": "/img/machu-picchu.jpg",
+          "notes": "Embark on a guided tour to explore the ancient ruins of Machu Picchu."
+        },
+        {
+          "eventName": "Hike to Huayna Picchu",
+          "date": "2024-09-13",
+          "startTime": "7:00 AM",
+          "endTime": "10:00 AM",
+          "address": "Huayna Picchu, Machu Picchu, Peru",
+          "eventType": "Adventure",
+          "img": "/img/huayna-picchu.jpg",
+          "notes": "Take a challenging hike to the summit of Huayna Picchu for breathtaking views."
+        },
+        {
+          "eventName": "Free Day in Aguas Calientes",
+          "date": "2024-09-14",
+          "startTime": "9:00 AM",
+          "endTime": "5:00 PM",
+          "address": "Aguas Calientes, Peru",
+          "eventType": "Leisure",
+          "img": "/img/aguas-calientes.jpg",
+          "notes": "Enjoy a relaxing day exploring Aguas Calientes at your own pace."
+        },
+        {
+          "eventName": "Depart from Cusco",
+          "date": "2024-09-15",
+          "startTime": "10:00 AM",
+          "endTime": "12:00 PM",
+          "address": "Alejandro Velasco Astete International Airport, Cusco, Peru",
+          "eventType": "Travel",
+          "img": "/img/cusco-airport.jpg",
+          "notes": "Check out from your accommodation and head to the airport for departure."
+        }]
       },
-
       {
         "tripName": "Berlin Adventures",
         "startDate": "2025-04-01",
@@ -335,8 +332,8 @@
           {
             "eventName": "Arrive in Berlin",
             "date": "2025-04-01",
-            "startTime": "12:00",
-            "endTime": "14:00",
+            "startTime": "12:00 PM",
+            "endTime": "2:00 PM",
             "address": "Berlin Brandenburg Airport, Berlin, Germany",
             "eventType": "Travel",
             "img": "/img/berlin-airport.jpg",
@@ -345,8 +342,8 @@
           {
             "eventName": "Visit Brandenburg Gate",
             "date": "2025-04-01",
-            "startTime": "15:00",
-            "endTime": "17:00",
+            "startTime": "3:00 PM",
+            "endTime": "5:00 PM",
             "address": "Pariser Platz, 10117 Berlin, Germany",
             "eventType": "Sightseeing",
             "img": "/img/brandenburg-gate.jpg",
@@ -355,8 +352,8 @@
           {
             "eventName": "Explore Museum Island",
             "date": "2025-04-02",
-            "startTime": "10:00",
-            "endTime": "16:00",
+            "startTime": "10:00 AM",
+            "endTime": "4:00 PM",
             "address": "Museum Island, Berlin, Germany",
             "eventType": "Cultural",
             "img": "/img/museum-island.jpg",
@@ -365,8 +362,8 @@
           {
             "eventName": "Checkpoint Charlie",
             "date": "2025-04-03",
-            "startTime": "09:00",
-            "endTime": "12:00",
+            "startTime": "9:00 AM",
+            "endTime": "12:00 PM",
             "address": "Friedrichstraße 43-45, 10117 Berlin, Germany",
             "eventType": "Historical",
             "img": "/img/checkpoint-charlie.jpg",
@@ -375,8 +372,8 @@
           {
             "eventName": "Berlin Wall East Side Gallery",
             "date": "2025-04-04",
-            "startTime": "13:00",
-            "endTime": "15:00",
+            "startTime": "1:00 PM",
+            "endTime": "3:00 PM",
             "address": "Mühlenstraße, 10243 Berlin, Germany",
             "eventType": "Art and History",
             "img": "/img/east-side-gallery.jpg",
@@ -385,8 +382,8 @@
           {
             "eventName": "Dinner in Kreuzberg",
             "date": "2025-04-04",
-            "startTime": "19:00",
-            "endTime": "21:00",
+            "startTime": "7:00 PM",
+            "endTime": "9:00 PM",
             "address": "Kreuzberg, Berlin, Germany",
             "eventType": "Dining",
             "img": "/img/kreuzberg.jpg",
@@ -395,8 +392,8 @@
           {
             "eventName": "Farewell Day at Tiergarten",
             "date": "2025-04-05",
-            "startTime": "10:00",
-            "endTime": "16:00",
+            "startTime": "10:00 AM",
+            "endTime": "4:00 PM",
             "address": "Tiergarten, Berlin, Germany",
             "eventType": "Leisure",
             "img": "/img/tiergarten.jpg",
@@ -405,8 +402,8 @@
           {
             "eventName": "Depart from Berlin",
             "date": "2025-04-05",
-            "startTime": "18:00",
-            "endTime": "20:00",
+            "startTime": "6:00 PM",
+            "endTime": "8:00 PM",
             "address": "Berlin Brandenburg Airport, Berlin, Germany",
             "eventType": "Travel",
             "img": "/img/berlin-airport.jpg",

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom" //ignore for now
+import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 
 export function EventFeatured(props) {
@@ -7,12 +7,6 @@ export function EventFeatured(props) {
     const tripName = URLParams.featuredTripName;
     const eventName = URLParams.eventName;
 
-    // How we're process data using props: 
-    // 1. Loop over the tripsData variable (which is an array of objects) and find the correct trip with "tripName" (this is an object). 
-    // 2. Within that trip object, access the "events" key. The values of the "events" key are an array of objects. 
-    // 3. Loop over the "events" key's values, and find the correct event using "eventName". 
-    // 4. Store that event (an object) into a new variable, and use the data from the event variable to create the events page.
-    // Refer to userData.json to visualize how we're looping/processing the data
     let tripEvent;
     tripsData.forEach((trip) => {
         if (trip.tripName == tripName) {
@@ -28,8 +22,6 @@ export function EventFeatured(props) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let dateObj = new Date(tripEvent.date);
     
-    //use "TripEvent" to fill in data by accessing it's properties! Refer to userData.json, or console.log(tripEvent).
-    //Also use date object to format it correctly.
     return (
         <main>
             <div className="event-content-wrapper">

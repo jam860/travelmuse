@@ -9,7 +9,7 @@ export function Itinerary(props) {
     const navigate = useNavigate();
 
     //sort all itinerary data first
-    if (tripsData != null) {
+    if (tripsData !== null) {
         tripsData.forEach((trip) => {
             let sortedTripEvents = trip.events;
             if (sortedTripEvents !== undefined) {
@@ -31,7 +31,7 @@ export function Itinerary(props) {
     let endDateObj;
 
     //find all itinerary data that matches url and pair it up with dates
-    if (tripsData != null) {
+    if (tripsData !== null) {
         tripsData.forEach((trip) => {
             if (trip.tripName === tripNameString) {
                 startDateObj = new Date(trip.startDate);

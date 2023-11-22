@@ -13,7 +13,7 @@ import { EventFeatured } from './EventFeatured.js';
 import { SignIn } from './SignIn.js';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, push as firebasePush, update as firebaseUpdate, onValue } from 'firebase/database';
 import { Outlet } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
@@ -54,7 +54,16 @@ function App() {
         if (tripObjects != null) {
           const tripObjectsKeys = Object.keys(tripObjects);
           const tripsArray = tripObjectsKeys.map((key) => {
-            return tripObjects[key];
+            const tripCopy = {...tripObjects[key]};
+            tripCopy.key = key;
+            if (tripCopy.events !== undefined) {
+              const tripEventKeys = Object.keys(tripCopy.events);
+              const tripCopyEvents = tripEventKeys.map((key) => {
+                return {...tripCopy.events[key]};
+              });
+              tripCopy.events = tripCopyEvents;
+            }
+            return tripCopy;
           });
           setTripsData([...tripsArray]);
         } else {
@@ -70,52 +79,66 @@ function App() {
       setTripsData([trip]);
       if (currentUser !== null) {
         const firebaseUserRef = ref(db, currentUser.userId);
-        firebaseSet(firebaseUserRef, [trip]);
+        firebasePush(firebaseUserRef, trip);
       }
     } else {
       setTripsData([trip, ...tripsData]);
         if (currentUser !== null) {
           const firebaseUserRef = ref(db, currentUser.userId);
-          firebaseSet(firebaseUserRef, [trip, ...tripsData]);
+          firebasePush(firebaseUserRef, trip);
         }
     }
   }
 
   function addEventToTrip(tripName, event) {
+    let getKey = "";
     const trip = tripsData.find((trip) => {
+      getKey = trip.key;
       return trip.tripName === tripName;
     });
-    console.log(trip);
-    if (trip.events === null) {
+    console.log(getKey);
+    if (trip.events === undefined) {
       trip.events = [event];
     } else {
       trip.events.push(event);
     }
+    if (currentUser !== null) {
+      const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey + "/events");
+      firebasePush(firebaseUserRef, event);
+    }
+
   }
 
   // https://www.geeksforgeeks.org/remove-array-element-based-on-object-property-in-javascript/
   function deleteEvent(tripName, eventName) {
+    let getKey = "";
+    let tripFilteredCopy;
     const newTripsData = tripsData.map((trip) => {
       if (trip.tripName === tripName) {
+        getKey = trip.key;
         trip.events = trip.events.filter((event) => event.eventName !== eventName);
+        tripFilteredCopy = trip.events;
       }
       return trip;
     });
     setTripsData(newTripsData);
     if (currentUser !== null) {
-      const firebaseUserRef = ref(db, currentUser.userId);
-      firebaseSet(firebaseUserRef, newTripsData);
+      const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey + "/events");
+      firebaseSet(firebaseUserRef, tripFilteredCopy);
     }
   }
 
   function deleteItinerary(tripName) {
+    let getKey = "";
     const newTripsData = tripsData.filter((trip) => {
+      getKey = trip.key;
       return trip.tripName !== tripName;
     });
     setTripsData(newTripsData);
+
     if (currentUser !== null) {
-      const firebaseUserRef = ref(db, currentUser.userId);
-      firebaseSet(firebaseUserRef, newTripsData);
+      const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey);
+      firebaseSet(firebaseUserRef, null);
     }
   }
 

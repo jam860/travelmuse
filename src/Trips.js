@@ -14,7 +14,7 @@ export function Trips(props) {
 
     let itineraryCards = [];
     if (itineraryInfo != null) {
-        // console.log(itineraryInfo);
+        console.log(itineraryInfo);
         itineraryCards = itineraryInfo.map((itinerary) => {
             return (<TripCard itinerary={itinerary} key={itinerary.tripName}/>);
         }); 
