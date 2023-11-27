@@ -42,7 +42,7 @@ function App() {
 
   }, []);
 
-
+  //https://stackoverflow.com/questions/36415904/is-there-a-way-to-use-map-on-an-array-in-reverse-order-with-javascript
   useEffect(() => {
     if (currentUser != null && currentUser.userId != null) {
       const userDataRef = ref(db, currentUser.userId);
@@ -50,7 +50,7 @@ function App() {
         const tripObjects = snapshot.val();
         if (tripObjects != null) {
           const tripObjectsKeys = Object.keys(tripObjects);
-          const tripsArray = tripObjectsKeys.map((key) => {
+          const tripsArray = tripObjectsKeys.slice(0).reverse().map((key) => {
             const tripCopy = {...tripObjects[key]};
             tripCopy.key = key;
             if (tripCopy.events !== undefined) {
@@ -81,7 +81,7 @@ function App() {
     } else {
       setTripsData([trip, ...tripsData]);
         if (currentUser !== null) {
-          const firebaseUserRef = ref(db, currentUser.userId);
+          const firebaseUserRef = ref(db, currentUser.userId); //for unshift, maybe set to null, push trip first, then use tripsData to push again? idk just a thought
           firebasePush(firebaseUserRef, trip);
         }
     }
@@ -127,7 +127,9 @@ function App() {
   function deleteItinerary(tripName) {
     let getKey = "";
     const newTripsData = tripsData.filter((trip) => {
-      getKey = trip.key;
+      if (trip.tripName === tripName) {
+        getKey = trip.key;
+      }
       return trip.tripName !== tripName;
     });
     setTripsData(newTripsData);
