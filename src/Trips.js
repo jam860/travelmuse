@@ -40,9 +40,9 @@ export function Trips(props) {
                 <section>
                     <div className="recommend-itinerary-container">
                         <div className="container">
-                            <h1 className="pt-5 text-center">My Trips</h1>
-                            {(props.currentUser == null) ? <p className="text-center">You are currently not signed in! Any changes made to these trips will not be saved. Please sign in to save your changes.</p> : <p className="text-center">Welcome back {firstName}! Let's take a look at your itineraries.</p>}
-                            {(itineraries.length === 0 && searchValue.length === 0) ? <><p className="no-trips text-center">You have no itineraries yet! <Link className="link" to="/plan">Let's plan.</Link></p></>: 
+                            <h1 className="pt-5 text-center mytrips-title">My Trips</h1>
+                            {(props.currentUser == null) ? <p className="text-center mytrips-subtitle">You are currently not signed in! Any changes made to these trips will not be saved. Please <Link className="light-link" to="/login">sign in</Link>  to save your changes.</p> : <p className="text-center mytrips-subtitle">Welcome back {firstName}! Let's take a look at your itineraries.</p>}
+                            {(itineraries.length === 0 && searchValue.length === 0) ? <><p className="pt-5 no-trips text-center mytrips-subtitle">You have no itineraries yet! <Link className="light-link" to="/plan">Plan with us.</Link></p></>: 
                             <div>                             
                                 <div className="pt-4">
                                     <h2>Search Trips</h2>

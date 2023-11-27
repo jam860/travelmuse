@@ -29,11 +29,13 @@ export function Itinerary(props) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let startDateObj;
     let endDateObj;
+    let tripPhoto;
 
     //find all itinerary data that matches url and pair it up with dates
     if (tripsData !== null) {
         tripsData.forEach((trip) => {
             if (trip.tripName === tripNameString) {
+                tripPhoto = trip.photo;
                 startDateObj = new Date(trip.startDate);
                 endDateObj = new Date(trip.endDate);
                 if (trip.events !== undefined) {
@@ -56,33 +58,39 @@ export function Itinerary(props) {
 
     function deleteClick() {
         navigate(-1);
-        props.deleteItinerary(tripNameString); 
+        props.deleteItinerary(tripNameString);
     }
 
+    console.log(tripsData);
     return (
         <main>
             <div className="itinerary-body">
                 <div className="itinerary-body-content">
-                    <div className="pb-4">
-                        <Link to="/mytrips" role="button" aria-label="back">
-                            <span className="material-icons icon-center">&#xE5C4;</span><p className="d-inline">My Trips</p>
-                        </Link>
-                    </div>
                     <section>
                         <div className="placeTime">
-                            <h1>{tripNameString}</h1>
-                            <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                             <div>
-                                <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">
-                                    <span className="material-icons icon-center">&#xE145;</span>Add New Event
-                                </Link>
-                                <button onClick={deleteClick} aria-label="delete event" className="btn btn-add border-0 ml-0">
-                                    <span className="material-icons icon-center">&#xE872;</span>Delete Trip
-                                </button>
+                                <div className="pb-4">
+                                    <Link to="/mytrips" role="button" aria-label="back">
+                                        <span className="material-icons icon-center">&#xE5C4;</span><p className="d-inline">My Trips</p>
+                                    </Link>
+                                </div>
+                                <h1>{tripNameString}</h1>
+                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                                <div>
+                                    <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">
+                                        <span className="material-icons icon-center">&#xE145;</span>Add New Event
+                                    </Link>
+                                    <button onClick={deleteClick} aria-label="delete event" className="btn btn-add border-0 ml-0">
+                                        <span className="material-icons icon-center">&#xE872;</span>Delete Trip
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <img className="trip-image" src={(tripPhoto === "") ? "/img/travel-back-filler.jpg" : tripPhoto} alt="itinerary card title" />
                             </div>
                         </div>
                     </section>
-                    {Object.keys(tripCards).length > 0 ? Object.values(tripCards) : <p>No events yet. Try to add an event!</p>}
+                    {Object.keys(tripCards).length > 0 ? Object.values(tripCards) : <p>No events yet. Try to <Link to={"eventform"} className="dark-link">add an event!</Link></p>}
                 </div>
             </div>
         </main>

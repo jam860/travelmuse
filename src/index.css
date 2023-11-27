@@ -11,7 +11,7 @@
   }
   
   main {
-    background-color: #F1E8B8
+    background-color: #800000;
   }
   
   footer {
@@ -38,12 +38,17 @@
     color: black;
   }
 
-  .link {
-    color: #d34e24;
+  .light-link {
+    color: #F1E8B8;
     text-decoration: underline;
     font-weight: 600;
   }
-  
+
+  .dark-link {
+    color: #800000;
+    text-decoration: underline;
+    font-weight: 600;
+  }
   
   /* Navbar/Footer CSS */  
   .nav-container ul {
@@ -77,8 +82,16 @@
   .quick-links a {
     font-weight: 500;
     color: white;
-    font-size: 1em;
+    font-size: 1.5em;
     text-decoration: none;
+  }
+
+  .quick-links ul {
+    padding: 0;
+  }
+
+  .quick-links li {
+    list-style-type: none;
   }
   
   .travel-muse-info {
@@ -161,6 +174,10 @@
   .recommend-itinerary-container {
     padding-bottom: 6rem;
   }
+
+  .recommend-itinerary-container h2 {
+    color: white;
+  }
   
   .card {
     width: 16rem;
@@ -223,64 +240,78 @@
   }
   
   /* sampleEvent CSS */
-  .event-content-wrapper {
-    padding: 0 2rem;
-}
-
-.btn-back {
-    padding-bottom: 2rem;
-    font-size: 1.25rem;
-}
-
-.btn-add {
-    background-color: #FAB573;
-    --bs-btn-active-bg: #FAB573;
-    font-size: 1.25rem;
-    margin-bottom: .5rem;
-    margin-right: 1rem;
-}
-
-.btn-add:hover {
-    background-color:#FAB573;
-}
-
-.icon-center {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.event-content-container {
-    flex-direction: column-reverse;
-}
-
-.event-overview-container {
-    position: relative;
-    padding: 5rem 3rem;
-}
-
-.event-details-container {
-    padding-bottom: 5rem;
-}
-
-.event-details-content {
-    position: relative;
-    padding: 2rem 5rem 3rem 3rem;
+  .event-body {
+    padding: 5rem 4rem;
     background-color: white;
-    border-radius: 10px;
-}
+  }
 
-.event-image img {
-    max-width: 300px;
-    max-height: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+  .btn-back {
+      padding-bottom: 2rem;
+      font-size: 1.25rem;
+  }
 
-.itinerary-form-container.event-form-image:before {
-    background-image: url("../public/img/azenhas-do-mar.jpeg");
-}
+  .btn-add {
+      background-color: #FAB573;
+      --bs-btn-active-bg: #FAB573;
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+      margin-right: 1rem;
+  }
+
+  .btn-add:hover {
+      background-color:#FAB573;
+  }
+
+  .icon-center {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+  }
+
+  .event-content-container {
+      flex-direction: column-reverse;
+  }
+
+  .event-overview-container {
+      padding: 0;
+  }
+
+  .overview-content h2 {
+    padding-bottom: 3rem;
+  }
+
+  .overview-content h3 {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+
+  .event-details-container {
+      padding-bottom: 5rem;
+  }
+
+  .event-overall {
+    background-color: white;
+  }
+
+  .event-details-content {
+      position: relative;
+      padding: 2rem 5rem 3rem 3rem;
+      background-color: white;
+      border-radius: 10px;
+  }
+
+  .event-image img {
+      max-width: 300px;
+      max-height: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+  }
+
+  .itinerary-form-container.event-form-image:before {
+      background-image: url("../public/img/azenhas-do-mar.jpeg");
+  }
   
   /* Itinerary CSS */
   
@@ -313,13 +344,20 @@
     background-color: white;
     padding: 1rem;
   }
+
+  .trip-image {
+    max-width: 360px;
+    height: auto;
+  }
   
   .placeTime{
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 1rem;
   }
   
   .event-container {
-    background-color: #F1E8B8;
+    background-color: #800000;
     margin-bottom: 2rem;
     border-radius: 10px;
   }
@@ -328,7 +366,8 @@
     padding: 3rem;
   }
   
-  .event-content p {
+  .event-content p, .event-content h4 {
+    color: white;
     margin: 0;
   }
   
@@ -337,10 +376,18 @@
     height: 100%;
   }
 
-  /* myTrips */
+  /* myTrips CSS */
 
   .no-trips {
     font-size: 3rem;
+  }
+
+  .mytrips-subtitle {
+    color: white;
+  }
+
+  .mytrips-title {
+    color: white;
   }
   
   @media (min-width: 768px) {
@@ -384,6 +431,10 @@
     .itinerary-body-content {
         padding: 4rem;
     }
+
+    .event-overview-container {
+      padding: 5rem 3rem;
+  }
   
   }
   

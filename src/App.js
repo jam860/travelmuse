@@ -81,7 +81,7 @@ function App() {
     } else {
       setTripsData([trip, ...tripsData]);
         if (currentUser !== null) {
-          const firebaseUserRef = ref(db, currentUser.userId); //for unshift, maybe set to null, push trip first, then use tripsData to push again? idk just a thought
+          const firebaseUserRef = ref(db, currentUser.userId);
           firebasePush(firebaseUserRef, trip);
         }
     }
@@ -156,7 +156,7 @@ function App() {
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData} />} />
         <Route path="eventPage" element={<Event tripsData={tripsData} />} />
       </Routes>
-      <Footer />
+      <Footer currentUser={currentUser}/>
     </>
   );
 }
