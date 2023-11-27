@@ -351,8 +351,6 @@
   }
   
   .placeTime{
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 1rem;
   }
   
@@ -430,6 +428,11 @@
   
     .itinerary-body-content {
         padding: 4rem;
+    }
+
+    .placeTime {
+      display: flex;
+      justify-content: space-between;
     }
 
     .event-overview-container {
