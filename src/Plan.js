@@ -8,6 +8,7 @@ export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
@@ -76,12 +77,13 @@ export function Plan(props) {
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
         } else {
+            setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
             if (destinationPhoto != undefined) {
                 const imageRef = ref(storage, `trip-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    alert("Form Submitted!");
+                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     setErrorSameName(false);
@@ -133,7 +135,7 @@ export function Plan(props) {
                             <input type="file" onChange={handleDestinationPhotoChange} className="form-control" id="fileUpload" accept="image/*" />
                         </div>
                         <div className="col-12">
-                            <input type="submit" value="Save" className="input-submit" />
+                            <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
                         </div>
                     </form>
                 </div>

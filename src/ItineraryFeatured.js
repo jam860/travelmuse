@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { EventCardFeatured } from "./components/EventCardFeatured";
 
 export function ItineraryFeatured(props) {
@@ -37,6 +37,10 @@ export function ItineraryFeatured(props) {
             }
         }
     });
+    
+    if (Object.keys(tripCards).length === 0) {
+        return <Navigate to={"/"} />;
+    }
 
     return (
         <main>

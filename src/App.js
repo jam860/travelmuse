@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
@@ -27,7 +27,7 @@ function App() {
   const db = getDatabase();
 
   useEffect(() => {
-    onAuthStateChanged(getAuth(), function (firebaseUser) {
+    onAuthStateChanged(getAuth(), function(firebaseUser) {
       if (firebaseUser) {
         // console.log("logging in...")
         firebaseUser.userId = firebaseUser.uid;
@@ -155,6 +155,7 @@ function App() {
         <Route path="eventform" element={<EventForm tripsData={tripsData} />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData} />} />
         <Route path="eventPage" element={<Event tripsData={tripsData} />} />
+        <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
       <Footer currentUser={currentUser}/>
     </>

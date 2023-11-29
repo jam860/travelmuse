@@ -124,7 +124,7 @@ export function EventForm(props) {
             if (destinationPhoto != undefined) {
                 const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    alert("Form Submitted!");
+                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};

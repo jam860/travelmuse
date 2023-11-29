@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom" //ignore for now
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { EventCard } from "./components/EventCard";
 
 export function Itinerary(props) {
@@ -59,6 +59,10 @@ export function Itinerary(props) {
     function deleteClick() {
         navigate(-1);
         props.deleteItinerary(tripNameString);
+    }
+
+    if (startDateObj === undefined) {
+        return <Navigate to={"/mytrips"} />
     }
 
     return (
