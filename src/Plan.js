@@ -83,7 +83,7 @@ export function Plan(props) {
             return getDownloadURL(imageRef);
         }).then((downloadURL) => {
             setErrorSameName(false);
-            const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL};
+            const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto, photoURL: downloadURL};
             props.addTrip(newTrip);
             navigate("/mytrips");
         })
