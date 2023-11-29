@@ -11,7 +11,7 @@
   }
   
   main {
-    background-color: #800000;
+    background-color: #9e2d2d;
   }
   
   footer {
@@ -22,11 +22,11 @@
   
   h1 {
     color: black;
-    font-weight: 700;
+    font-weight: 900;
   }
   
   h2 {
-    font-weight: 600;
+    font-weight: 500;
   }
   
   h3 {
@@ -47,6 +47,10 @@
   .dark-link {
     color: #800000;
     text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .card-title {
     font-weight: 600;
   }
   
@@ -355,7 +359,7 @@
   }
   
   .event-container {
-    background-color: #800000;
+    background-color: #831919;
     margin-bottom: 2rem;
     border-radius: 10px;
   }
@@ -373,6 +377,10 @@
     width: 200px;
     height: 225px;
     object-fit: cover;
+  }
+
+  .event-title, .itinerary-title {
+    font-weight: 900;
   }
 
   /* myTrips CSS */

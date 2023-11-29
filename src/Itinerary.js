@@ -73,7 +73,7 @@ export function Itinerary(props) {
                                         <span className="material-icons icon-center">&#xE5C4;</span><p className="d-inline">My Trips</p>
                                     </Link>
                                 </div>
-                                <h1>{tripNameString}</h1>
+                                <h1 className="itinerary-title">{tripNameString}</h1>
                                 <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
                                 <div>
                                     <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">

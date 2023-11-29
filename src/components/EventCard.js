@@ -13,7 +13,7 @@ export function EventCard(props) {
                 <div className="event-container">
                     <div className="d-md-flex justify-content-between">
                         <div className="event-content">
-                            <h4>{eventDetails.eventName}</h4>
+                            <h4 className="event-title">{eventDetails.eventName}</h4>
                             <p>{"Start Time: " + eventDetails.startTime}</p>
                             <p>{"End Time: " + eventDetails.endTime}</p>
                             <p>{"Address: " + eventDetails.address}</p>

@@ -7,7 +7,7 @@ export function TripCard(props) {
     if (itinerary.events !== undefined) {
         eventLength = itinerary.events.length;
     }
-
+    
     return (
         <div className="col col-12 col-md-6 col-lg-3 d-flex justify-content-center">
         <div className="card">
