@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
     const [errorName, setErrorName] = useState(false);
+    const [errorSameName, setErrorSameName] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate]  = useState('');
@@ -13,9 +14,19 @@ export function Plan(props) {
     const [destinationPhoto, setDestinationPhoto] = useState('');
     const navigate = useNavigate();
 
+
+    const trips = props.tripsData;
+    let allTripNames = new Set();
+    if (trips !== null) {
+        trips.forEach((trip) => {
+            allTripNames.add(trip.tripName);
+        });
+    }
+
+
     function handleTripChange(event) {
         let newValue = event.target.value;
-        if (Array.from(newValue)[0] === "#" ) {
+        if (Array.from(newValue)[0] === "#" || Array.from(newValue)[0] === "?") {
             setErrorName(true);
         } else {
             setTripName(newValue);
@@ -59,10 +70,15 @@ export function Plan(props) {
 
     function handleOnSubmit(event) {
         event.preventDefault();
-        event.stopPropagation()
-        const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto}; //come back
-        props.addTrip(newTrip);
-        navigate("/mytrips");
+        event.stopPropagation();
+        if (allTripNames.has(tripName)) {
+            setErrorSameName(true);
+        } else {
+            setErrorSameName(false);
+            const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto};
+            props.addTrip(newTrip);
+            navigate("/mytrips");
+        }
     }
 
     return (
@@ -75,7 +91,8 @@ export function Plan(props) {
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
                             <input type="text" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required/>
-                            {errorName && <div className="error-message"> Trip name cannot start with "#"! </div>}
+                            {errorName && <div className="error-message"> Trip name cannot start with "?" or "#"! </div>}
+                            {errorSameName && <div className="error-message"> Trip name cannot have the same name as other trips! </div>}
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="startDate" className="form-label">Start Date</label>

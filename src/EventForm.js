@@ -11,7 +11,9 @@ export function EventForm(props) {
     const URLParams = useParams();
     const itineraryName = URLParams.tripName; 
 
-    const [error, setError] = useState(false);
+    const [errorName, setErrorName] = useState(false);
+    const [errorSameName, setErrorSameName] = useState(false);
+    const [errorTime, setErrorTime] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
@@ -24,19 +26,33 @@ export function EventForm(props) {
     const [destinationPhoto, setDestinationPhoto] = useState('');
     const navigate = useNavigate();
 
+
+    const trips = props.tripsData;
+    let allEventNames = new Set();
+    trips.forEach((trip) => {
+        if (trip.tripName === itineraryName) {
+            if (trip.events != null) {
+                trip.events.forEach((event) => {
+                    allEventNames.add(event.eventName);
+                });
+            }
+        }
+    });
+
     useEffect(() => {
         let formatedTime = convertToAmPm(unformattedEndTime);
         let formatedStartTime = convertToAmPm(unformattedStartTime);
         if (unformattedEndTime === "") {
-            setError(false);
+            setErrorTime(false);
         } else if (unformattedEndTime <= unformattedStartTime) {
-            setError(true);
+            setErrorTime(true);
         } else {
-            setError(false);
+            setErrorTime(false);
             setEndTime(formatedTime);
             setStartTime(formatedStartTime);
         }
-    }, [unformattedEndTime])
+    }, [unformattedEndTime]);
+
 
     // converts military time to AM/PM
     // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
@@ -51,7 +67,12 @@ export function EventForm(props) {
 
     function handleEventNameChange(event) {
         let newValue = event.target.value;
-        setEventName(newValue);
+        if (Array.from(newValue)[0] === "#" || Array.from(newValue)[0] === "?") {
+            setErrorName(true);
+        } else {
+            setEventName(newValue);
+            setErrorName(false);
+        }
     }
 
     function handleEventTypeChange(event) {
@@ -92,9 +113,14 @@ export function EventForm(props) {
     function handleOnSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
-        if (error) {
+        if (allEventNames.has(eventName)) {
+            setErrorSameName(true);
+        }
+        else if (errorTime || errorName) {
             event.preventDefault();
+            
         } else {
+            setErrorSameName(false);
             const storage = getStorage();
             const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
             uploadBytes(imageRef, destinationPhoto).then(() => {
@@ -120,7 +146,9 @@ export function EventForm(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                         <label htmlFor="event-name" className="form-label">Event Name</label>
-                        <input type="text" onChange={handleEventNameChange} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
+                        <input type="text" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
+                        {errorName && <div className="error-message"> Event name cannot start with "?" or "#"! </div>}
+                        {errorSameName && <div className="error-message"> Event name cannot be the same as other event names in the same trip! </div>}
                         </div>
                         <div className="col-md-12">
                             <label htmlFor="event-type">Event Type</label>
@@ -134,24 +162,24 @@ export function EventForm(props) {
                         </div>
                         <div className="col-md-12">
                         <label htmlFor="date" className="form-label">Start Date</label>
-                        <input type="date" onChange={handleDateChange} className="form-control" id="date" required />
+                        <input type="date" onChange={handleDateChange} value={date} className="form-control" id="date" required />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="startTime" className="form-label">Start Time</label>
-                            <input type="time" onChange={handleStartTimeChange} className="form-control" id="startTime" required />
+                            <input type="time" onChange={handleStartTimeChange} value={unformattedStartTime} className="form-control" id="startTime" required />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="endTime" className="form-label">End Time</label>
-                            <input type="time" onChange={handleEndTimeChange} className="form-control" id="endTime" required />
-                            {error && <div className="error-message"> End time cannot be later than start time! </div>}
+                            <input type="time" onChange={handleEndTimeChange} value={unformattedEndTime} className="form-control" id="endTime" required />
+                            {errorTime && <div className="error-message"> End time cannot be later than start time! </div>}
                         </div>
                         <div className="col-12">
                         <label htmlFor="inputAddress" className="form-label">Address</label>
-                        <input type="text" onChange={handleAddressChange} className="form-control" id="inputAddress" placeholder="541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan" />
+                        <input type="text" onChange={handleAddressChange} value={address} className="form-control" id="inputAddress" placeholder="541 Nijōjōchō, Nakagyo Ward, Kyoto, 604-8301, Japan" />
                         </div>
                         <div className="col-md-12">
                         <label htmlFor="inputNotes" className="form-label">Notes</label>
-                        <textarea type="text" onChange={handleNotesChange} className="form-control" id="inputNotes" placeholder="Open from 8:45AM to 5PM!"></textarea>
+                        <textarea type="text" onChange={handleNotesChange} value={notes} className="form-control" id="inputNotes" placeholder="Open from 8:45AM to 5PM!"></textarea>
                         </div>
                         <div className="col-12">
                             <label htmlFor="fileUpload" className="form-label">Destination Photo</label>

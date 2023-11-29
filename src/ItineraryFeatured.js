@@ -13,10 +13,12 @@ export function ItineraryFeatured(props) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let startDateObj;
     let endDateObj;
+    let tripPhoto;
 
     //find all itinerary data that matches url and pair it up with dates
     tripsData.forEach((trip) => {
         if (trip.tripName === tripNameString) {
+            tripPhoto = trip.photo;
             startDateObj = new Date(trip.startDate);
             endDateObj = new Date(trip.endDate);
             if (trip.events !== undefined) {
@@ -47,11 +49,16 @@ export function ItineraryFeatured(props) {
                     </div>
                     <section>
                         <div className="placeTime">
-                            <h1>{tripNameString}</h1>
-                            <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                            <div>
+                                <h1>{tripNameString}</h1>
+                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                            </div>
+                            <div>
+                            <img className="trip-image" src={tripPhoto} alt="itinerary card title" />
+                            </div>
                         </div>
                     </section>
-                    {Object.keys(tripCards).length > 0 ? Object.values(tripCards) : <p>No events yet. Try to add an event!</p>}
+                    {Object.values(tripCards)}
                 </div>
             </div>
         </main>

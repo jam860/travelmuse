@@ -148,11 +148,11 @@ function App() {
         <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData} />} />
         <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData} />} />
         <Route path="login" element={<SignIn />} />
-        <Route path="plan" element={<Plan addTrip={addTrip} currentUser={currentUser}/>} />
+        <Route path="plan" element={<Plan addTrip={addTrip} tripsData={tripsData} currentUser={currentUser}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData} currentUser={currentUser} />} />
         <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData} />} />
         <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData} />} />
-        <Route path="eventform" element={<EventForm />} />
+        <Route path="eventform" element={<EventForm tripsData={tripsData} />} />
         <Route path="/mytrips/:tripName/eventform" element={<EventForm addEventToTrip={addEventToTrip} tripsData={tripsData} />} />
         <Route path="eventPage" element={<Event tripsData={tripsData} />} />
       </Routes>

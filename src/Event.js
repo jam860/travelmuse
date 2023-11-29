@@ -36,7 +36,7 @@ export function Event(props) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     if (tripEvent === undefined) {
-        return <p>"you did something wrong"</p>;
+        return <p>Loading...</p>;
     } else {
         return (
             <main>
