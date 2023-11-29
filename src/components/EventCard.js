@@ -21,7 +21,7 @@ export function EventCard(props) {
                             <p>{"Notes: " + eventDetails.notes}</p>
                         </div>
                         <div>
-                            <img className="itinerary-event-image" src={(eventDetails.photoURL === undefined) || (eventDetails.photo === "") ? "/img/mountains.jpg" : eventDetails.photoURL} width="300" alt="event representation" />
+                            <img className="itinerary-event-image" src={(eventDetails.img === undefined) ? "/img/mountains.jpg" : eventDetails.img} width="300" alt="event representation" />
                         </div>
                     </div>
                 </div>

@@ -34,6 +34,7 @@ export function Itinerary(props) {
     //find all itinerary data that matches url and pair it up with dates
     if (tripsData !== null) {
         tripsData.forEach((trip) => {
+            console.log(trip);
             if (trip.tripName === tripNameString) {
                 tripPhoto = trip.photo;
                 startDateObj = new Date(trip.startDate);
@@ -86,7 +87,7 @@ export function Itinerary(props) {
                                 </div>
                             </div>
                             <div>
-                                <img className="trip-image" src={(tripPhoto === "") ? "/img/travel-back-filler.jpg" : tripPhoto} alt="itinerary card title" />
+                                <img className="trip-image" src={(tripPhoto === undefined) ? "/img/travel-back-filler.jpg" : tripPhoto} alt="itinerary card title" />
                             </div>
                         </div>
                     </section>

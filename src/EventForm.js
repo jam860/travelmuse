@@ -20,7 +20,7 @@ export function EventForm(props) {
     const [unformattedEndTime, setUnformattedEndTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
-    const [destinationPhoto, setDestinationPhoto] = useState('');
+    const [destinationPhoto, setDestinationPhoto] = useState(undefined);
     const navigate = useNavigate();
 
 
@@ -119,16 +119,23 @@ export function EventForm(props) {
         } else {
             setErrorSameName(false);
             const storage = getStorage();
-            const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
-            uploadBytes(imageRef, destinationPhoto).then(() => {
-                alert("Form Submitted!");
-                return getDownloadURL(imageRef);
-            }).then((downloadURL) => {
-                const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto, photoURL: downloadURL};
+            if (destinationPhoto != undefined) {
+                const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
+                uploadBytes(imageRef, destinationPhoto).then(() => {
+                    alert("Form Submitted!");
+                    return getDownloadURL(imageRef);
+                }).then((downloadURL) => {
+                    const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
+                    console.log(newEvent);
+                    props.addEventToTrip(itineraryName, newEvent);
+                    navigate(-1);
+                })
+            } else {
+                const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
                 console.log(newEvent);
                 props.addEventToTrip(itineraryName, newEvent);
                 navigate(-1);
-            })
+            }
         }
     }
 
