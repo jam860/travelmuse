@@ -126,13 +126,11 @@ export function EventForm(props) {
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
-                    console.log(newEvent);
                     props.addEventToTrip(itineraryName, newEvent);
                     navigate(-1);
                 })
             } else {
                 const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
-                console.log(newEvent);
                 props.addEventToTrip(itineraryName, newEvent);
                 navigate(-1);
             }

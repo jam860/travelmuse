@@ -34,6 +34,7 @@ export function Event(props) {
     }
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    console.log(tripEvent.name);
 
     if (tripEvent === undefined) {
         return <p>Loading...</p>;
@@ -71,7 +72,7 @@ export function Event(props) {
                                     </div>
                                 </div>
                                 <div className="event-image">
-                                    <img src={((tripEvent.photoURL === undefined) || (tripEvent.photo === "") ? "/img/mountains.jpg" : tripEvent.photoURL)} alt="event location representation" />
+                                    <img src={((tripEvent.img === undefined) ? "/img/mountains.jpg" : tripEvent.img)} alt="event location representation" />
                                 </div>
                             </div>
                         </div>

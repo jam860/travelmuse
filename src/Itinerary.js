@@ -34,7 +34,6 @@ export function Itinerary(props) {
     //find all itinerary data that matches url and pair it up with dates
     if (tripsData !== null) {
         tripsData.forEach((trip) => {
-            console.log(trip);
             if (trip.tripName === tripNameString) {
                 tripPhoto = trip.photo;
                 startDateObj = new Date(trip.startDate);
@@ -62,7 +61,6 @@ export function Itinerary(props) {
         props.deleteItinerary(tripNameString);
     }
 
-    console.log(tripsData);
     return (
         <main>
             <div className="itinerary-body">
