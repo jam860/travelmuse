@@ -34,7 +34,6 @@ export function Event(props) {
     }
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    console.log(tripEvent.name);
 
     if (tripEvent === undefined) {
         return <p>Loading...</p>;
