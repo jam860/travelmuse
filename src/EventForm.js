@@ -11,6 +11,7 @@ export function EventForm(props) {
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
     const [errorTime, setErrorTime] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
@@ -117,6 +118,7 @@ export function EventForm(props) {
             event.preventDefault();
             
         } else {
+            setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
             if (destinationPhoto != undefined) {
@@ -188,7 +190,7 @@ export function EventForm(props) {
                             <input type="file" onChange={handleDestinationPhotoChange} className="form-control" id="fileUpload" accept="image/*" />
                         </div>
                         <div className="col-12">
-                            <input type="submit" value="Save" className="input-submit" />
+                            <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
                         </div>
                     </form>
                 </div>
