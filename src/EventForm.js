@@ -191,6 +191,7 @@ export function EventForm(props) {
                         </div>
                         <div className="col-12">
                             <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
+                            {isSubmitting && <p>Designing your new event... please wait!</p>}
                         </div>
                     </form>
                 </div>

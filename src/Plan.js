@@ -136,6 +136,7 @@ export function Plan(props) {
                         </div>
                         <div className="col-12">
                             <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
+                            {isSubmitting && <p>Preparing your new adventure... please wait!</p>}
                         </div>
                     </form>
                 </div>
