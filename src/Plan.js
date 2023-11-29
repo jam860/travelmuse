@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
+import { v4 } from 'uuid';
 
 export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
@@ -64,20 +66,27 @@ export function Plan(props) {
 
 
     function handleDestinationPhotoChange(event) {
-        let newValue = event.target.value;
+        let newValue = event.target.files[0];
         setDestinationPhoto(newValue);
     }
 
     function handleOnSubmit(event) {
         event.preventDefault();
-        event.stopPropagation();
+        event.stopPropagation()
+        const storage = getStorage();
+        const imageRef = ref(storage, `trip-images/${destinationPhoto.name + v4()}`);
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
         } else {
+        uploadBytes(imageRef, destinationPhoto).then(() => {
+            alert("Form Submitted!");
+            return getDownloadURL(imageRef);
+        }).then((downloadURL) => {
             setErrorSameName(false);
-            const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: destinationPhoto};
+            const newTrip = {tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL};
             props.addTrip(newTrip);
             navigate("/mytrips");
+        })
         }
     }
 
@@ -113,7 +122,7 @@ export function Plan(props) {
                         </div>
                         <div className="col-12">
                             <label htmlFor="fileUpload" className="form-label">Destination Photo</label>
-                            <input type="file" onChange={handleDestinationPhotoChange} value={destinationPhoto} className="form-control" id="fileUpload" accept="image/*"/>
+                            <input type="file" onChange={handleDestinationPhotoChange}className="form-control" id="fileUpload" accept="image/*"/>
                         </div>
                         <div className="col-12">
                             <input type="submit" value="Save" className="input-submit"/>

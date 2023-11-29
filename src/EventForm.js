@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
 import { v4 } from 'uuid';
 
-// maybe create another state for image ref
-
-
 export function EventForm(props) {
     const URLParams = useParams();
     const itineraryName = URLParams.tripName; 
@@ -131,7 +128,7 @@ export function EventForm(props) {
                 console.log(newEvent);
                 props.addEventToTrip(itineraryName, newEvent);
                 navigate(-1);
-            });
+            })
         }
     }
 
