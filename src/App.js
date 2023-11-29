@@ -102,7 +102,7 @@ function App() {
       const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey + "/events");
       firebasePush(firebaseUserRef, event);
     }
-
+    console.log(event);
   }
 
   // https://www.geeksforgeeks.org/remove-array-element-based-on-object-property-in-javascript/

@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { storage } from ".";
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
 import { v4 } from 'uuid';
 
 // maybe create another state for image ref
@@ -96,13 +95,17 @@ export function EventForm(props) {
         if (error) {
             event.preventDefault();
         } else {
-            const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto};
-            props.addEventToTrip(itineraryName, newEvent);
+            const storage = getStorage();
             const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
-            // uploadBytes(imageRef, destinationPhoto).then(() => {
-            //     alert("Image Uploaded");
-            // });
-            navigate(-1);
+            uploadBytes(imageRef, destinationPhoto).then(() => {
+                alert("Form Submitted!");
+                return getDownloadURL(imageRef);
+            }).then((downloadURL) => {
+                const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, photo: destinationPhoto, photoURL: downloadURL};
+                console.log(newEvent);
+                props.addEventToTrip(itineraryName, newEvent);
+                navigate(-1);
+            });
         }
     }
 

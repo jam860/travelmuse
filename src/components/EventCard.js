@@ -6,6 +6,7 @@ export function EventCard(props) {
     const eventDetails = props.event;
     const URLParams = useParams();
     const itineraryName = URLParams.tripName;
+    console.log(eventDetails);
 
     return (
         <div>
@@ -20,7 +21,7 @@ export function EventCard(props) {
                             <p>{"Notes: " + eventDetails.notes}</p>
                         </div>
                         <div>
-                            <img className="itinerary-event-image" src={(eventDetails.img === undefined) ? "/img/mountains.jpg" : eventDetails.img} width="300" alt="event representation" />
+                            <img className="itinerary-event-image" src={(eventDetails.photoURL === undefined) ? "/img/mountains.jpg" : eventDetails.photoURL} width="300" alt="event representation" />
                         </div>
                     </div>
                 </div>

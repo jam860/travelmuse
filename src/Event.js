@@ -71,7 +71,7 @@ export function Event(props) {
                                     </div>
                                 </div>
                                 <div className="event-image">
-                                    <img src={(tripEvent.img === undefined ? "/img/mountains.jpg" : tripEvent.img)} alt="event location representation" />
+                                    <img src={(tripEvent.photoURL === undefined ? "/img/mountains.jpg" : tripEvent.photoURL)} alt="event location representation" />
                                 </div>
                             </div>
                         </div>
