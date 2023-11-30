@@ -110,7 +110,7 @@ export function Plan(props) {
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
                             <input type="text" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
-                            {errorName && <div className="error-message"> Trip name cannot start with "?", "#", "/" or "\"! </div>}
+                            {errorName && <div className="error-message"> Trip name cannot contain "?", "#", "/" or "\"! </div>}
                             {errorSameName && <div className="error-message"> Trip name cannot have the same name as other trips! </div>}
                         </div>
                         <div className="col-md-6">
