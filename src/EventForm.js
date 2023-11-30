@@ -65,7 +65,7 @@ export function EventForm(props) {
 
     function handleEventNameChange(event) {
         let newValue = event.target.value;
-        if (Array.from(newValue)[0] === "#" || Array.from(newValue)[0] === "?") {
+        if (newValue.indexOf("?") >= 0 || newValue.indexOf("/") >= 0 || newValue.indexOf("#") >= 0 || newValue.indexOf("\\") >= 0) {
             setErrorName(true);
         } else {
             setEventName(newValue);
@@ -151,7 +151,7 @@ export function EventForm(props) {
                         <div className="col-md-12">
                         <label htmlFor="event-name" className="form-label">Event Name</label>
                         <input type="text" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
-                        {errorName && <div className="error-message"> Event name cannot start with "?" or "#"! </div>}
+                        {errorName && <div className="error-message"> Event name cannot contain "?", "#", "/" or "\"! </div>}
                         {errorSameName && <div className="error-message"> Event name cannot be the same as other event names in the same trip! </div>}
                         </div>
                         <div className="col-md-12">
