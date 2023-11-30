@@ -87,13 +87,13 @@ export function Plan(props) {
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     setErrorSameName(false);
-                    const newTrip = { tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL, photoURL: downloadURL };
+                    const newTrip = { tripName: tripName.trim(), startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL, photoURL: downloadURL };
                     props.addTrip(newTrip);
                     navigate("/mytrips");
                 })
             } else {
                 setErrorSameName(false);
-                const newTrip = { tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes };
+                const newTrip = { tripName: tripName.trim(), startDate: startDate, endDate: endDate, destination: destination, notes: notes };
                 props.addTrip(newTrip);
                 navigate("/mytrips");
             }
@@ -109,7 +109,7 @@ export function Plan(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
-                            <input type="text" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
+                            <input type="text" maxlength="50" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
                             {errorName && <div className="error-message"> Trip name cannot contain "?", "#", "/" or "\"! </div>}
                             {errorSameName && <div className="error-message"> Trip name cannot have the same name as other trips! </div>}
                         </div>

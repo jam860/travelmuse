@@ -9,6 +9,8 @@ export function Event(props) {
     const eventName = URLParams.eventName;
     const navigate = useNavigate();
 
+    // console.log(URLParams);
+    // console.log(eventName.length);
     function handleClick() {
         navigate(-1);
         props.deleteEvent(tripName, eventName);
@@ -20,9 +22,6 @@ export function Event(props) {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     if (tripsData !== undefined) {
-        if (tripsData === null) {
-            return;
-        }
         tripsData.forEach((trip) => {
             if (trip.tripName === tripName && trip.events !== undefined) {
                 trip.events.forEach(((event) => {

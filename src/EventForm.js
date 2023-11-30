@@ -127,12 +127,12 @@ export function EventForm(props) {
                     // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
-                    const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
+                    const newEvent = {eventName: eventName.trim(), eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
                     props.addEventToTrip(itineraryName, newEvent);
                     navigate(-1);
                 })
             } else {
-                const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
+                const newEvent = {eventName: eventName.trim(), eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
                 props.addEventToTrip(itineraryName, newEvent);
                 navigate(-1);
             }
@@ -150,7 +150,7 @@ export function EventForm(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                         <label htmlFor="event-name" className="form-label">Event Name</label>
-                        <input type="text" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
+                        <input type="text" maxlength="50" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
                         {errorName && <div className="error-message"> Event name cannot contain "?", "#", "/" or "\"! </div>}
                         {errorSameName && <div className="error-message"> Event name cannot be the same as other event names in the same trip! </div>}
                         </div>
