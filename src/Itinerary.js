@@ -47,7 +47,7 @@ export function Itinerary(props) {
                             tripCards[event.date] = ([...previousCards, <EventCard event={event} key={event.eventName} />]);
                         } else {
                             const eventDateObj = new Date(event.date);
-                            tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCard event={event} key={event.eventName} />];
+                            tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + " " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate() + ", " + eventDateObj.getUTCFullYear()}</h2>, <EventCard event={event} key={event.eventName} />];
                             dateCounter++;
                         }
                     });
@@ -78,7 +78,7 @@ export function Itinerary(props) {
                                     </Link>
                                 </div>
                                 <h1 className="itinerary-title">{tripNameString}</h1>
-                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getUTCFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getUTCFullYear()}</h2>
                                 <div>
                                     <Link to={"eventform"} role="button" aria-label="add new event" className="btn btn-add border-0 ml-0">
                                         <span className="material-icons icon-center">&#xE145;</span>Add New Event

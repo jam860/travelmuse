@@ -62,7 +62,7 @@ export function Event(props) {
                                 <h2>{tripEvent.eventType}</h2>
                                 <div>
                                     <h3 className="event-property" >Date:</h3>
-                                    <p><time>{(days[dateObj.getUTCDay()] + ", " + months[dateObj.getUTCMonth()] + " " + dateObj.getDate())}</time></p>
+                                    <p><time>{(days[dateObj.getUTCDay()] + " " + months[dateObj.getUTCMonth()] + " " + dateObj.getUTCDate()  + ", " + dateObj.getUTCFullYear())}</time></p>
                                     <h3 className="event-property">Time:</h3>
                                     <p>{tripEvent.startTime + " - " + tripEvent.endTime}</p>
                                     <h3 className="event-property">Address:</h3>
