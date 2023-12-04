@@ -5,7 +5,7 @@ export function Footer(props) {
         <footer className="foot">
             <div className="quick-links text-center">
                 <h2>Quick Links</h2>
-                <ul className="custom-justify-content-around">
+                <ul className="quick-links-list">
                     <li>
                         <NavLink to="/">Home</NavLink>
                     </li>

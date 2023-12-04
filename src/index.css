@@ -83,7 +83,7 @@
   }
 
   
-  .custom-justify-content-around {
+  .quick-links-list {
     display: flex;
     justify-content: center;
     gap: 30px;
