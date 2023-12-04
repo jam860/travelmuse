@@ -2,14 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export function Footer(props) {
     return (
-        <footer className="d-md-flex justify-content-center flex-wrap pb-5 p-5">
-            <div className="travel-muse-info ">
-                <div className="pb-3" role="button">
-                    <NavLink to="/"><img width="300" height="50" src="/img/logo.png" aria-label="TravelMuse logo" alt="TravelMuse logo" /></NavLink>
-                </div>
-                <p>TravelMuse simplifies the process of planning trips, vacations, group meetings, and more. It also offers a convenient way for users to share and collaborate on their itineraries with others. </p>
-                <p>&copy; 2023 TravelMuse. All Rights Reserved.</p>
-            </div>
+        <footer className="foot">
             <div className="quick-links text-center">
                 <h2>Quick Links</h2>
                 <ul>
@@ -26,6 +19,13 @@ export function Footer(props) {
                         <NavLink to="login">Sign-in</NavLink>
                     </li>
                 </ul>                
+            </div>
+            <div className="travel-muse-info ">
+                <div className="pb-3" role="button">
+                    <NavLink to="/"><img width="225" height="38" src="/img/logo.png" aria-label="TravelMuse logo" alt="TravelMuse logo" /></NavLink>
+                </div>
+                <p>TravelMuse simplifies the process of planning trips, vacations, group meetings, and more. It also offers a convenient way for users to share and collaborate on their itineraries with others. </p>
+                <p>&copy; 2023 TravelMuse. All Rights Reserved.</p>
             </div>
         </footer>
     )

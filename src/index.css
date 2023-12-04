@@ -81,8 +81,14 @@
     display: flex;
     justify-content: center;
   }
+
   
-  
+  .quick-links h2{
+    color: #F1E8B8;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
   .quick-links a {
     font-weight: 500;
     color: white;
@@ -91,16 +97,25 @@
   }
 
   .quick-links ul {
+    list-style: none;
     padding: 0;
   }
 
   .quick-links li {
-    list-style-type: none;
+    display: inline;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .quick-links,
+  .travel-muse-info {
+    width: 100%;
   }
   
   .travel-muse-info {
     flex-basis: 35%;
-    padding-right: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .dropdown-toggle::after {
