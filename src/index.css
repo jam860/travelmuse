@@ -84,7 +84,11 @@
 
   
   .custom-justify-content-around {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .quick-links h2 {
@@ -490,7 +494,6 @@
     .desktop-nav {
       display: block;
     }
-
   }
   
   @media (min-width: 992px) {
@@ -501,10 +504,5 @@
     .event-image img {
         max-width: 500px;
         max-height: 500px;
-    }
-
-    .custom-justify-content-around {
-      padding-left: 20rem;
-      padding-right: 20rem;
     }
   }
