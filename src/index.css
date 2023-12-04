@@ -132,6 +132,11 @@
   }
 
   .hamburger-nav {
+    display: flex;
+    padding-top: 1rem;
+  }
+
+  .desktop-nav {
     display: none;
   }
 
@@ -260,8 +265,12 @@
   
   /* sampleEvent CSS */
   .event-body {
-    padding: 5rem 4rem;
+    padding: 2rem 1rem;
     background-color: white;
+  }
+
+  .event-property {
+    font-weight: 700;
   }
 
   .btn-back {
@@ -296,7 +305,7 @@
   }
 
   .overview-content h2 {
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
   }
 
   .overview-content h3 {
@@ -461,7 +470,24 @@
 
     .event-overview-container {
       padding: 5rem 3rem;
-  }
+    }
+
+    .overview-content h2 {
+      padding-bottom: 3rem;
+    }
+
+    .event-body {
+      padding: 5rem 4rem;
+      background-color: white;
+    }
+
+    .hamburger-nav {
+      display: none;
+    }
+
+    .desktop-nav {
+      display: block;
+    }
   
   }
   
@@ -473,15 +499,5 @@
     .event-image img {
         max-width: 500px;
         max-height: 500px;
-    }
-  }
-
-  @media screen and (max-width: 992px) {
-    .hamburger-nav {
-      display: flex;
-    }
-
-    .desktop-nav {
-      display: none;
     }
   }

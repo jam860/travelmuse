@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
 export function EventFeatured(props) {
     const URLParams = useParams();
@@ -18,9 +18,14 @@ export function EventFeatured(props) {
         }
     });
 
+    if (tripEvent === undefined) {
+        return <Navigate to={"/" + tripName} />;
+    }
+
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let dateObj = new Date(tripEvent.date);
+
 
     return (
         <main>
@@ -39,13 +44,13 @@ export function EventFeatured(props) {
                                 <h1>{eventName}</h1>
                                 <h2>{tripEvent.eventType}</h2>
                                 <div>
-                                    <h3>Date:</h3>
-                                    <p><time>{days[dateObj.getUTCDay()] + ", " + months[dateObj.getUTCMonth()] + " " + dateObj.getDate()}</time></p>
-                                    <h3>Time:</h3>
+                                    <h3 className="event-property">Date:</h3>
+                                    <p><time>{days[dateObj.getUTCDay()] + " " + months[dateObj.getUTCMonth()] + " " + dateObj.getUTCDate() + ", " + dateObj.getUTCFullYear()}</time></p>
+                                    <h3 className="event-property">Time:</h3>
                                     <p>{tripEvent.startTime + " - " + tripEvent.endTime}</p>
-                                    <h3>Address:</h3>
+                                    <h3 className="event-property">Address:</h3>
                                     <p>{tripEvent.address}</p>
-                                    <h3>Notes:</h3>
+                                    <h3 className="event-property">Notes:</h3>
                                     <p>{tripEvent.notes}</p>
                                 </div>
                             </div>

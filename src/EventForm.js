@@ -11,6 +11,7 @@ export function EventForm(props) {
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
     const [errorTime, setErrorTime] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
     const [date, setDate] = useState('');
@@ -64,7 +65,7 @@ export function EventForm(props) {
 
     function handleEventNameChange(event) {
         let newValue = event.target.value;
-        if (Array.from(newValue)[0] === "#" || Array.from(newValue)[0] === "?") {
+        if (newValue.indexOf("?") >= 0 || newValue.indexOf("/") >= 0 || newValue.indexOf("#") >= 0 || newValue.indexOf("\\") >= 0) {
             setErrorName(true);
         } else {
             setEventName(newValue);
@@ -117,20 +118,21 @@ export function EventForm(props) {
             event.preventDefault();
             
         } else {
+            setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
             if (destinationPhoto != undefined) {
                 const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    alert("Form Submitted!");
+                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
-                    const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
+                    const newEvent = {eventName: eventName.trim(), eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
                     props.addEventToTrip(itineraryName, newEvent);
                     navigate(-1);
                 })
             } else {
-                const newEvent = {eventName: eventName, eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
+                const newEvent = {eventName: eventName.trim(), eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes};
                 props.addEventToTrip(itineraryName, newEvent);
                 navigate(-1);
             }
@@ -148,8 +150,8 @@ export function EventForm(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                         <label htmlFor="event-name" className="form-label">Event Name</label>
-                        <input type="text" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
-                        {errorName && <div className="error-message"> Event name cannot start with "?" or "#"! </div>}
+                        <input type="text" maxlength="50" onChange={handleEventNameChange} value={eventName} className="form-control" id="trip-name" placeholder="Nijo Castle" required />
+                        {errorName && <div className="error-message"> Event name cannot contain "?", "#", "/" or "\"! </div>}
                         {errorSameName && <div className="error-message"> Event name cannot be the same as other event names in the same trip! </div>}
                         </div>
                         <div className="col-md-12">
@@ -188,7 +190,8 @@ export function EventForm(props) {
                             <input type="file" onChange={handleDestinationPhotoChange} className="form-control" id="fileUpload" accept="image/*" />
                         </div>
                         <div className="col-12">
-                            <input type="submit" value="Save" className="input-submit" />
+                            <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
+                            {isSubmitting && <p>Designing your new event... please wait!</p>}
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { EventCardFeatured } from "./components/EventCardFeatured";
 
 export function ItineraryFeatured(props) {
@@ -30,13 +30,17 @@ export function ItineraryFeatured(props) {
                         tripCards[event.date] = ([...previousCards, <EventCardFeatured event={event} key={event.eventName} />]);
                     } else {
                         const eventDateObj = new Date(event.date);
-                        tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + ", " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate()}</h2>, <EventCardFeatured event={event} key={event.eventName} />];
+                        tripCards[event.date] = [<h2 key={"DAY " + dateCounter}>{"DAY " + dateCounter + ": " + days[eventDateObj.getUTCDay()] + " " + months[eventDateObj.getUTCMonth()] + " " + eventDateObj.getUTCDate() + ", " + eventDateObj.getUTCFullYear()}</h2>, <EventCardFeatured event={event} key={event.eventName} />];
                         dateCounter++;
                     }
                 });
             }
         }
     });
+    
+    if (Object.keys(tripCards).length === 0) {
+        return <Navigate to={"/"} />;
+    }
 
     return (
         <main>
@@ -51,7 +55,7 @@ export function ItineraryFeatured(props) {
                         <div className="placeTime">
                             <div>
                                 <h1>{tripNameString}</h1>
-                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getFullYear()}</h2>
+                                <h2>{(startDateObj === undefined || endDateObj === undefined) ? "No date inputted" : months[startDateObj.getUTCMonth()] + " " + startDateObj.getUTCDate() + ", " + startDateObj.getFullYear() + " - " + months[endDateObj.getUTCMonth()] + " " + endDateObj.getUTCDate() + ", " + endDateObj.getUTCFullYear()}</h2>
                             </div>
                             <div>
                             <img className="trip-image" src={tripPhoto} alt="itinerary card title" />

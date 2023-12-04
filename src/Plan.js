@@ -8,6 +8,7 @@ export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
@@ -28,7 +29,7 @@ export function Plan(props) {
 
     function handleTripChange(event) {
         let newValue = event.target.value;
-        if (Array.from(newValue)[0] === "#" || Array.from(newValue)[0] === "?") {
+        if (newValue.indexOf("?") >= 0 || newValue.indexOf("/") >= 0 || newValue.indexOf("#") >= 0 || newValue.indexOf("\\") >= 0) {
             setErrorName(true);
         } else {
             setTripName(newValue);
@@ -76,22 +77,23 @@ export function Plan(props) {
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
         } else {
+            setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
             if (destinationPhoto != undefined) {
                 const imageRef = ref(storage, `trip-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    alert("Form Submitted!");
+                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     setErrorSameName(false);
-                    const newTrip = { tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL, photoURL: downloadURL };
+                    const newTrip = { tripName: tripName.trim(), startDate: startDate, endDate: endDate, destination: destination, notes: notes, photo: downloadURL, photoURL: downloadURL };
                     props.addTrip(newTrip);
                     navigate("/mytrips");
                 })
             } else {
                 setErrorSameName(false);
-                const newTrip = { tripName: tripName, startDate: startDate, endDate: endDate, destination: destination, notes: notes };
+                const newTrip = { tripName: tripName.trim(), startDate: startDate, endDate: endDate, destination: destination, notes: notes };
                 props.addTrip(newTrip);
                 navigate("/mytrips");
             }
@@ -107,8 +109,8 @@ export function Plan(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
-                            <input type="text" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
-                            {errorName && <div className="error-message"> Trip name cannot start with "?" or "#"! </div>}
+                            <input type="text" maxlength="50" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
+                            {errorName && <div className="error-message"> Trip name cannot contain "?", "#", "/" or "\"! </div>}
                             {errorSameName && <div className="error-message"> Trip name cannot have the same name as other trips! </div>}
                         </div>
                         <div className="col-md-6">
@@ -133,7 +135,8 @@ export function Plan(props) {
                             <input type="file" onChange={handleDestinationPhotoChange} className="form-control" id="fileUpload" accept="image/*" />
                         </div>
                         <div className="col-12">
-                            <input type="submit" value="Save" className="input-submit" />
+                            <input type="submit" value="Save" className="input-submit" disabled={isSubmitting}/>
+                            {isSubmitting && <p>Preparing your new adventure... please wait!</p>}
                         </div>
                     </form>
                 </div>
