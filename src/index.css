@@ -491,10 +491,6 @@
       display: block;
     }
 
-    .custom-justify-content-around {
-      padding-left: 15rem;
-      padding-right: 15rem;
-    }
   }
   
   @media (min-width: 992px) {
@@ -505,5 +501,10 @@
     .event-image img {
         max-width: 500px;
         max-height: 500px;
+    }
+
+    .custom-justify-content-around {
+      padding-left: 20rem;
+      padding-right: 20rem;
     }
   }
