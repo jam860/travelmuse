@@ -233,7 +233,11 @@
   }
   
   /* Form CSS */
-  
+
+  .form-control::placeholder {
+    color: grey;
+  }
+
   .itinerary-form-container:before {
     content: " ";
     display: block;
