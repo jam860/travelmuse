@@ -25,7 +25,6 @@ export function Plan(props) {
             allTripNames.add(trip.tripName);
         });
     }
-    console.log(allTripNames);
 
 
     function handleTripChange(event) {
@@ -76,19 +75,19 @@ export function Plan(props) {
     function handleOnSubmit(event) {
         event.preventDefault();
         event.stopPropagation()
-        if (endDate <= startDate) {
-            setErrorDate(true);
-        } else {
-            setErrorDate(false);
-        }
+        let endDateObject = new Date(endDate);
+        let startDateObject = new Date(startDate);
 
+        setErrorSameName(false);
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
-        } else if (errorDate) {
+        } else if (endDateObject < startDateObject) {
+            setErrorDate(true);
+            console.log("hi");
+            console.log(errorDate);
+        } else if (errorName) {
             event.preventDefault();
-        }
-
-        else {
+        } else {
             setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
