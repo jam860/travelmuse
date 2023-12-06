@@ -8,6 +8,7 @@ export function Plan(props) {
     const [errorDate, setErrorDate] = useState(false);
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
+    const [errorSetYear, setErrorYear] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [tripName, setTripName] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -77,15 +78,18 @@ export function Plan(props) {
         event.stopPropagation()
         let endDateObject = new Date(endDate);
         let startDateObject = new Date(startDate);
-
+        let endDateYear = endDateObject.getUTCFullYear();
+        let startDateYear = startDateObject.getUTCFullYear();
+        let currYear = new Date().getFullYear();
         setErrorSameName(false);
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
         } else if (endDateObject < startDateObject) {
             setErrorDate(true);
-            console.log("hi");
-            console.log(errorDate);
-        } else if (errorName) {
+        } else if (endDateYear - startDateYear > 100) {
+            setErrorYear(true);
+        } 
+        else if (errorName) {
             event.preventDefault();
         } else {
             setIsSubmitting(true);
@@ -131,7 +135,8 @@ export function Plan(props) {
                         <div className="col-md-6">
                             <label htmlFor="endDate" className="form-label">End Date</label>
                             <input type="date" onChange={handleEndDateChange} value={endDate} className="form-control" id="endDate" required />
-                            {errorDate && <div className="error-message"> End date cannot be later than start date! </div>}
+                            {errorDate && <div className="error-message"> End date cannot be earlier than start date! </div>}
+                            {errorSetYear && <div className="error-message"> Date range should be within 100 years! </div>}
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputDestination" className="form-label">Destination</label>
