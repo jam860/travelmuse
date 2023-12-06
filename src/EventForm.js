@@ -11,6 +11,7 @@ export function EventForm(props) {
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);
     const [errorTime, setErrorTime] = useState(false);
+    const [errorYear, setErrorYear] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [eventName, setEventName] = useState('');
     const [eventType, setEventType] = useState('Activity')
@@ -27,8 +28,10 @@ export function EventForm(props) {
 
     const trips = props.tripsData;
     let allEventNames = new Set();
+    let tripVal;
     trips.forEach((trip) => {
         if (trip.tripName === itineraryName) {
+            tripVal = trip;
             if (trip.events != null) {
                 trip.events.forEach((event) => {
                     allEventNames.add(event.eventName);
@@ -36,6 +39,10 @@ export function EventForm(props) {
             }
         }
     });
+    const tripStart = new Date(tripVal.startDate);
+    const tripEnd = new Date(tripVal.endDate);
+    const tripStartYear = tripStart.getUTCFullYear();
+    const tripEndYear = tripEnd.getUTCFullYear();
 
     useEffect(() => {
         let formatedTime = convertToAmPm(unformattedEndTime);
@@ -111,12 +118,16 @@ export function EventForm(props) {
     function handleOnSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
+        const inputVal = new Date(date);
+        const utcYear = inputVal.getUTCFullYear();
         if (allEventNames.has(eventName)) {
             setErrorSameName(true);
-        }
-        else if (errorTime || errorName) {
-            event.preventDefault();
-            
+        } else if (tripEndYear - utcYear < 0 || tripStartYear - utcYear > 0) {
+            console.log(tripEndYear - utcYear);
+            console.log(tripStartYear - utcYear)
+            setErrorYear(true);
+        } else if (errorTime || errorName) {
+            event.preventDefault();    
         } else {
             setIsSubmitting(true);
             setErrorSameName(false);
@@ -167,6 +178,7 @@ export function EventForm(props) {
                         <div className="col-md-12">
                         <label htmlFor="date" className="form-label">Start Date</label>
                         <input type="date" onChange={handleDateChange} value={date} className="form-control" id="date" required />
+                        {errorYear && <div className="error-message"> Date should be within the itinerary year range.</div>}
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="startTime" className="form-label">Start Time</label>
