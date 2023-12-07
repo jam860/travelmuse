@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 export function Trips(props) {
     const itineraryInfo = props.tripsData;
 
-    let firstName;
+    let firstName = "user";
     if (props.currentUser != null) {
         const nameSpace = props.currentUser.displayName.indexOf(" ");
         firstName = props.currentUser.displayName.substring(0, nameSpace);
+        if (firstName === "") {
+            firstName = props.currentUser.displayName;
+        }
     }
 
     let itineraryCards = [];

@@ -8,10 +8,13 @@ export function Homescreen(props) {
         return (<TripCardFeatured featuredTrip={itinerary} key={itinerary.tripName}/>);
     });
 
-    let firstName;
+    let firstName = "user";
     if (props.currentUser != null) {
         const nameSpace = props.currentUser.displayName.indexOf(" ");
         firstName = props.currentUser.displayName.substring(0, nameSpace);
+        if (firstName === "") {
+            firstName = props.currentUser.displayName;
+        }
     }
 
     return (
