@@ -162,6 +162,7 @@ export function EventForm(props) {
                         <span className="material-icons icon-center">&#xE5C4;</span>Back
                     </button>
                     <h1 className="text-center">Add an event to {itineraryName}</h1>
+                    <p className="text-center">Itinerary Year Range: {tripStartYear === tripEndYear ? tripStartYear : tripStartYear + " to " + tripEndYear} </p>
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                         <label htmlFor="event-name" className="form-label">Event Name</label>
