@@ -80,7 +80,6 @@ export function Plan(props) {
         let startDateObject = new Date(startDate);
         let endDateYear = endDateObject.getUTCFullYear();
         let startDateYear = startDateObject.getUTCFullYear();
-        let currYear = new Date().getFullYear();
         setErrorSameName(false);
         if (allTripNames.has(tripName)) {
             setErrorSameName(true);
