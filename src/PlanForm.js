@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ref, uploadBytes, getDownloadURL, getStorage } from "firebase/storage";
 import { v4 } from 'uuid';
 
-export function Plan(props) {
+export function PlanForm(props) {
     const [errorDate, setErrorDate] = useState(false);
     const [errorName, setErrorName] = useState(false);
     const [errorSameName, setErrorSameName] = useState(false);

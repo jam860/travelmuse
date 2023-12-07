@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Trips } from './Trips';
-import { Plan } from './Plan';
+import { PlanForm } from './PlanForm.js';
 import { Homescreen } from './Homescreen';
 import { Itinerary } from './Itinerary';
 import { EventForm } from './EventForm.js';
@@ -147,7 +147,7 @@ function App() {
         <Route path=":featuredTripName" element={<ItineraryFeatured featuredTrips={sampleData} />} />
         <Route path=":featuredTripName/:eventName" element={<EventFeatured featuredTrips={sampleData} />} />
         <Route path="login" element={<SignIn />} />
-        <Route path="plan" element={<Plan addTrip={addTrip} tripsData={tripsData} currentUser={currentUser}/>} />
+        <Route path="plan" element={<PlanForm addTrip={addTrip} tripsData={tripsData} currentUser={currentUser}/>} />
         <Route path="mytrips" element={<Trips tripsData={tripsData} currentUser={currentUser} />} />
         <Route path="/mytrips/:tripName" element={<Itinerary deleteItinerary={deleteItinerary} tripsData={tripsData} />} />
         <Route path="/mytrips/:tripName/:eventName" element={<Event deleteEvent={deleteEvent} tripsData={tripsData} />} />

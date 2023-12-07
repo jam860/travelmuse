@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export function Footer(props) {
+export function Footer() {
     return (
         <footer className="foot">
             <div className="quick-links text-center">
