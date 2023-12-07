@@ -19,6 +19,7 @@ export function Plan(props) {
     const navigate = useNavigate();
 
 
+    // Checking for same trip name
     const trips = props.tripsData;
     let allTripNames = new Set();
     if (trips !== null) {
@@ -26,7 +27,6 @@ export function Plan(props) {
             allTripNames.add(trip.tripName);
         });
     }
-
 
     function handleTripChange(event) {
         let newValue = event.target.value;
@@ -46,12 +46,6 @@ export function Plan(props) {
 
     function handleEndDateChange(event) {
         let newValue = event.target.value;
-        // if (newValue <= startDate) {
-        //     setErrorDate(true);
-        // } else {
-        //     setErrorDate(false);
-        //     setEndDate(newValue);
-        // }
         setEndDate(newValue);
     }
 
@@ -94,10 +88,9 @@ export function Plan(props) {
             setIsSubmitting(true);
             setErrorSameName(false);
             const storage = getStorage();
-            if (destinationPhoto != undefined) {
+            if (destinationPhoto !== undefined) {
                 const imageRef = ref(storage, `trip-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     setErrorSameName(false);

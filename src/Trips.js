@@ -21,6 +21,7 @@ export function Trips(props) {
     const [itineraries, changeItineraries] = useState(itineraryCards);
     const [searchValue, onSearchValue] = useState("");
 
+    // Search
     const searchTerm = (event) => {
         let newValue = event.target.value;
         onSearchValue(newValue);

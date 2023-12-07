@@ -7,6 +7,7 @@ export function EventFeatured(props) {
     const tripName = URLParams.featuredTripName;
     const eventName = URLParams.eventName;
 
+    // Finding current event
     let tripEvent;
     tripsData.forEach((trip) => {
         if (trip.tripName === tripName) {
@@ -18,6 +19,7 @@ export function EventFeatured(props) {
         }
     });
 
+    // No event found
     if (tripEvent === undefined) {
         return <Navigate to={"/" + tripName} />;
     }

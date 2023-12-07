@@ -6,7 +6,6 @@ export function ItineraryFeatured(props) {
     let URLParam = useParams();
     const tripNameString = URLParam.featuredTripName;
     const tripsData = props.featuredTrips;
-    // Reference Itinerary.js for example
 
     let tripCards = {};
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

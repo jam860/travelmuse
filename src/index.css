@@ -3,36 +3,36 @@
 * {
     box-sizing: border-box;
   }
-  
+
   body {
     margin: 0;
     font-family: "Raleway", Arial, Helvetica, sans-serif;
     background-color: #D34E24;
   }
-  
+
   main {
     background-color: #9e2d2d;
   }
-  
+
   footer {
     padding-top: 3rem;
     background-color: #D34E24;
     color: white;
   }
-  
+
   h1 {
     color: black;
     font-weight: 900;
   }
-  
+
   h2 {
     font-weight: 500;
   }
-  
+
   h3 {
     padding-top: 2rem;
   }
-  
+
   a {
     text-decoration: none;
     color: black;
@@ -53,36 +53,35 @@
   .card-title {
     font-weight: 600;
   }
-  
+
   /* Navbar/Footer CSS */  
   .nav-container ul {
     margin-bottom: 0;
     padding-left: 0;
     gap: 25px;
   }
-  
+
   .nav-container {
     background-color: #D34E24;
     text-align: center;
     padding: 2rem 3rem;
   }
-  
+
   .nav-links a, .nav-links p {
     color: white;
     font-size: 1.5em;
     text-decoration: none;
   }
-  
+
   .nav-links li {
     display: inline;
   }
-  
+
   .nav-links ul {
     display: flex;
     justify-content: center;
   }
 
-  
   .quick-links-list {
     display: flex;
     justify-content: center;
@@ -117,7 +116,7 @@
     width: 100%;
     margin-bottom: 50px;
   }
-  
+
   .travel-muse-info {
     flex-basis: 35%;
     padding-left: 2rem;
@@ -158,20 +157,20 @@
   .hamburger-nav span {
     padding-left: 5px;
   }
-  
+
   /* Homepage CSS */
-  
+
   .intro-title {
     color: white;
   }
-  
+
   .intro-container {
     position: relative;
     padding: 10rem 2rem;
   }
-  
+
   /* How to add background image/change opacity: https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity */
-  
+
   .intro-container:before {
     content: " ";
     display: block;
@@ -185,22 +184,22 @@
     background-position: 20% 60%;
     background-size: cover;
   }
-  
+
   .intro-content {
     position: relative;
     text-align: center;
   }
-  
+
   .intro-content a {
     color: white;
     font-size: 1.5em;
     text-decoration: none;
   }
-  
+
   .intro-content p  {
     font-weight: 600;
   }
-  
+
   .recommend-itinerary-container {
     padding-bottom: 6rem;
   }
@@ -208,30 +207,31 @@
   .recommend-itinerary-container h2 {
     color: white;
   }
-  
+
   .card {
     width: 16rem;
     margin-bottom: 2rem;
   }
+
   .cards {
     padding-top: 1.5rem;
   }
-  
+
   .btn-primary, .btn-primary a {
     background-color:#F28123;
     --bs-btn-active-bg:#d77626;
     color: white;
     border-width: 0;
   }
-  
+
   .btn-primary:hover {
     background-color:#d77626;
   }
-  
+
   .itinerary-form-container {
     position: relative;
   }
-  
+
   /* Form CSS */
 
   .form-control::placeholder {
@@ -252,13 +252,13 @@
     background-position: 20% 0%;
     background-size: cover;
   }
-  
+
   .itinerary-form-content {
     position: relative;
     background-color: white;
     padding: 3rem 2rem;
   }
-  
+
   .input-submit {
     background-color:#F28123;
     --bs-btn-active-bg:#d77626;
@@ -272,8 +272,9 @@
   .error-message {
     color: red;
   }
-  
-  /* sampleEvent CSS */
+
+  /* Event CSS */
+
   .event-body {
     padding: 2rem 1rem;
     background-color: white;
@@ -350,18 +351,18 @@
   .itinerary-form-container.event-form-image:before {
       background-image: url("../public/img/azenhas-do-mar.jpeg");
   }
-  
+
   /* Itinerary CSS */
-  
+
   .itinerary-body h3 {
     font-weight: 600;
     padding-bottom: 1rem;
   }
-  
+
   .itinerary-body {
     position: relative;
   }
-  
+
   .itinerary-body:before {
     content: " ";
     display: block;
@@ -376,7 +377,7 @@
     background-position: 80% 40%;
     background-size: cover;
   }
-  
+
   .itinerary-body-content {
     position: relative;
     background-color: white;
@@ -387,26 +388,26 @@
     max-width: 360px;
     height: auto;
   }
-  
+
   .placeTime{
     margin-bottom: 1rem;
   }
-  
+
   .event-container {
     background-color: #831919;
     margin-bottom: 2rem;
     border-radius: 10px;
   }
-  
+
   .event-content {
     padding: 3rem;
   }
-  
+
   .event-content p, .event-content h4 {
     color: white;
     margin: 0;
   }
-  
+
   .itinerary-event-image {
     width: 200px;
     height: 225px;
@@ -435,40 +436,40 @@
     .intro-container {
         padding: 17rem;
     }
-  
+
     .card {
         width: 18rem;
     }
-  
+
     .nav-container {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
     }
-  
+
     .event-content-container {
       justify-content: space-between;
       flex-direction: row;
     }
-  
+
     .itinerary-form-container {
         padding: 5rem 5rem;
     }
-  
+
     .itinerary-form-content {
         padding: 3rem 5rem;
     }
-  
+
     .itinerary-event-image {
         width: 300px;
         border-radius: 0 10px 10px 0;
     }
-  
+
     .itinerary-body {
         padding: 5rem 4rem;
     }
-  
+
     .itinerary-body-content {
         padding: 4rem;
     }
@@ -499,7 +500,7 @@
       display: block;
     }
   }
-  
+
   @media (min-width: 992px) {
     .itinerary-form-container {
         padding: 5rem 20rem;

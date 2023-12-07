@@ -26,16 +26,15 @@ function App() {
 
   const db = getDatabase();
 
+  // Switching Users
   useEffect(() => {
     onAuthStateChanged(getAuth(), function(firebaseUser) {
       if (firebaseUser) {
-        // console.log("logging in...")
         firebaseUser.userId = firebaseUser.uid;
         setCurrentUser(firebaseUser);
         navigate("/");
       } else {
         setCurrentUser(null);
-        // console.log("logging out...")
         setTripsData(USER_TRIPS);
       }
     });
@@ -43,6 +42,7 @@ function App() {
   }, []);
 
   //https://stackoverflow.com/questions/36415904/is-there-a-way-to-use-map-on-an-array-in-reverse-order-with-javascript
+  // Updating user changes
   useEffect(() => {
     if (currentUser != null && currentUser.userId != null) {
       const userDataRef = ref(db, currentUser.userId);

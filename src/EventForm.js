@@ -25,7 +25,11 @@ export function EventForm(props) {
     const [destinationPhoto, setDestinationPhoto] = useState(undefined);
     const navigate = useNavigate();
 
+    function navigateBack() {
+        navigate(-1)
+    }
 
+    // Checking for same event name
     const trips = props.tripsData;
     let allEventNames = new Set();
     let tripVal;
@@ -39,11 +43,13 @@ export function EventForm(props) {
             }
         }
     });
+
     const tripStart = new Date(tripVal.startDate);
     const tripEnd = new Date(tripVal.endDate);
     const tripStartYear = tripStart.getUTCFullYear();
     const tripEndYear = tripEnd.getUTCFullYear();
 
+    // Checking and converting to valid time
     useEffect(() => {
         let formatedTime = convertToAmPm(unformattedEndTime);
         let formatedStartTime = convertToAmPm(unformattedStartTime);
@@ -56,10 +62,10 @@ export function EventForm(props) {
             setEndTime(formatedTime);
             setStartTime(formatedStartTime);
         }
-    }, [unformattedEndTime]);
+    }, [unformattedEndTime, unformattedStartTime]);
 
 
-    // converts military time to AM/PM
+    // Converting military time to AM/PM
     // https://medium.com/front-end-weekly/how-to-convert-24-hours-format-to-12-hours-in-javascript-ca19dfd7419d
     function convertToAmPm(time) {
         let [hours, minutes] = time.split(":");
@@ -123,19 +129,17 @@ export function EventForm(props) {
         if (allEventNames.has(eventName)) {
             setErrorSameName(true);
         } else if (tripEndYear - utcYear < 0 || tripStartYear - utcYear > 0) {
-            console.log(tripEndYear - utcYear);
-            console.log(tripStartYear - utcYear)
             setErrorYear(true);
         } else if (errorTime || errorName) {
             event.preventDefault();    
         } else {
             setIsSubmitting(true);
             setErrorSameName(false);
+            setErrorYear(false);
             const storage = getStorage();
-            if (destinationPhoto != undefined) {
+            if (destinationPhoto !== undefined) {
                 const imageRef = ref(storage, `event-images/${destinationPhoto.name + v4()}`);
                 uploadBytes(imageRef, destinationPhoto).then(() => {
-                    // alert("Form Submitted!");
                     return getDownloadURL(imageRef);
                 }).then((downloadURL) => {
                     const newEvent = {eventName: eventName.trim(), eventType: eventType, date: date, startTime: startTime, endTime: endTime, address: address, notes: notes, img: downloadURL};
@@ -154,7 +158,7 @@ export function EventForm(props) {
         <main>
             <div className="itinerary-form-container event-form-image">
                 <div className="itinerary-form-content">
-                    <button href="" aria-label="back" className="btn btn-back border-0 px-0" onClick={() => navigate(-1)}>
+                    <button href="" aria-label="back" className="btn btn-back border-0 px-0" onClick={navigateBack}>
                         <span className="material-icons icon-center">&#xE5C4;</span>Back
                     </button>
                     <h1 className="text-center">Add an event to {itineraryName}</h1>
