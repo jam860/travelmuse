@@ -116,7 +116,7 @@ export function PlanForm(props) {
                     <form className="row g-3" onSubmit={handleOnSubmit}>
                         <div className="col-md-12">
                             <label htmlFor="trip-name" className="form-label">Trip Name</label>
-                            <input type="text" maxlength="50" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
+                            <input type="text" maxLength="50" onChange={handleTripChange} value={tripName} className="form-control" id="trip-name" placeholder="Dazzling Kyoto" required />
                             {errorName && <div className="error-message"> Trip name cannot contain "?", "#", "/" or "\"! </div>}
                             {errorSameName && <div className="error-message"> Trip name cannot have the same name as other trips! </div>}
                         </div>

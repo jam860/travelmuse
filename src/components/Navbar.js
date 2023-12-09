@@ -4,7 +4,10 @@ import { getAuth, signOut } from "firebase/auth";
 
 export function Navbar(props) {
     function onSignOut() {
-        signOut(getAuth());
+        signOut(getAuth())
+        .catch((err) => {
+            return <p>Something went wrong! Refresh your page to try again.</p>
+        });
     }
 
     return (

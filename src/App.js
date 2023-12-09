@@ -76,13 +76,22 @@ function App() {
       setTripsData([trip]);
       if (currentUser !== null) {
         const firebaseUserRef = ref(db, currentUser.userId);
-        firebasePush(firebaseUserRef, trip);
+        firebasePush(firebaseUserRef, trip)
+        .then()
+        .catch((err) => {
+          console.log("test" + err);
+          return <p>Something went wrong! Please reload the page to try again.</p>;
+        });
       }
     } else {
       setTripsData([trip, ...tripsData]);
         if (currentUser !== null) {
           const firebaseUserRef = ref(db, currentUser.userId);
-          firebasePush(firebaseUserRef, trip);
+          firebasePush(firebaseUserRef, trip) 
+          .then()
+          .catch((err) => {
+            return <p>Something went wrong! Please reload the page to try again.</p>;
+          });
         }
     }
   }
@@ -100,7 +109,11 @@ function App() {
     }
     if (currentUser !== null) {
       const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey + "/events");
-      firebasePush(firebaseUserRef, event);
+      firebasePush(firebaseUserRef, event)
+      .then()
+      .catch((err) => {
+        return <p>Something went wrong! Please reload the page to try again.</p>;
+      });
     }
   }
 
@@ -119,7 +132,11 @@ function App() {
     setTripsData(newTripsData);
     if (currentUser !== null) {
       const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey + "/events");
-      firebaseSet(firebaseUserRef, tripFilteredCopy);
+      firebaseSet(firebaseUserRef, tripFilteredCopy)
+      .then()
+      .catch((err) => {
+        return <p>Something went wrong! Please reload the page to try again.</p>;
+      });
     }
   }
 
@@ -135,7 +152,11 @@ function App() {
 
     if (currentUser !== null) {
       const firebaseUserRef = ref(db, currentUser.userId + "/" + getKey);
-      firebaseSet(firebaseUserRef, null);
+      firebaseSet(firebaseUserRef, null)
+      .then()
+      .catch((err) => {
+        return <p>Something went wrong! Please reload the page to try again.</p>;
+      });
     }
   }  
 
