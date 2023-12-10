@@ -79,7 +79,6 @@ function App() {
         firebasePush(firebaseUserRef, trip)
         .then()
         .catch((err) => {
-          console.log("test" + err);
           return <p>Something went wrong! Please reload the page to try again.</p>;
         });
       }
