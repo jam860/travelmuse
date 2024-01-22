@@ -117,6 +117,7 @@ function App() {
   }
 
   // https://www.geeksforgeeks.org/remove-array-element-based-on-object-property-in-javascript/
+  // could be more efficient
   function deleteEvent(tripName, eventName) {
     let getKey = "";
     let tripFilteredCopy;
